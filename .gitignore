@@ -1,0 +1,9 @@
+/VISFrameView_AirtightDevice/资料
+/VISFrameView_AirtightDevice/temp
+*.user
+*.vcxproj
+*.pdb
+/VISFrameView_AirtightDevice/Plugins/PluginAutoPage/resource
+/VISFrameView_AirtightDevice/bin
+*.Debug
+*.Release
