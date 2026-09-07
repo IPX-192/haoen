@@ -1,8 +1,9 @@
-﻿#include <QDir>
-#include "PluginParam.h"
+﻿#include "PluginParam.h"
+#include <QDir>
+#include <QApplication>
 #include "ParamManager.h"
 #include "VisAppBus.h"
-#include <QApplication>
+#include "SwitchUser.h"
 
 PluginParam::PluginParam()
 {
@@ -10,44 +11,65 @@ PluginParam::PluginParam()
 	pluginVersion = "1.0.1";
 	pluginAuther = "wangwei";
     pluginAuthority = OPERATOR;
-	loadOrder = 0;
-	QFont font("SimSun", 15); // 设置全局默认字体为Arial，大小为15
-	font.setBold(false);
-	qApp->setFont(font); // 应用全局字体设置
+    loadOrder = 0;
+    //QFont font("SimSun", 15); // 设置全局默认字体为Arial，大小为15
+    //font.setBold(false);
+    //qApp->setFont(font); // 应用全局字体设置
 }
 
-bool PluginParam::ConnectCore(QObject *core)
+bool PluginParam::ConnectCore(QObject* core)
 {
 	VISFramePluginModel::ConnectCore(core);
-    GlobalParam->frameCore=frameCore;
-    return 0;
-}
-
-int PluginParam::OnCoreInitialized()
-{
-    GlobalParam->systemParam.filepath = frameCore->configDirPath + "System/";
-    GlobalParam->recipeProduct.productPath = frameCore->configDirPath + "Product/";
-    GlobalParam->recipeMotor.filepath = GlobalParam->recipeProduct.productPath + "Motor/";
-    GlobalParam->recipeTray.filepath = GlobalParam->recipeProduct.productPath + "Tray/";
-    GlobalParam->recipeAirtight.filepath = GlobalParam->recipeProduct.productPath + "Aritight/";
-    GlobalParam->recipeElectricSaw.filepath = GlobalParam->recipeProduct.productPath + "RecipeElectricSaw/";
-
-    QDir dir;
-    dir.mkpath(GlobalParam->systemParam.filepath);
-    dir.mkpath(GlobalParam->recipeProduct.productPath);
-    dir.mkpath(GlobalParam->recipeMotor.filepath);
-    dir.mkpath(GlobalParam->recipeTray.filepath);
-    dir.mkpath(GlobalParam->recipeElectricSaw.filepath);
-	dir.mkpath(GlobalParam->recipeAirtight.filepath);
-    return 0;
+	GlobalParam->frameCore = frameCore;
+	return true;
 }
 
 void PluginParam::InitActionList(Plugin_Interface *plugin)
 {
-
+    PluginActionInfo* action1 = new PluginActionInfo();
+    action1->_actionName = "ShowSwitchUser";
+    action1->_actionDetail = tr("切换用户");
+    action1->_pAction = (FPTR_ACTION)(&PluginParam::ShowSwitchUser);
+    plugin->listAction.append(action1);
 }
 
 int PluginParam::OnInitialized()
 {
-	return 0;
+    QSettings settings(frameCore->configDirPath + "system.ini", QSettings::IniFormat);
+    bool flagOffline=settings.value("Device/Offline").toInt();
+    bool ret = settings.value("Device/NG1").toInt();
+    GlobalParam->flagOffline = flagOffline;
+    GlobalParam->holderDebug = settings.value("Device/GripDebug").toInt();
+    GlobalParam->ng_1= settings.value("Device/NG1").toInt();
+    GlobalParam->ng_2= settings.value("Device/NG2").toInt();
+    VisAppBus::sendEvent("LoginUserChange");
+    GlobalParam->hardwareParam.fileName = frameCore->configDirPath + "hardwareParam.ini";
+    GlobalParam->systemParam.fileName = frameCore->configDirPath + "systemParam.ini";
+    GlobalParam->recipeProduct.curProduct = "";
+    GlobalParam->recipeProduct.productPath = frameCore->configDirPath + "/Product/";
+    QDir dir;
+    for(int i=0;i< GlobalParam->recipeProduct.vecRecipeNode.size();i++){
+        if(i==0)continue;
+        IRecipeBase*recipeBase=GlobalParam->recipeProduct.vecRecipeNode[i].second;
+        recipeBase->filepath=GlobalParam->recipeProduct.productPath+recipeBase->objectName()+"/";
+        dir.mkpath(recipeBase->filepath);
+    }
+
+    return 0;
 }
+
+void PluginParam::ShowSwitchUser(bool checkState)
+{
+    static SwitchUser* widgetUser=nullptr;
+    if(widgetUser==nullptr){
+        widgetUser=new SwitchUser();
+        connect(widgetUser,&SwitchUser::sigSwitchUser,[=](QString username, int level){
+                UserInfo& curUserInfo = GlobalParam->frameCore->curUserInfo;
+                curUserInfo.userName=username;
+                curUserInfo.authority = (AuthorityType)level;
+                VisAppBus::sendEvent("LoginUserChange");
+            });
+    }
+    widgetUser->ShowWidget();
+}
+

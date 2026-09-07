@@ -5,6 +5,8 @@
 #include "VisMotorManager.h"
 #include "ParamManager.h"
 
+using namespace VisMotorToolSpace;
+
 SINGLETON_IMPL(WidgetMotorCtrl)
 WidgetMotorCtrl::WidgetMotorCtrl(QWidget *parent) :
     QWidget(parent),
@@ -13,8 +15,7 @@ WidgetMotorCtrl::WidgetMotorCtrl(QWidget *parent) :
     ui->setupUi(this);
     this->setWindowTitle(u8"电机调试");
     setAttribute(Qt::WA_QuitOnClose, false);
-    this->layout()->addWidget(VisMotorToolSpace::VisMotorToolIns->GetWidget(VisMotorToolSpace::VisMotorTool::F_MotorDebugForm));
-
+    VisAppBus::subscibeEvent(this, "CloseMotorDebug");
 }
 
 WidgetMotorCtrl::~WidgetMotorCtrl()
@@ -24,51 +25,55 @@ WidgetMotorCtrl::~WidgetMotorCtrl()
 
 void WidgetMotorCtrl::InitMotor()
 {
-    QString appPath = QCoreApplication::applicationDirPath();
-    VisMotorToolSpace::VisMotorToolIns->SetMotorFile(appPath + "/Config/MotorParam.xml");
-    VisMotorToolSpace::VisMotorToolIns->SetPointFile(appPath + "/Config/pos.xml");
-    VisMotorToolSpace::VisMotorDataInstance->m_flagOffline = false;
-    if (false == VisMotorToolSpace::VisMotorInstance->InitMotor())
-    {
-        ShowSystemLog(Log_Error, QString(u8"初始化电机失败！"));
-        return;
+	QString appPath = QCoreApplication::applicationDirPath();
+	VisMotorToolIns->SetMotorFile(appPath + "/Config/MotorParam.xml");
+	VisMotorToolIns->SetPointFile(appPath + "/Config/pos.xml");
+    VisMotorDataInstance->m_flagOffline = GlobalParam->flagOffline;
+    bool  bRet = VisMotorInstance->InitMotor(Motor_LTDMCBusIp, false);
+    ShowSystemLog(bRet ? Log_Info : Log_Error, QString(u8"控制卡初始化%1！").arg(bRet ? u8"成功" : u8"失败"));
+	if (!VisMotorInstance->ConnectGrip("COM9"))
+		ShowSystemLog(Log_Error, QString(u8"电爪COM9初始化失败"));
+    if (bRet) {
+        VisMotorToolIns->StartIoMonitor();
+        VisMotorToolIns->StartAxisMonitor();
     }
-
-    if (false == VisMotorToolSpace::VisMotorInstance->ConnectMotor())
-    {
-        ShowSystemLog(Log_Error, QString(u8"连接电机失败！"));
-        return;
-    }
-
-    VisMotorToolSpace::VisMotorToolIns->StartAxisMonitor();
-    VisMotorToolSpace::VisMotorToolIns->StartIoMonitor();
-
-    FuncAddr funAddr;
-    funAddr.listHomeAddr.append(QString("M504"));
-    funAddr.listHomeAddr.append(QString("M514"));
-    funAddr.pauseAddr = QString("M501");
-    funAddr.emgStopAddr = QString("M503");
-
-    QString strRegName = "M900";
-    VisMotorToolSpace::VisMotorInstance->WriteML(strRegName, true);
-    VisMotorToolSpace::VisMotorInstance->SetFuncAddr(funAddr);
-
-    m_timer = new QTimer(this);
-    m_timer->start(1000);
-    connect(m_timer,&QTimer::timeout,this,[=](){
-         QString regName = "D9509";
-         VisMotorToolSpace::VisMotorInstance->WriteD(regName, m_heartIndex);
-         if(m_heartIndex == 0)
-            m_heartIndex = 1;
-         else
-            m_heartIndex = 0;
-    });
+	
 }
+
 void WidgetMotorCtrl::showEvent(QShowEvent *event)
 {
-    Q_UNUSED(event)
-    //初始化点位窗口
-    QWidget* widgetPoint = VisMotorToolSpace::VisMotorToolIns->GetWidget(VisMotorToolSpace::VisMotorTool::F_PointDebugForm);
-    widgetPoint->setStyleSheet(QString("font:%1pt;").arg(qApp->font().pointSize()));
-    this->layout()->addWidget(widgetPoint);
+    if (!m_layout)
+    {
+        m_layout = new QVBoxLayout(this);
+        m_widgetMotor = VisMotorToolIns->GetWidget(VisMotorTool::F_MotorDebugForm);
+        m_widgetMotor->setMinimumHeight(550);
+        m_layout->addWidget(m_widgetMotor);
+        m_widgetIoDebug = VisMotorToolIns->GetWidget(VisMotorTool::F_IoDebugForm);
+        m_widgetIoDebug->setMaximumHeight(200);
+        m_layout->addWidget(m_widgetIoDebug);
+        this->setLayout(m_layout);
+    }
+    QWidget::showEvent(event);
+}
+
+void WidgetMotorCtrl::closeEvent(QCloseEvent *event)
+{
+    if (m_layout)
+    {
+        delete m_layout;
+        m_layout = nullptr;
+    }
+
+    VisAppBus::postEvent("MotorUiAdd");
+    QWidget::closeEvent(event);
+}
+
+int WidgetMotorCtrl::event_CloseMotorDebug()
+{
+    // 启动生产模式时,若电机调试窗口打开则关闭
+    if (this->isVisible())
+    {
+        this->close();
+    }
+    return 0;
 }

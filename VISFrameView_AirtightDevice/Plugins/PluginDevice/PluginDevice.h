@@ -2,6 +2,12 @@
 #define PLUGINDEVICE_H
 
 #include "VISFramePluginModel.h"
+#include "ScanCodeClient.h"
+#include "PressureSensorClient.h"
+#include "DisplacementSensorClient.h"
+#include "TrayRfidManager.h"
+#include "ParamDef.h"
+#include <QVariantMap>
 
 class PluginDevice:public VISFramePluginModel
 {
@@ -10,22 +16,60 @@ class PluginDevice:public VISFramePluginModel
     Q_INTERFACES(Plugin_Interface)
 public:
     PluginDevice();
+    ~PluginDevice();
 
 public:
-    //按照顺序依次调用
-    virtual bool ConnectCore(QObject* core);
-    virtual void InitSubscibeEvent(Plugin_Interface* plugin);
     virtual void InitActionList(Plugin_Interface* plugin);
-    virtual void InitWidgetList(Plugin_Interface* plugin);
-
-    //PluginConnected之后，登录界面显示前，此时系统只收集了插件
-    virtual int  OnCoreInitialized();
-    //OnCoreInitialized之后，登录界面显示结束，
     virtual int  OnInitialized();
-    //当QMainWindow主视图构造完成后，显示前
-    virtual int  OnViewCreated();
-    //当QMainWindow主视图Closeing时要执行的过程
-    virtual int  OnViewClosing();
+    virtual int  OnViewClosing();   //主窗口关闭时释放相机资源
+
+protected:
+    void  ReConnetCam(bool checkState);
+
+protected:
+    int  InitDevice();
+    int  InitOtherCam(bool open = true);
+    int  InitPressureSensor();
+    int  InitDisplacementSensor();
+
+public slots:
+    int  event_ScanCodeConnect(QString name);
+    int  event_DisScanCodeConnect(QString name);
+
+    int event_PressureSensorConnect(QString name, QVariant param);
+    int event_PressureSensorDisconnect(QString name);
+    int event_PressureSensorGetRealPressure(QString name, float &pressure);
+    int event_PressureSensorGetPeakPressure(QString name, float &pressure);
+    int event_PressureSensorResetPeak(QString name);
+
+    int event_DisplacementSensorConnect(QString name, QVariant param);
+    int event_DisplacementSensorDisconnect(QString name);
+    int event_DisplacementSensorReadHeight(QString name, QString &sensorId, double &height);
+    int event_DisplacementSensorResetZero(QString name);
+
+    //托盘Modbus RFID
+    int event_ConnectModbus(QString port,int baud);
+    int event_DisconnectedModbus();
+    int event_GetModbusTrayCode(TrayFunc num,QString& barCode,int length);
+    int event_GetModbusRFIDExist(int num,bool &exist);
+    int event_SetModbusModel(TrayFunc num);
+    int event_SetModbusTrayCode(TrayFunc num,QString& barCode);
+    int event_TriggerReadCard(TrayFunc num);
+    int event_ReadRfidTag(TrayFunc num, QString &outBarCode);
+
+
+private:
+
+    PressureSensorSettings VariantMapToPressSetting(const QVariantMap& map);
+    DisplacementPortSettings VariantMapToDispSetting(const QVariantMap& map);
+
+    ScanCodeClient m_scanCodeTray;
+    ScanCodeClient m_scanCodePCB;
+    PressureSensorClient m_pressureClient;
+    DisplacementSensorClient m_displacementClient;
+
+    bool m_connectFlag = false;
+    const QString m_stationName = "TearStation";
 };
 
 #endif // PLUGINDEVICE_H

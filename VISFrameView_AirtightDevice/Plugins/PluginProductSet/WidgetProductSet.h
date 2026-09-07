@@ -2,12 +2,12 @@
 #define WIDGETPRODUCTSET_H
 
 #include <QWidget>
+#include "ParamManager.h"
 
-#include "../../interface/coreinterface.h"
 namespace Ui {
 class WidgetProductSet;
 }
-//生产配方设置界面
+class WidgetRecipeTray;
 class WidgetProductSet :public QWidget
 {
     Q_OBJECT
@@ -17,14 +17,13 @@ public:
     ~WidgetProductSet();
 
 public:
-    void  AddLog(QString msg, LogLevel level);
-    void  Init();
-    void  LoadUIParam();
-    void  UpdateUIParam();
+	void  LoadUIParam();
+	void  UpdateUIParam();
 
 public slots:
-    int   slot_InputInfo(tagOutputInfo& info);
-  
+    void slot_InputInfo(tagOutputInfo& inputInfo);
+    int  event_LoginUserChange();
+
 private slots:
     void on_btnUpdateUI_clicked();
 

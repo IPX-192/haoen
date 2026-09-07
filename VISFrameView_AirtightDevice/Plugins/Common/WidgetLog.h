@@ -15,13 +15,16 @@ class WidgetLog : public QWidget
 public:
     explicit WidgetLog(QWidget *parent = nullptr);
     ~WidgetLog();
-    void InitWidget();
+
 public:
     void addLog(QString msg, LogLevel level);
     void clearLog();
 
 protected:
     int  m_rowTotal = 0;
+ 
+private slots:
+    void on_toolButton_clear_clicked();
 
 private:
     Ui::WidgetLog *ui;

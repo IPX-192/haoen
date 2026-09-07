@@ -2,6 +2,7 @@
 #define WIDGETRECIPEMOTOR_H
 
 #include <QWidget>
+#include <QVBoxLayout>
 
 namespace Ui {
 class WidgetRecipeMotor;
@@ -20,8 +21,9 @@ public slots:
     void  LoadUIParam();
     void  SaveUIParam();
     void  UpdateParamToUI();
-protected:
-    void showEvent(QShowEvent *event);
+    int   LoadRecipeFile();
+    int   event_MotorUiAdd();
+
 private slots:
     void on_btnSave_clicked();
 
@@ -29,6 +31,8 @@ private slots:
 
 private:
     Ui::WidgetRecipeMotor *ui;
+    QVBoxLayout *m_layout = nullptr;
+    QWidget *m_layoutWidget = nullptr;
 };
 
 #endif // WIDGETRECIPEMOTOR_H

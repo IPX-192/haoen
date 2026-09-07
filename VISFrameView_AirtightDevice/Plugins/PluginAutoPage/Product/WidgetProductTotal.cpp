@@ -33,7 +33,6 @@ WidgetProductTotal::WidgetProductTotal(int stationNum, QString filepath,QWidget 
     ui(new Ui::WidgetProductTotal)
 {
     ui->setupUi(this);
-    qRegisterMetaType<ProductTask>("ProductTask");
     InitWidget();
 	LoadUIParam();
 	CalcuTotal();

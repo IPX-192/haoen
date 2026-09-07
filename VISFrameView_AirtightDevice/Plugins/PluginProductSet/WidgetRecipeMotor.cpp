@@ -1,19 +1,26 @@
 ﻿#include "WidgetRecipeMotor.h"
 #include "ui_WidgetRecipeMotor.h"
 #include <QMessageBox>
-#include <QSignalBlocker>
 #include "VisMotorTool.h"
 #include "VisMotorToolData.h"
 #include "VisMotorManager.h"
 #include "ParamManager.h"
-#pragma execution_character_set("utf-8")
+
+using namespace VisMotorToolSpace;
 
 WidgetRecipeMotor::WidgetRecipeMotor(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::WidgetRecipeMotor)
 {
     ui->setupUi(this);
+    VisAppBus::subscibeEvent(this, "MotorUiAdd");
 
+    // 创建垂直布局
+    m_layout = new QVBoxLayout(this);
+    m_layoutWidget = new QWidget(this);
+    event_MotorUiAdd();
+
+    ui->groupBox->layout()->addWidget(m_layoutWidget);
 }
 
 WidgetRecipeMotor::~WidgetRecipeMotor()
@@ -21,32 +28,12 @@ WidgetRecipeMotor::~WidgetRecipeMotor()
     delete ui;
 }
 
-void WidgetRecipeMotor::showEvent(QShowEvent *event)
-{
-    //初始化点位窗口
-    QWidget* widgetPoint = VisMotorToolSpace::VisMotorToolIns->GetWidget(VisMotorToolSpace::VisMotorTool::F_PointDebugForm);
-    widgetPoint->setStyleSheet(QString("font:%1pt;").arg(qApp->font().pointSize()));
-    ui->groupBox->layout()->addWidget(widgetPoint);
-}
-
 void WidgetRecipeMotor::LoadUIParam()
 {
-    QString filename = GlobalParam->recipeMotor.filepath +"/MotorList.xml";
-    GlobalParam->LoadRecipeList(filename, GlobalParam->recipeMotor.listRecipe, ui->comboBox_Recipe);
-
-    ui->comboBox_Recipe->blockSignals(true);
-    int index = GlobalParam->recipeMotor.listRecipe.indexOf(GlobalParam->recipeMotor.curRecipe);
-    ui->comboBox_Recipe->setCurrentIndex(index);
-    ui->comboBox_Recipe->blockSignals(false);
-
-    RecipeMotor& recipeMotor = GlobalParam->recipeMotor;
-    filename = recipeMotor.filepath + recipeMotor.curRecipe + ".xml";
-    bool bRet = VisMotorToolSpace::VisMotorToolIns->SetPointFile(filename);
-    if (false == bRet)
-    {
-        ShowSystemLog(Log_Error, QString(u8"伺服配方文件加载%1失败！").arg(filename));
-    }
-    ShowSystemLog(Log_Info, QString(u8"夹爪配方文件加载成功！"));
+	RecipeMotor& recipeMotor = GlobalParam->recipeMotor;
+	QString filename = recipeMotor.filepath + "MotorList.xml";
+	GlobalParam->LoadRecipeList(filename, recipeMotor.listRecipe, ui->comboBox_Recipe);
+	//LoadRecipeFile();
 }
 
 void WidgetRecipeMotor::SaveUIParam()
@@ -58,6 +45,42 @@ void WidgetRecipeMotor::UpdateParamToUI()
 {
 
 }
+
+int WidgetRecipeMotor::LoadRecipeFile()
+{
+	RecipeMotor& recipeMotor = GlobalParam->recipeMotor;
+	//curRecipe为空或不在列表时,优先当前产品对应的配方
+	QString prefer = GlobalParam->recipeProduct.GetCurProductRecipe("recipeMotor");
+	if (recipeMotor.curRecipe.isEmpty() || !recipeMotor.listRecipe.contains(recipeMotor.curRecipe)) {
+		int idx = recipeMotor.listRecipe.indexOf(prefer);
+		if (idx < 0) idx = 0;
+		if (idx < recipeMotor.listRecipe.size())
+			recipeMotor.curRecipe = recipeMotor.listRecipe.at(idx);
+	}
+	QString filename = recipeMotor.filepath + recipeMotor.curRecipe + ".xml";
+	bool bRet = VisMotorToolIns->SetPointFile(filename);
+	ShowSystemLog(bRet ? Log_Info : Log_Error, QString(u8"伺服配方文件加载%1！").arg(bRet ? u8"成功" : u8"失败"));
+	ui->comboBox_Recipe->blockSignals(true);
+	int index = recipeMotor.listRecipe.indexOf(recipeMotor.curRecipe);
+	if (index < 0) index = recipeMotor.listRecipe.indexOf(prefer);   //当前产品对应配方
+	if (index < 0) index = 0;
+	ui->comboBox_Recipe->setCurrentIndex(index);
+	ui->comboBox_Recipe->blockSignals(false);
+
+    return 0;
+}
+
+int WidgetRecipeMotor::event_MotorUiAdd()
+{
+    VisMotorToolIns->GetWidget(VisMotorTool::F_MotorDebugForm)->setMinimumHeight(0);
+    m_layout->addWidget(VisMotorToolIns->GetWidget(VisMotorTool::F_MotorDebugForm));
+    m_layout->addWidget(VisMotorToolIns->GetWidget(VisMotorTool::F_PointDebugForm));
+    m_layout->setStretch(0, 2);
+    m_layout->setStretch(1, 1);
+    m_layoutWidget->setLayout(m_layout);
+    return 0;
+}
+
 void WidgetRecipeMotor::on_btnSave_clicked()
 {
 	QString recipeName = ui->lineEdit->text();
@@ -80,23 +103,6 @@ void WidgetRecipeMotor::on_btnSave_clicked()
 		curFileName = recipeMotor.filepath + recipeMotor.curRecipe + ".xml";
 	else
 		curFileName = GlobalParam->recipeProduct.productPath + "defaultMotor.xml";
-
-	//判断当前文件是否存在
-	QString appPath = QCoreApplication::applicationDirPath();
-	QString sDefalutPosFilePath = appPath + "/Config/pos.xml";
-
-	QFile file(curFileName);
-	if (!file.exists()) {
-		ShowSystemLog(Log_Error, QString(u8"当前配方文件不存在,自动拷贝默认文件！"));
-
-		if (!QFile::exists(sDefalutPosFilePath)) {
-			QMessageBox::information(this, u8"提示信息", u8"缺少默认位置配置文件pos.xml");
-			return;
-		}
-		QFile::copy(sDefalutPosFilePath,curFileName); //自动生成一次当前文件
-		curFileName = sDefalutPosFilePath;
-	}
-
 	QString newFileName = recipeMotor.filepath + recipeName + ".xml";
 	QFile::copy(curFileName, newFileName);
 
@@ -107,10 +113,6 @@ void WidgetRecipeMotor::on_btnSave_clicked()
 void WidgetRecipeMotor::on_comboBox_Recipe_currentIndexChanged(const QString &arg1)
 {
 	QString filename = GlobalParam->recipeMotor.filepath + arg1 + ".xml";
-    bool bRet = VisMotorToolSpace::VisMotorToolIns->SetPointFile(filename);
-	if (false == bRet)
-	{
-		ShowSystemLog(Log_Error, QString(u8"伺服配方文件加载%1失败！").arg(filename));
-	}
-	return;
+	bool bRet = VisMotorToolIns->SetPointFile(filename);
+	ShowSystemLog(bRet ? Log_Info : Log_Error, QString(u8"伺服配方文件加载%1！").arg(bRet ? u8"成功" : u8"失败"));
 }

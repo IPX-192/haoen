@@ -24,6 +24,10 @@ public slots:
 	void  LoadUIParam();
 	void  SaveUIParam();
     void  UpdateParamToUI();
+
+public slots:
+    void  slotAddPlatfrom();
+
 protected:
    QStandardItemModel*  m_pModel;
 

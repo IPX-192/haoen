@@ -1,18 +1,15 @@
-QT += widgets
-QT += network
-QT += serialport
-QT += serialbus
+QT += widgets network serialport serialbus xml
+
 TEMPLATE = lib
 DEFINES += PLUGINDEVICE_LIBRARY
 
 DESTDIR = $$PWD/../../bin/Plugin
-MOC_DIR     = $$PWD/../../temp/PluginDevice/moc
-RCC_DIR     = $$PWD/../../temp/PluginDevice/rcc
-UI_DIR      = $$PWD/../../temp/PluginDevice/ui
-OBJECTS_DIR = $$PWD/../../temp/PluginDevice/obj
+MOC_DIR     = $$PWD/temp/moc
+RCC_DIR     = $$PWD/temp/rcc
+UI_DIR      = $$PWD/temp/ui
+OBJECTS_DIR = $$PWD/temp/obj
 
 CONFIG += c++11
-
 CONFIG += force_debug_info    # 带调试信息
 QMAKE_CXXFLAGS_RELEASE_WITH_DEBUGINFO += -Od   #禁用优化
 
@@ -28,23 +25,28 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    AirtightTest/CModbusClient.cpp \
-    DeviceManage.cpp \
+    CModbusRFIDClient.cpp \
+    DisplacementSensorClient.cpp \
+    LightSourceClient.cpp \
+    LightSourceManager.cpp \
     PluginDevice.cpp \
-    ScanCode/ScanCodeClient.cpp
+    PressureSensorClient.cpp \
+    ScanCodeClient.cpp \
+    TrayRfidManager.cpp \
+
 
 HEADERS += \
     ../../interface/coreinterface.h \
     ../../interface/plugininterface.h \
-    ../../interface/singleton.h \
-    AirtightTest/CModbusClient.h \
-    DeviceManage.h \
-    LogDefine.h \
+    CModbusRFIDClient.h \
+    DisplacementSensorClient.h \
+    LightSourceClient.h \
+    LightSourceManager.h \
     PluginDevice.h \
-    ScanCode/ScanCodeClient.h
+    PressureSensorClient.h \
+    ScanCodeClient.h \
+    TrayRfidManager.h \
 
-INCLUDEPATH += \
-    ../../interface
 
 # Default rules for deployment.
 unix {
@@ -52,16 +54,23 @@ unix {
 }
 !isEmpty(target.path): INSTALLS += target
 
-#事件循环库
+FORMS += \
+
+win32: LIBS += -L$$PWD/../../bin/ -lVISFramePluginModel
+
+INCLUDEPATH += $$PWD/../../VISFramePluginModel
+DEPENDPATH += $$PWD/../../VISFramePluginModel
+
+win32: LIBS += -L$$PWD/../../bin/Plugin -lPluginParam
+
+INCLUDEPATH += $$PWD/../PluginParam
+DEPENDPATH += $$PWD/../PluginParam
+
 win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppTool
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppToold
 
 INCLUDEPATH += $$(PATH_VIS)/VisAppTool
 DEPENDPATH += $$(PATH_VIS)/VisAppTool
-
-#Opencv动态库
-win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411d
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../3rd/VisCameraTool/ -lVisCameraTool
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../3rd/VisCameraTool/ -lVisCameraToold
@@ -69,12 +78,16 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../3rd/VisCameraTool
 INCLUDEPATH += $$PWD/../../3rd/VisCameraTool
 DEPENDPATH += $$PWD/../../3rd/VisCameraTool
 
-INCLUDEPATH += $$(PATH_VIS)/opencv/include
-DEPENDPATH += $$(PATH_VIS)/opencv/
-win32: LIBS += -L$$PWD/../../bin/ -lVISFramePluginModel
-INCLUDEPATH += $$PWD/../../VISFramePluginModel
-DEPENDPATH += $$PWD/../../VISFramePluginModel
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../3rd/VisMotorTool/ -lVisMotorTool
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../3rd/VisMotorTool/ -lVisMotorToold
 
-win32: LIBS += -L$$PWD/../../bin/Plugin -lPluginParam
-INCLUDEPATH += $$PWD/../PluginParam
-DEPENDPATH += $$PWD/../PluginParam
+INCLUDEPATH += $$PWD/../../3rd/VisMotorTool
+DEPENDPATH += $$PWD/../../3rd/VisMotorTool
+
+win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411d
+
+INCLUDEPATH += $$(PATH_VIS)/opencv/include
+DEPENDPATH += $$(PATH_VIS)/opencv/include
+
+

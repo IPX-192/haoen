@@ -3,17 +3,13 @@
 
 #include <QWidget>
 #include "../../interface/coreinterface.h"
-#include <QTimer>
-#include <QSharedPointer>
-#include "ParamDef.h"
 
 namespace Ui {
 class WidgetAutoPage;
 }
 
 class QAbstractButton;
-class ProcessLogForm;
-class SwitchButton;
+class WidgetLogAll;
 class WidgetAutoPage :public QWidget
 {
     Q_OBJECT
@@ -21,22 +17,15 @@ class WidgetAutoPage :public QWidget
 public:
     explicit WidgetAutoPage(QWidget *parent = nullptr);
     ~WidgetAutoPage();
-    void InitWidget();
-  
-public:
-    void  InitLog();
 
-public slots:
-    int  event_ProductTotal(AritightTask item);
+public:
+    void  InitLog(QList<PluginLogInfo>& listPluginLog);
+   
 protected:
-    virtual void showEvent(QShowEvent* event);
-    virtual void hideEvent(QHideEvent* event);
+    WidgetLogAll* m_widgetLogAll;
 
 private:
     Ui::WidgetAutoPage *ui;
-    ProcessLogForm *pProcessLogForm = nullptr;
-    SwitchButton *mpSwitchButtonAutoModel = nullptr;
-
 };
 
 #endif // WIDGETAUTOPAGE_H

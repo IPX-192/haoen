@@ -1,5 +1,6 @@
 ﻿#include "WidgetRecipePlatform.h"
 #include "ui_WidgetRecipePlatform.h"
+#include <QMessageBox>
 #include "ItemDelegate.h"
 #include "ParamManager.h"
 #include "VisAppBus.h"
@@ -20,15 +21,21 @@ WidgetRecipePlatform::~WidgetRecipePlatform()
 
 void WidgetRecipePlatform::InitTable()
 {
-    ui->tableView->verticalHeader()->setVisible(true);
+    //ui->tableView->setProperty("video",true);
+    ui->tableView->verticalHeader()->setVisible(false);
+    ui->tableView->horizontalHeader()->setVisible(false);
+
     ui->tableView->horizontalHeader()->setVisible(true);
+    ui->tableView->verticalHeader()->setDefaultSectionSize(35);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);	//设置选择一行
     //tableView->horizontalHeader()->setStretchLastSection(true);		//设置最后一列自适应
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  //自适应列宽
-    ui->tableView->verticalHeader()->setDefaultSectionSize(35);			//设置默认行高
+    ui->tableView->verticalHeader()->setDefaultSectionSize(25);			//设置默认行高
 
     QStringList headerList;
-    headerList<< u8"产品名称"<< u8"伺服配方"<<u8"托盘配方"<<u8"电爪配方"<<u8"气密配方";
+    for(int i=0;i<GlobalParam->recipeProduct.vecRecipeNode.size();i++){
+         headerList<<GlobalParam->recipeProduct.vecRecipeNode.at(i).first;
+    }
     m_pModel = new QStandardItemModel(this);
     m_pModel->setHorizontalHeaderLabels(headerList);
     ui->tableView->setModel(m_pModel);
@@ -39,70 +46,69 @@ void WidgetRecipePlatform::InitTable()
 void WidgetRecipePlatform::LoadUIParam()
 {
     bool bRet = GlobalParam->LoadRecipeProduct();
-	if (false == bRet)
-	{
-		ShowSystemLog(Log_Error, QString(u8"产品配方文件加载失败！"));
-	}
+	ShowSystemLog(bRet ? Log_Info : Log_Error, QString(u8"产品配方文件加载%1！").arg(bRet ? u8"成功" : u8"失败"));
 	UpdateParamToUI();
 }
 
 void WidgetRecipePlatform::SaveUIParam()
 {
-	GlobalParam->recipeProduct.listRecipe.clear();
+    QVector<QVector<QPair<QString,QString>>> listRecipe;
     for (int i = 0; i < m_pModel->rowCount(); i++) {
-        ProductMatrix matrix;
-		matrix.productName = m_pModel->data(m_pModel->index(i, 0)).toString();
-        matrix.recipeMotor = m_pModel->data(m_pModel->index(i, 1)).toString();
-        matrix.recipeTray = m_pModel->data(m_pModel->index(i, 2)).toString();
-        matrix.recipeElectricSaw = m_pModel->data(m_pModel->index(i, 3)).toString();
-        matrix.recipeAirtight = m_pModel->data(m_pModel->index(i, 4)).toString();
-        GlobalParam->recipeProduct.listRecipe.push_back(matrix);
+        QVector<QPair<QString,QString>>vecRecipe;
+        for(int j=0;j<m_pModel->columnCount();j++){
+            QString key=m_pModel->headerData(j,Qt::Horizontal).toString();
+            QString value=m_pModel->data(m_pModel->index(i, j)).toString();
+            vecRecipe.push_back(QPair<QString,QString>(key,value));
+        }
+        listRecipe.push_back(vecRecipe);
     }
+    GlobalParam->recipeProduct.vecRecipeDetail = listRecipe;
 	bool bRet = GlobalParam->SaveRecipeProduct();
-    tagOutputInfo outInfo;
-    outInfo._type = INFT_ProductChange;
-    emit GlobalParam->frameCore->sig_OutputInfo(outInfo);
 	ShowSystemLog(bRet ? Log_Info : Log_Error, QString(u8"产品配方文件保存%1！").arg(bRet ? u8"成功" : u8"失败"));
+	QMessageBox::information(this, u8"提示信息", u8"保存参数成功");
+	tagOutputInfo outInfo;
+	outInfo._type = INFT_ProductChange;
+	emit GlobalParam->frameCore->sig_OutputInfo(outInfo);
 }
 
 void WidgetRecipePlatform::UpdateParamToUI()
 {
-	QVector<MatrixSetting>& listPlatformMatrix = GlobalParam->recipeProduct.listPlatformMatrix;
-	QVector<ProductMatrix>& listOldRecipe = GlobalParam->recipeProduct.listRecipe;
-	m_pModel->setRowCount(listPlatformMatrix.size());
+    QVector<MatrixSetting>& listPlatformMatrix = GlobalParam->recipeProduct.listPlatformMatrix;
+    QVector<QVector<QPair<QString,QString>>>& listOldRecipe = GlobalParam->recipeProduct.vecRecipeDetail;
 
-	QVector<ProductMatrix> listNewRecipe;
-	for (int i = 0; i < listPlatformMatrix.size(); i++) {
-		ProductMatrix productMatrix;
-		productMatrix.productName = listPlatformMatrix[i].productName;
-		for (int j = 0; j < listOldRecipe.size(); j++) {
-			if (listOldRecipe[j].productName == productMatrix.productName) {
-				productMatrix = listOldRecipe[j];
-			}
-		}
-		listNewRecipe.push_back(productMatrix);
-	}
-
-	GlobalParam->recipeProduct.listRecipe = listNewRecipe;
-	for (int i = 0; i < listNewRecipe.size(); i++) {
-		ProductMatrix& productMatrix = listNewRecipe[i];
-		m_pModel->setData(m_pModel->index(i, 0), Qt::AlignCenter, Qt::TextAlignmentRole);
-		m_pModel->setData(m_pModel->index(i, 0), productMatrix.productName);
-
-        m_pModel->setData(m_pModel->index(i, 1), Qt::AlignCenter, Qt::TextAlignmentRole);
-        m_pModel->setData(m_pModel->index(i, 1), productMatrix.recipeMotor);
-        m_pModel->setData(m_pModel->index(i, 1), ComboBoxDelegate, ItemType);
-
-        m_pModel->setData(m_pModel->index(i, 2), Qt::AlignCenter, Qt::TextAlignmentRole);
-        m_pModel->setData(m_pModel->index(i, 2), productMatrix.recipeTray);
-        m_pModel->setData(m_pModel->index(i, 2), ComboBoxDelegate, ItemType);
-
-        m_pModel->setData(m_pModel->index(i, 3), Qt::AlignCenter, Qt::TextAlignmentRole);
-        m_pModel->setData(m_pModel->index(i, 3), productMatrix.recipeElectricSaw);
-        m_pModel->setData(m_pModel->index(i, 3), ComboBoxDelegate, ItemType);
-
-        m_pModel->setData(m_pModel->index(i, 4), Qt::AlignCenter, Qt::TextAlignmentRole);
-        m_pModel->setData(m_pModel->index(i, 4), productMatrix.recipeAirtight);
-        m_pModel->setData(m_pModel->index(i, 4), ComboBoxDelegate, ItemType);
+    QVector<QVector<QPair<QString,QString>>> listNewRecipe;
+    QStringList listProductName;
+    for (int i = 0; i < listPlatformMatrix.size(); i++) {
+        if(listProductName.contains(listPlatformMatrix[i].productName))continue;
+		listProductName << listPlatformMatrix[i].productName;
+        QVector<QPair<QString,QString>>vecRecipe;
+        vecRecipe.push_back(QPair<QString, QString>(u8"型号名称", listPlatformMatrix[i].productName));
+        //只按第0列(型号名称)匹配旧配方行,防止其他列出现同名配方值(如recipeDirty="AM57")导致行错配
+        for (int j = 0; j < listOldRecipe.size(); j++) {
+            if (listOldRecipe[j].size() && listOldRecipe[j][0].second == listPlatformMatrix[i].productName) {
+                vecRecipe = listOldRecipe[j];
+                break;
+            }
+        }
+        listNewRecipe.push_back(vecRecipe);
     }
+	m_pModel->setRowCount(listNewRecipe.size());
+	for (int i = 0; i < listNewRecipe.size(); i++) {
+        for(int  j=0;j<listNewRecipe[i].size();j++){
+            m_pModel->setData(m_pModel->index(i, j), Qt::AlignCenter, Qt::TextAlignmentRole);
+            m_pModel->setData(m_pModel->index(i, j), listNewRecipe[i][j].second);
+            if(j==0)continue;
+            m_pModel->setData(m_pModel->index(i, j), ComboBoxDelegate, ItemType);
+        }
+	}
+    GlobalParam->recipeProduct.vecRecipeDetail = listNewRecipe;
 }
+
+void WidgetRecipePlatform::slotAddPlatfrom()
+{
+	UpdateParamToUI();
+	bool bRet = GlobalParam->SaveRecipeProduct();
+	ShowSystemLog(bRet ? Log_Info : Log_Error, QString(u8"产品配方文件保存%1！").arg(bRet ? u8"成功" : u8"失败"));
+}
+
+

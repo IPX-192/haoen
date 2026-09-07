@@ -234,13 +234,12 @@ Makefile: PluginManualDebug.pro D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\qt_config.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-msvc\qmake.conf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\spec_post.prf \
-		.qmake.stash \
+		..\..\.qmake.stash \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exclusive_builds.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\common\msvc-version.conf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\toolchain.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\default_pre.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\win32\default_pre.prf \
-		..\Common\Custom\Custom.pri \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\resolve_config.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exclusive_builds_post.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\default_post.prf \
@@ -262,9 +261,7 @@ Makefile: PluginManualDebug.pro D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-
 		PluginManualDebug.pro \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Widgets.prl \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Gui.prl \
-		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Network.prl \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5SerialPort.prl \
-		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Xml.prl \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Core.prl
 	$(QMAKE) -o Makefile PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\spec_pre.prf:
@@ -424,13 +421,12 @@ D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\qt_functions.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\qt_config.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-msvc\qmake.conf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\spec_post.prf:
-.qmake.stash:
+..\..\.qmake.stash:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exclusive_builds.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\common\msvc-version.conf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\toolchain.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\default_pre.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\win32\default_pre.prf:
-..\Common\Custom\Custom.pri:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\resolve_config.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exclusive_builds_post.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\default_post.prf:
@@ -452,9 +448,7 @@ D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\lex.prf:
 PluginManualDebug.pro:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Widgets.prl:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Gui.prl:
-D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Network.prl:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5SerialPort.prl:
-D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Xml.prl:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
@@ -465,10 +459,10 @@ make_first: release-make_first debug-make_first  FORCE
 all: release-all debug-all  FORCE
 clean: release-clean debug-clean  FORCE
 	-$(DEL_FILE) ..\..\bin\Plugin\PluginManualDebug.exp
-	-$(DEL_FILE) ..\..\temp\PluginManualDebug\obj\PluginManualDebug.vc.pdb
+	-$(DEL_FILE) temp\obj\PluginManualDebug.vc.pdb
 distclean: release-distclean debug-distclean  FORCE
 	-$(DEL_FILE) Makefile
-	-$(DEL_FILE) .qmake.stash ..\..\bin\Plugin\PluginManualDebug.lib ..\..\bin\Plugin\PluginManualDebug.pdb
+	-$(DEL_FILE) ..\..\bin\Plugin\PluginManualDebug.lib ..\..\bin\Plugin\PluginManualDebug.pdb
 
 release-mocclean:
 	@set MAKEFLAGS=$(MAKEFLAGS)

@@ -18,25 +18,22 @@
 
 // Callback function implementation
 static bool buttonClickHandler(ShieldData *data, int row, int col) {
-    // Example implementation - you can customize this logic
-    //qDebug() << "Button clicked:" << data->name << "at row:" << row << "col:" << col;
-    
-    // You can implement your custom logic here based on the button click
-    // For example, changing control point values or other operations
-    //if (col == ShieldTableModel::ShieldCol) {
-    //    // Logic when shield button is clicked
-    //    data->point.status = true; // Example: set control point to true when shield is clicked
-    //} else if (col == ShieldTableModel::UnshieldCol) {
-    //    // Logic when unshield button is clicked
-    //    data->point.status = false; // Example: set control point to false when unshield is clicked
-    //}
-    
+
     return true; // Return success
 }
 
-WidgetShield::WidgetShield(QWidget *parent)
+WidgetShield::WidgetShield(QWidget *parent, const QString& iniFilePath)
     : QWidget(parent), m_model(nullptr)
 {
+    // Store the INI file path - if not provided, use default
+    if (!iniFilePath.isEmpty()) {
+        m_iniFilePath = iniFilePath;
+    } else {
+        // Use executable directory /config/btnCtrl.ini as default
+        QString exeDir = QCoreApplication::applicationDirPath();
+        m_iniFilePath = QDir(exeDir).absoluteFilePath("Config/Shield.ini");
+    }
+    
     InitializeUI();
     InitializeData(); // Initialize data from image
 }
@@ -55,7 +52,7 @@ void WidgetShield::InitializeUI()
     // Create the table view
     m_tableView = new QTableView(this);
     QFont font = m_tableView->font();
-    font.setPointSize(20);
+    font.setPointSize(14);
     m_tableView->setFont(font);
     // Create and set the model
     m_model = new ShieldTableModel(this);
@@ -80,7 +77,7 @@ void WidgetShield::InitializeUI()
 
     // Set fixed row height
     m_tableView->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-    m_tableView->verticalHeader()->setDefaultSectionSize(80); // Set row height to 40 pixels
+    m_tableView->verticalHeader()->setDefaultSectionSize(60); // Set row height to 40 pixels
 
     // Configure headers
     m_tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
@@ -92,21 +89,23 @@ void WidgetShield::InitializeUI()
 
 void WidgetShield::InitializeData()
 {
-    ShieldParam& paramShield=GlobalParam->systemParam.paramShield;
+    ShieldParam& paramShield=GlobalParam->systemParam.shieldParam;
     QVector<ShieldInfoPtr> initialData = {
-       {u8"安全门", &paramShield.safeDoor, "M901"},
-       {u8"托盘过站", &paramShield.passTray, "M906"},
-	   {u8"站1", &paramShield.station1, "M910"},
-	   {u8"站2", &paramShield.station2, "M911"},
-       {u8"托盘检测", &paramShield.materialDetect, "M903"},
-       {u8"治具上料检测", &paramShield.materialDetect, "M904"},
-       {u8"下料检测", &paramShield.materialDetect, "M905"}
+       {u8"安全门", &paramShield.safeDoor, ""},
+       //{u8"气压报警", &paramShield.airWaring, ""},
+       {u8"治具1", &paramShield.turntable[0], ""},
+       {u8"治具2", &paramShield.turntable[1], ""},
+       {u8"治具3", &paramShield.turntable[2], ""},
+       {u8"治具4", &paramShield.turntable[3], ""},
+       {u8"流线清洗", &paramShield.pipeLineClean, ""},
+       {u8"转盘清洗", &paramShield.turntableClean, ""},
+       {u8"脏污截图", &paramShield.dirtyCapture, ""},
     };
 
     for (auto it = initialData.begin(); it != initialData.end(); ++it) {
         const auto& item = *it;
         m_shieldDataMap[item.name] = QPair<bool*, QString>(item.checked, item.pointAddress);
-        InsertRow(item.name, *item.checked, item.pointAddress);
+        InsertRow(item.name, !(*item.checked), item.pointAddress);
     }
 }
 
@@ -114,7 +113,7 @@ void WidgetShield::LoadUIParam()
 {
     if (!m_model) return;
     
-    QSettings settings(GlobalParam->systemParam.filepath+"shield.ini", QSettings::IniFormat);
+    QSettings settings(m_iniFilePath, QSettings::IniFormat);
     settings.setIniCodec("UTF-8");
     ShieldTableModel* model = qobject_cast<ShieldTableModel*>(m_model);
     if (!model) return;
@@ -124,8 +123,10 @@ void WidgetShield::LoadUIParam()
         settings.setArrayIndex(i);
         QString value = settings.value(QString("shield%1").arg(i + 1)).toString();
         QStringList listValue = value.split(",");
+        if(listValue.size()<2)continue;
         QString name = listValue.at(0);
         bool status = listValue.at(1).toInt();
+        if(!m_shieldDataMap.contains(name))continue;
         *m_shieldDataMap[name].first = status;
         // Set the appropriate state based on saved status value
         QModelIndex modelIndex = model->index(i, status ? ShieldTableModel::ShieldCol : ShieldTableModel::UnshieldCol);
@@ -138,7 +139,7 @@ void WidgetShield::SaveUIParam()
 {
     if (!m_model) return;
     
-    QSettings settings(GlobalParam->systemParam.filepath+"shield.ini", QSettings::IniFormat);
+    QSettings settings(m_iniFilePath, QSettings::IniFormat);
     settings.setIniCodec("UTF-8");
     ShieldTableModel* model = qobject_cast<ShieldTableModel*>(m_model);
     if (!model) return;

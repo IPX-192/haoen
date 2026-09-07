@@ -39,403 +39,403 @@ SUBTARGETS    =  \
 
 sub-Plugins-PluginParam-qmake_all:  FORCE
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
-	cd Plugins\PluginParam\ && $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
+	cd Plugins\PluginParam\ && $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
 	@set MAKEFLAGS=$(MAKEFLAGS)
 	cd Plugins\PluginParam\ && $(MAKE) -f Makefile qmake_all
 sub-Plugins-PluginParam: $(MAKEFILE) FORCE
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile
 sub-Plugins-PluginParam-make_first-ordered: FORCE
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
 sub-Plugins-PluginParam-make_first: FORCE
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
 sub-Plugins-PluginParam-all-ordered: FORCE
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
 sub-Plugins-PluginParam-all: FORCE
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
 sub-Plugins-PluginParam-clean-ordered: FORCE
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
 sub-Plugins-PluginParam-clean: FORCE
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
 sub-Plugins-PluginParam-distclean-ordered: FORCE
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
 sub-Plugins-PluginParam-distclean: FORCE
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
 sub-Plugins-PluginParam-install_subtargets-ordered: FORCE
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
 sub-Plugins-PluginParam-install_subtargets: FORCE
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
 sub-Plugins-PluginParam-uninstall_subtargets-ordered: FORCE
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
 sub-Plugins-PluginParam-uninstall_subtargets: FORCE
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
 sub-Plugins-PluginDevice-qmake_all: sub-Plugins-PluginParam-qmake_all FORCE
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
-	cd Plugins\PluginDevice\ && $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
+	cd Plugins\PluginDevice\ && $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
 	@set MAKEFLAGS=$(MAKEFLAGS)
 	cd Plugins\PluginDevice\ && $(MAKE) -f Makefile qmake_all
 sub-Plugins-PluginDevice: $(MAKEFILE) FORCE
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile
 sub-Plugins-PluginDevice-make_first-ordered: sub-Plugins-PluginParam-make_first-ordered  FORCE
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
 sub-Plugins-PluginDevice-make_first: FORCE
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
 sub-Plugins-PluginDevice-all-ordered: sub-Plugins-PluginParam-all-ordered  FORCE
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
 sub-Plugins-PluginDevice-all: FORCE
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
 sub-Plugins-PluginDevice-clean-ordered: sub-Plugins-PluginParam-clean-ordered  FORCE
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
 sub-Plugins-PluginDevice-clean: FORCE
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
 sub-Plugins-PluginDevice-distclean-ordered: sub-Plugins-PluginParam-distclean-ordered  FORCE
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
 sub-Plugins-PluginDevice-distclean: FORCE
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
 sub-Plugins-PluginDevice-install_subtargets-ordered: sub-Plugins-PluginParam-install_subtargets-ordered  FORCE
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
 sub-Plugins-PluginDevice-install_subtargets: FORCE
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
 sub-Plugins-PluginDevice-uninstall_subtargets-ordered: sub-Plugins-PluginParam-uninstall_subtargets-ordered  FORCE
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
 sub-Plugins-PluginDevice-uninstall_subtargets: FORCE
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
 sub-Plugins-PluginAutoPage-qmake_all: sub-Plugins-PluginDevice-qmake_all FORCE
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
-	cd Plugins\PluginAutoPage\ && $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
+	cd Plugins\PluginAutoPage\ && $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
 	@set MAKEFLAGS=$(MAKEFLAGS)
 	cd Plugins\PluginAutoPage\ && $(MAKE) -f Makefile qmake_all
 sub-Plugins-PluginAutoPage: $(MAKEFILE) FORCE
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile
 sub-Plugins-PluginAutoPage-make_first-ordered: sub-Plugins-PluginDevice-make_first-ordered  FORCE
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
 sub-Plugins-PluginAutoPage-make_first: FORCE
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
 sub-Plugins-PluginAutoPage-all-ordered: sub-Plugins-PluginDevice-all-ordered  FORCE
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
 sub-Plugins-PluginAutoPage-all: FORCE
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
 sub-Plugins-PluginAutoPage-clean-ordered: sub-Plugins-PluginDevice-clean-ordered  FORCE
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
 sub-Plugins-PluginAutoPage-clean: FORCE
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
 sub-Plugins-PluginAutoPage-distclean-ordered: sub-Plugins-PluginDevice-distclean-ordered  FORCE
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
 sub-Plugins-PluginAutoPage-distclean: FORCE
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
 sub-Plugins-PluginAutoPage-install_subtargets-ordered: sub-Plugins-PluginDevice-install_subtargets-ordered  FORCE
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
 sub-Plugins-PluginAutoPage-install_subtargets: FORCE
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
 sub-Plugins-PluginAutoPage-uninstall_subtargets-ordered: sub-Plugins-PluginDevice-uninstall_subtargets-ordered  FORCE
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
 sub-Plugins-PluginAutoPage-uninstall_subtargets: FORCE
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
 sub-Plugins-PluginManualDebug-qmake_all: sub-Plugins-PluginAutoPage-qmake_all FORCE
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
-	cd Plugins\PluginManualDebug\ && $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
+	cd Plugins\PluginManualDebug\ && $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
 	@set MAKEFLAGS=$(MAKEFLAGS)
 	cd Plugins\PluginManualDebug\ && $(MAKE) -f Makefile qmake_all
 sub-Plugins-PluginManualDebug: $(MAKEFILE) FORCE
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile
 sub-Plugins-PluginManualDebug-make_first-ordered: sub-Plugins-PluginAutoPage-make_first-ordered  FORCE
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
 sub-Plugins-PluginManualDebug-make_first: FORCE
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
 sub-Plugins-PluginManualDebug-all-ordered: sub-Plugins-PluginAutoPage-all-ordered  FORCE
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
 sub-Plugins-PluginManualDebug-all: FORCE
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
 sub-Plugins-PluginManualDebug-clean-ordered: sub-Plugins-PluginAutoPage-clean-ordered  FORCE
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
 sub-Plugins-PluginManualDebug-clean: FORCE
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
 sub-Plugins-PluginManualDebug-distclean-ordered: sub-Plugins-PluginAutoPage-distclean-ordered  FORCE
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
 sub-Plugins-PluginManualDebug-distclean: FORCE
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
 sub-Plugins-PluginManualDebug-install_subtargets-ordered: sub-Plugins-PluginAutoPage-install_subtargets-ordered  FORCE
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
 sub-Plugins-PluginManualDebug-install_subtargets: FORCE
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
 sub-Plugins-PluginManualDebug-uninstall_subtargets-ordered: sub-Plugins-PluginAutoPage-uninstall_subtargets-ordered  FORCE
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
 sub-Plugins-PluginManualDebug-uninstall_subtargets: FORCE
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
 sub-Plugins-PluginProductSet-qmake_all: sub-Plugins-PluginManualDebug-qmake_all FORCE
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
-	cd Plugins\PluginProductSet\ && $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
+	cd Plugins\PluginProductSet\ && $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
 	@set MAKEFLAGS=$(MAKEFLAGS)
 	cd Plugins\PluginProductSet\ && $(MAKE) -f Makefile qmake_all
 sub-Plugins-PluginProductSet: $(MAKEFILE) FORCE
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile
 sub-Plugins-PluginProductSet-make_first-ordered: sub-Plugins-PluginManualDebug-make_first-ordered  FORCE
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
 sub-Plugins-PluginProductSet-make_first: FORCE
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
 sub-Plugins-PluginProductSet-all-ordered: sub-Plugins-PluginManualDebug-all-ordered  FORCE
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
 sub-Plugins-PluginProductSet-all: FORCE
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
 sub-Plugins-PluginProductSet-clean-ordered: sub-Plugins-PluginManualDebug-clean-ordered  FORCE
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
 sub-Plugins-PluginProductSet-clean: FORCE
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
 sub-Plugins-PluginProductSet-distclean-ordered: sub-Plugins-PluginManualDebug-distclean-ordered  FORCE
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
 sub-Plugins-PluginProductSet-distclean: FORCE
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
 sub-Plugins-PluginProductSet-install_subtargets-ordered: sub-Plugins-PluginManualDebug-install_subtargets-ordered  FORCE
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
 sub-Plugins-PluginProductSet-install_subtargets: FORCE
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
 sub-Plugins-PluginProductSet-uninstall_subtargets-ordered: sub-Plugins-PluginManualDebug-uninstall_subtargets-ordered  FORCE
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
 sub-Plugins-PluginProductSet-uninstall_subtargets: FORCE
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
 sub-Plugins-PluginSystemSet-qmake_all: sub-Plugins-PluginProductSet-qmake_all FORCE
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
-	cd Plugins\PluginSystemSet\ && $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
+	cd Plugins\PluginSystemSet\ && $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
 	@set MAKEFLAGS=$(MAKEFLAGS)
 	cd Plugins\PluginSystemSet\ && $(MAKE) -f Makefile qmake_all
 sub-Plugins-PluginSystemSet: $(MAKEFILE) FORCE
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile
 sub-Plugins-PluginSystemSet-make_first-ordered: sub-Plugins-PluginProductSet-make_first-ordered  FORCE
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
 sub-Plugins-PluginSystemSet-make_first: FORCE
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
 sub-Plugins-PluginSystemSet-all-ordered: sub-Plugins-PluginProductSet-all-ordered  FORCE
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
 sub-Plugins-PluginSystemSet-all: FORCE
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
 sub-Plugins-PluginSystemSet-clean-ordered: sub-Plugins-PluginProductSet-clean-ordered  FORCE
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
 sub-Plugins-PluginSystemSet-clean: FORCE
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
 sub-Plugins-PluginSystemSet-distclean-ordered: sub-Plugins-PluginProductSet-distclean-ordered  FORCE
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
 sub-Plugins-PluginSystemSet-distclean: FORCE
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
 sub-Plugins-PluginSystemSet-install_subtargets-ordered: sub-Plugins-PluginProductSet-install_subtargets-ordered  FORCE
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
 sub-Plugins-PluginSystemSet-install_subtargets: FORCE
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
 sub-Plugins-PluginSystemSet-uninstall_subtargets-ordered: sub-Plugins-PluginProductSet-uninstall_subtargets-ordered  FORCE
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
 sub-Plugins-PluginSystemSet-uninstall_subtargets: FORCE
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
 sub-Plugins-PluginMeasureProcess-qmake_all: sub-Plugins-PluginSystemSet-qmake_all FORCE
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
-	cd Plugins\PluginMeasureProcess\ && $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
+	cd Plugins\PluginMeasureProcess\ && $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
 	@set MAKEFLAGS=$(MAKEFLAGS)
 	cd Plugins\PluginMeasureProcess\ && $(MAKE) -f Makefile qmake_all
 sub-Plugins-PluginMeasureProcess: $(MAKEFILE) FORCE
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile
 sub-Plugins-PluginMeasureProcess-make_first-ordered: sub-Plugins-PluginSystemSet-make_first-ordered  FORCE
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
 sub-Plugins-PluginMeasureProcess-make_first: FORCE
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile 
 sub-Plugins-PluginMeasureProcess-all-ordered: sub-Plugins-PluginSystemSet-all-ordered  FORCE
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
 sub-Plugins-PluginMeasureProcess-all: FORCE
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile all
 sub-Plugins-PluginMeasureProcess-clean-ordered: sub-Plugins-PluginSystemSet-clean-ordered  FORCE
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
 sub-Plugins-PluginMeasureProcess-clean: FORCE
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile clean
 sub-Plugins-PluginMeasureProcess-distclean-ordered: sub-Plugins-PluginSystemSet-distclean-ordered  FORCE
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
 sub-Plugins-PluginMeasureProcess-distclean: FORCE
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile distclean
 sub-Plugins-PluginMeasureProcess-install_subtargets-ordered: sub-Plugins-PluginSystemSet-install_subtargets-ordered  FORCE
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
 sub-Plugins-PluginMeasureProcess-install_subtargets: FORCE
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile install
 sub-Plugins-PluginMeasureProcess-uninstall_subtargets-ordered: sub-Plugins-PluginSystemSet-uninstall_subtargets-ordered  FORCE
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
 sub-Plugins-PluginMeasureProcess-uninstall_subtargets: FORCE
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile uninstall
 
 Makefile: VISFrameView_AirtightDevice.pro ..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-msvc\qmake.conf ..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\spec_pre.prf \
 		..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\common\angle.conf \
@@ -551,10 +551,6 @@ Makefile: VISFrameView_AirtightDevice.pro ..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_6
 		..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_remoteobjects_private.pri \
 		..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_repparser.pri \
 		..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_repparser_private.pri \
-		..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_script.pri \
-		..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_script_private.pri \
-		..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_scripttools.pri \
-		..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_scripttools_private.pri \
 		..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_scxml.pri \
 		..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_scxml_private.pri \
 		..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_sensors.pri \
@@ -734,10 +730,6 @@ Makefile: VISFrameView_AirtightDevice.pro ..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_6
 ..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_remoteobjects_private.pri:
 ..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_repparser.pri:
 ..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_repparser_private.pri:
-..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_script.pri:
-..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_script_private.pri:
-..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_scripttools.pri:
-..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_scripttools_private.pri:
 ..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_scxml.pri:
 ..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_scxml_private.pri:
 ..\..\..\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\modules\qt_lib_sensors.pri:
@@ -819,121 +811,121 @@ uninstall_subtargets: sub-Plugins-PluginParam-uninstall_subtargets-ordered sub-P
 sub-Plugins-PluginParam-debug_ordered:
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile debug
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile debug
 sub-Plugins-PluginDevice-debug_ordered: sub-Plugins-PluginParam-debug_ordered 
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile debug
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile debug
 sub-Plugins-PluginAutoPage-debug_ordered: sub-Plugins-PluginDevice-debug_ordered 
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile debug
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile debug
 sub-Plugins-PluginManualDebug-debug_ordered: sub-Plugins-PluginAutoPage-debug_ordered 
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile debug
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile debug
 sub-Plugins-PluginProductSet-debug_ordered: sub-Plugins-PluginManualDebug-debug_ordered 
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile debug
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile debug
 sub-Plugins-PluginSystemSet-debug_ordered: sub-Plugins-PluginProductSet-debug_ordered 
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile debug
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile debug
 sub-Plugins-PluginMeasureProcess-debug_ordered: sub-Plugins-PluginSystemSet-debug_ordered 
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile debug
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile debug
 debug: sub-Plugins-PluginParam-debug_ordered sub-Plugins-PluginDevice-debug_ordered sub-Plugins-PluginAutoPage-debug_ordered sub-Plugins-PluginManualDebug-debug_ordered sub-Plugins-PluginProductSet-debug_ordered sub-Plugins-PluginSystemSet-debug_ordered sub-Plugins-PluginMeasureProcess-debug_ordered
 
 sub-Plugins-PluginParam-release_ordered:
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile release
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile release
 sub-Plugins-PluginDevice-release_ordered: sub-Plugins-PluginParam-release_ordered 
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile release
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile release
 sub-Plugins-PluginAutoPage-release_ordered: sub-Plugins-PluginDevice-release_ordered 
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile release
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile release
 sub-Plugins-PluginManualDebug-release_ordered: sub-Plugins-PluginAutoPage-release_ordered 
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile release
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile release
 sub-Plugins-PluginProductSet-release_ordered: sub-Plugins-PluginManualDebug-release_ordered 
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile release
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile release
 sub-Plugins-PluginSystemSet-release_ordered: sub-Plugins-PluginProductSet-release_ordered 
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile release
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile release
 sub-Plugins-PluginMeasureProcess-release_ordered: sub-Plugins-PluginSystemSet-release_ordered 
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile release
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile release
 release: sub-Plugins-PluginParam-release_ordered sub-Plugins-PluginDevice-release_ordered sub-Plugins-PluginAutoPage-release_ordered sub-Plugins-PluginManualDebug-release_ordered sub-Plugins-PluginProductSet-release_ordered sub-Plugins-PluginSystemSet-release_ordered sub-Plugins-PluginMeasureProcess-release_ordered
 
 sub-Plugins-PluginParam-check_ordered:
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile check
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile check
 sub-Plugins-PluginDevice-check_ordered: sub-Plugins-PluginParam-check_ordered 
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile check
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile check
 sub-Plugins-PluginAutoPage-check_ordered: sub-Plugins-PluginDevice-check_ordered 
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile check
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile check
 sub-Plugins-PluginManualDebug-check_ordered: sub-Plugins-PluginAutoPage-check_ordered 
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile check
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile check
 sub-Plugins-PluginProductSet-check_ordered: sub-Plugins-PluginManualDebug-check_ordered 
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile check
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile check
 sub-Plugins-PluginSystemSet-check_ordered: sub-Plugins-PluginProductSet-check_ordered 
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile check
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile check
 sub-Plugins-PluginMeasureProcess-check_ordered: sub-Plugins-PluginSystemSet-check_ordered 
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile check
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile check
 check: sub-Plugins-PluginParam-check_ordered sub-Plugins-PluginDevice-check_ordered sub-Plugins-PluginAutoPage-check_ordered sub-Plugins-PluginManualDebug-check_ordered sub-Plugins-PluginProductSet-check_ordered sub-Plugins-PluginSystemSet-check_ordered sub-Plugins-PluginMeasureProcess-check_ordered
 
 sub-Plugins-PluginParam-benchmark_ordered:
 	@if not exist Plugins\PluginParam\ mkdir Plugins\PluginParam\ & if not exist Plugins\PluginParam\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile benchmark
+	cd Plugins\PluginParam\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginParam\PluginParam.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile benchmark
 sub-Plugins-PluginDevice-benchmark_ordered: sub-Plugins-PluginParam-benchmark_ordered 
 	@if not exist Plugins\PluginDevice\ mkdir Plugins\PluginDevice\ & if not exist Plugins\PluginDevice\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile benchmark
+	cd Plugins\PluginDevice\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginDevice\PluginDevice.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile benchmark
 sub-Plugins-PluginAutoPage-benchmark_ordered: sub-Plugins-PluginDevice-benchmark_ordered 
 	@if not exist Plugins\PluginAutoPage\ mkdir Plugins\PluginAutoPage\ & if not exist Plugins\PluginAutoPage\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile benchmark
+	cd Plugins\PluginAutoPage\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile benchmark
 sub-Plugins-PluginManualDebug-benchmark_ordered: sub-Plugins-PluginAutoPage-benchmark_ordered 
 	@if not exist Plugins\PluginManualDebug\ mkdir Plugins\PluginManualDebug\ & if not exist Plugins\PluginManualDebug\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile benchmark
+	cd Plugins\PluginManualDebug\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginManualDebug\PluginManualDebug.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile benchmark
 sub-Plugins-PluginProductSet-benchmark_ordered: sub-Plugins-PluginManualDebug-benchmark_ordered 
 	@if not exist Plugins\PluginProductSet\ mkdir Plugins\PluginProductSet\ & if not exist Plugins\PluginProductSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile benchmark
+	cd Plugins\PluginProductSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginProductSet\PluginProductSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile benchmark
 sub-Plugins-PluginSystemSet-benchmark_ordered: sub-Plugins-PluginProductSet-benchmark_ordered 
 	@if not exist Plugins\PluginSystemSet\ mkdir Plugins\PluginSystemSet\ & if not exist Plugins\PluginSystemSet\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile benchmark
+	cd Plugins\PluginSystemSet\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginSystemSet\PluginSystemSet.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile benchmark
 sub-Plugins-PluginMeasureProcess-benchmark_ordered: sub-Plugins-PluginSystemSet-benchmark_ordered 
 	@if not exist Plugins\PluginMeasureProcess\ mkdir Plugins\PluginMeasureProcess\ & if not exist Plugins\PluginMeasureProcess\ exit 1
 	@set MAKEFLAGS=$(MAKEFLAGS)
-	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile benchmark
+	cd Plugins\PluginMeasureProcess\ && ( if not exist Makefile $(QMAKE) -o Makefile D:\git\haoen\VISFrameView_AirtightDevice\Plugins\PluginMeasureProcess\PluginMeasureProcess.pro -spec win32-msvc "CONFIG+=qtquickcompiler" ) && $(MAKE) -f Makefile benchmark
 benchmark: sub-Plugins-PluginParam-benchmark_ordered sub-Plugins-PluginDevice-benchmark_ordered sub-Plugins-PluginAutoPage-benchmark_ordered sub-Plugins-PluginManualDebug-benchmark_ordered sub-Plugins-PluginProductSet-benchmark_ordered sub-Plugins-PluginSystemSet-benchmark_ordered sub-Plugins-PluginMeasureProcess-benchmark_ordered
 install:install_subtargets  FORCE
 

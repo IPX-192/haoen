@@ -1,28 +1,16 @@
 ﻿#include "WidgetAutoPage.h"
 #include "ui_WidgetAutoPage.h"
-#include "../PluginParam/ParamManager.h"
-#include "../interface/coreinterface.h"
-#include <QDateTime>
-#include "VisAppBus.h"
-#include "CMsgBox.h"
-#include "SwitchButton.h"
-#include "VisMotorManager.h"
-#include <QJsonArray>
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QJsonValue>
-#include <QFile>
-#include <QDebug>
-#include <QDateTime>
-#include <QDir>
-#include "WidgetProductChange.h"
-#include "NonBlockingMsgBox.h"
-#include "Product/WidgetProductTotal.h"
-#include "WidgetTray.h"
+#include <QApplication>
+#include "ParamManager.h"
 #include "WidgetLogAll.h"
-#include "WidgetAritightPlotForm.h"
-
-#pragma execution_character_set("utf-8")
+#include "ProductForm/WidgetProdutData.h"
+#include "WidgetTrayState.h"
+#include "WidgetConsumables.h"
+#include "WidgetCalibImage.h"
+#include "WidgetVision.h"
+#include "WidgetProductChange.h"
+#include "WidgetFlowState.h"
+#include "Product/WidgetProductTotal.h"
 
 WidgetAutoPage::WidgetAutoPage(QWidget *parent) :
     QWidget(parent),
@@ -31,7 +19,31 @@ WidgetAutoPage::WidgetAutoPage(QWidget *parent) :
     ui->setupUi(this);
     ui->widgetLeftBar->setObjectName("leftbar");
     ui->stackedWidget->setObjectName("stackWidget");
-	InitWidget();
+    WidgetProductTotal*widgetProductTotal=new WidgetProductTotal(2,GlobalParam->frameCore->configDirPath,ui->stackedWidget);
+    WidgetProdutData*widgetProdutData=new WidgetProdutData(ui->stackedWidget);
+    WidgetCalibImage *widgetCalibImage = new WidgetCalibImage(ui->stackedWidget);
+    WidgetVision *widgetVision = new WidgetVision(ui->stackedWidget);
+    WidgetTrayState* widgetTrayState = new WidgetTrayState(ui->stackedWidget);
+    WidgetFlowState* widgetFlowState = new WidgetFlowState(ui->stackedWidget);
+    m_widgetLogAll = new WidgetLogAll(ui->stackedWidget);
+    WidgetConsumables* widgetConsumables = new WidgetConsumables(ui->stackedWidget);
+    //WidgetYield *widgetYield = new WidgetYield(ui->stackedWidget);
+    WidgetProductChange *widgetProductChange = new WidgetProductChange(ui->stackedWidget);
+    ui->stackedWidget->addWidget(widgetProductTotal);
+    ui->stackedWidget->addWidget(widgetProdutData);
+    ui->stackedWidget->addWidget(widgetCalibImage);
+    ui->stackedWidget->addWidget(widgetVision);
+    ui->stackedWidget->addWidget(widgetTrayState);
+    ui->stackedWidget->addWidget(widgetFlowState);
+    ui->stackedWidget->addWidget(m_widgetLogAll);
+    ui->stackedWidget->addWidget(widgetConsumables);
+    ui->stackedWidget->addWidget(widgetProductChange);
+    ui->tbtnCalibImg_3->setVisible(false);
+    ui->tbtnVision_4->setVisible(false);
+	connect(ui->stackedWidget, &QStackedWidget::currentChanged, [=](int index) {
+		//在标定图像页不显示
+		//ui->widget_2->setVisible(index != 2);
+		});
 }
 
 WidgetAutoPage::~WidgetAutoPage()
@@ -39,57 +51,14 @@ WidgetAutoPage::~WidgetAutoPage()
     delete ui;
 }
 
-void WidgetAutoPage::InitWidget()
+void WidgetAutoPage::InitLog(QList<PluginLogInfo>& listPluginLog)
 {
-    QString Configpath = GlobalParam->recipeProduct.productPath;
-    WidgetProductTotal * pProductTotalForm = new WidgetProductTotal(2,Configpath, ui->stackedWidget);
-    WidgetTray* pTrayShowForm = new WidgetTray(this);
-    WidgetLogAll*widgetLog = new WidgetLogAll(this);
-    WidgetProductChange *pWidgetProductChange = new WidgetProductChange(this);
+	PluginLogInfo pluginLog;
+	pluginLog.type = SystemLog;
+	pluginLog.index = 0;
+	pluginLog._pLog = std::bind(&WidgetLog::addLog, ui->widget, std::placeholders::_1, std::placeholders::_2);
+    listPluginLog.append(pluginLog);
 
-    WidgetAritightPlotForm *pAritightPlot = new WidgetAritightPlotForm(ui->stackedWidget);
-
-    ui->stackedWidget->addWidget(pProductTotalForm);
-    ui->stackedWidget->addWidget(pAritightPlot);
-    ui->stackedWidget->addWidget(pTrayShowForm);
-    ui->stackedWidget->addWidget(widgetLog);
-    ui->stackedWidget->addWidget(pWidgetProductChange);
-
-    //UpdateButtonStatus(MachineStatusIns.GetMahineRunStatus());
-
-    return;
-}
-
-void WidgetAutoPage::InitLog()
-{
-    PluginLogInfo pluginLog;
-    pluginLog.type = SystemLog;
-    pluginLog.index = 0;
-    pluginLog._pLog = std::bind(&WidgetLog::addLog, ui->widget, std::placeholders::_1, std::placeholders::_2);
-    GlobalParam->frameCore->listPluginLog.append(pluginLog);
-}
-
-int WidgetAutoPage::event_ProductTotal(AritightTask item)
-{
-    ProductTask task;
-
-    task.result  = item.result;   //测试结果
-    task.station = item.station;      //工位
-    task.errItem = item.errorMsg;     //错误项
-    task.ctTime  = item.endDateTime.secsTo(item.startDateTime);       //CT时间
-
-    VisAppBus::sendEventDirect("UpdateProduct",task);
-    return 0;
-}
-
-void WidgetAutoPage::showEvent(QShowEvent* event)
-{
-    qDebug() << __FUNCTION__;
-    QWidget::showEvent(event);
-}
-void WidgetAutoPage::hideEvent(QHideEvent* event)
-{
-    qDebug() << __FUNCTION__;
-    QWidget::hideEvent(event);
+    m_widgetLogAll->InitLog(listPluginLog);
 }
 

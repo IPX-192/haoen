@@ -1,7 +1,7 @@
 ﻿#ifndef WIDGETSYSTEMSET_H
 #define WIDGETSYSTEMSET_H
+
 #include <QWidget>
-#include "../../interface/coreinterface.h"
 
 namespace Ui {
 class WidgetSystemSet;
@@ -15,14 +15,18 @@ public:
     explicit WidgetSystemSet(QWidget *parent = nullptr);
     ~WidgetSystemSet();
 
-    void InitWidget();
-    void LoadUIParam();
-    void AddLog(QString msg, LogLevel level);
+public:
+	void  LoadUIParam();
+	void  UpdateUIParam();
+
+protected slots:
+	int  event_LoginUserChange();
 
 private slots:
-    void on_btnUpdateUI_clicked();
+	void on_btnUpdateUI_clicked();
 
-    void on_btnSaveParam_clicked();
+	void on_btnSaveParam_clicked();
+
 private:
     Ui::WidgetSystemSet *ui;
 };

@@ -1,13 +1,9 @@
 ﻿#include "WidgetSystemSet.h"
 #include "ui_WidgetSystemSet.h"
-#include "DataSaveForm.h"
-#include "MesParamForm.h"
-#include "VisAppBus.h"
-#include "WidgetGripper.h"
+#include "WidgetGrip.h"
 #include "WidgetShield.h"
-#include "WidgetAritightForm.h"
-
-#pragma execution_character_set("utf-8")
+#include "WidgetBox.h"
+#include <QMessageBox>
 
 WidgetSystemSet::WidgetSystemSet(QWidget *parent) :
     QWidget(parent),
@@ -16,31 +12,22 @@ WidgetSystemSet::WidgetSystemSet(QWidget *parent) :
     ui->setupUi(this);
     ui->widgetLeftBar->setObjectName("leftbar");
     ui->stackedWidget->setObjectName("stackWidget");
+    WidgetShield* widgetShield = new WidgetShield(ui->stackedWidget);
+    WidgetGrip*widgetGrip=new WidgetGrip(ui->stackedWidget);
+    WidgetBox*widgetBox=new WidgetBox(ui->stackedWidget);
+    ui->stackedWidget->addWidget(widgetShield);
+    ui->stackedWidget->addWidget(widgetGrip);
+    ui->stackedWidget->addWidget(widgetBox);
+    //左侧导航切换页面
+    connect(ui->btnShiled_1, &QToolButton::clicked, this, [this]{ ui->stackedWidget->setCurrentIndex(0); });
+    connect(ui->btnGrip_2, &QToolButton::clicked, this, [this]{ ui->stackedWidget->setCurrentIndex(1); });
+    connect(ui->btnBox_3, &QToolButton::clicked, this, [this]{ ui->stackedWidget->setCurrentIndex(2); });
+    VisAppBus::subscibeEvent(this, "LoginUserChange");
 }
 
 WidgetSystemSet::~WidgetSystemSet()
 {
     delete ui;
-}
-
-void WidgetSystemSet::AddLog(QString msg, LogLevel level)
-{
-    ui->widget_Log->addLog(msg,level);
-}
-
-void WidgetSystemSet::InitWidget()
-{
-    DataSaveForm* pDataSaveForm = new DataSaveForm(ui->stackedWidget);
-    MesParamForm* pMesParamForm = new MesParamForm(ui->stackedWidget);
-    WidgetGripper* pElectricGripperParamForm = new WidgetGripper(ui->stackedWidget);
-    WidgetShield*widgetShield=new WidgetShield(ui->stackedWidget);
-    WidgetAritightForm *widgetAritight = new WidgetAritightForm(ui->stackedWidget);
-    
-    ui->stackedWidget->addWidget(pDataSaveForm);
-    ui->stackedWidget->addWidget(pMesParamForm);
-    ui->stackedWidget->addWidget(pElectricGripperParamForm);
-    ui->stackedWidget->addWidget(widgetShield);
-    ui->stackedWidget->addWidget(widgetAritight);
 }
 
 void WidgetSystemSet::LoadUIParam()
@@ -50,13 +37,35 @@ void WidgetSystemSet::LoadUIParam()
 	}
 }
 
+void WidgetSystemSet::UpdateUIParam()
+{
+	for (int i = 0; i < ui->stackedWidget->count(); i++) {
+		QMetaObject::invokeMethod(ui->stackedWidget->widget(i), "UpdateParamToUI", Qt::DirectConnection);
+	}
+}
+
+int WidgetSystemSet::event_LoginUserChange()
+{
+	UserInfo& curUserInfo = GlobalParam->frameCore->curUserInfo;
+	bool enable = (curUserInfo.authority != OPERATOR && curUserInfo.authority != ENGINEERADMIN);
+	ui->widget_Param->setEnabled(enable);
+	ui->stackedWidget->setEnabled(enable);
+	return 0;
+}
+
+
 void WidgetSystemSet::on_btnUpdateUI_clicked()
 {
-    QMetaObject::invokeMethod(ui->stackedWidget->currentWidget(), "UpdateParamToUI", Qt::DirectConnection);
+    if (QMessageBox::question(nullptr, u8"询问", u8"是否刷新当前页面参数") == QMessageBox::No)
+        return ;
+	QMetaObject::invokeMethod(ui->stackedWidget->currentWidget(), "UpdateParamToUI", Qt::DirectConnection);
 }
 
 void WidgetSystemSet::on_btnSaveParam_clicked()
 {
-    QMetaObject::invokeMethod(ui->stackedWidget->currentWidget(), "SaveUIParam", Qt::DirectConnection);
+    if (QMessageBox::question(nullptr, u8"询问", u8"是否保存当前页面参数" ) == QMessageBox::No)
+        return ;
+	QMetaObject::invokeMethod(ui->stackedWidget->currentWidget(), "SaveUIParam", Qt::DirectConnection);
 }
+
 

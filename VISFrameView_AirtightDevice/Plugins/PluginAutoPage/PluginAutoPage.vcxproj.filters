@@ -47,45 +47,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Basic\PlotShowForm\AritightPlotItem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\Custom\BoxStatusForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\Custom\CLoadingWidget.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\Custom\CMsgBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\Custom\CMulComboBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\Custom\CMulComboBoxSearch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\Custom\CMulComboBoxSearchModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\Custom\CMulNumLineEdit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\Custom\CMulTextLineEdit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\Custom\CPopTipScreen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\Custom\CRealTimeCurve.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\Custom\CTimeSelectWidget.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Basic\CameraPreviewForm\CameraPreviewForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Product\ChartNGSort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -95,28 +56,19 @@
     <ClCompile Include="..\Common\CurveView\Chart\CustomChart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Common\Custom\CutomDoubleSinBox.cpp">
+    <ClCompile Include="..\Common\MyQwtPlot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Common\Custom\CutomSinBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\Custom\NonBlockingMsgBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Basic\PLCWarning\PLCAlarmPopUpForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Basic\PLCWarning\PLCWarningForm.cpp">
+    <ClCompile Include="..\Common\NonBlockingMsgBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PluginAutoPage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Common\Custom\QCustomItemDelegate.cpp">
+    <ClCompile Include="ProductForm\ProductDetailForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Common\Custom\Switchbutton.cpp">
+    <ClCompile Include="..\Common\SwitchButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Product\TableNGSort.cpp">
@@ -125,25 +77,13 @@
     <ClCompile Include="Product\TableProduct.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Common\Custom\TrayCalculate.cpp">
+    <ClCompile Include="PartsSource\WearingParts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Common\Custom\TrayCtrl.cpp">
+    <ClCompile Include="PartsSource\WearingPartsList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Common\Custom\TrayStatusForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\Custom\WearingParts.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\Custom\WearingPartsList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Common\Custom\WearingPartsListUser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WidgetAritightPlotForm.cpp">
+    <ClCompile Include="PartsSource\WearingPartsListUser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WidgetAutoPage.cpp">
@@ -152,10 +92,19 @@
     <ClCompile Include="WidgetBtnPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WidgetCalibImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetConsumables.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetFlowState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\Common\WidgetLog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Basic\ProcessLogForm\WidgetLogAll.cpp">
+    <ClCompile Include="WidgetLogAll.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WidgetProductChange.cpp">
@@ -164,13 +113,22 @@
     <ClCompile Include="Product\WidgetProductTotal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ProductForm\WidgetProdutData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetSingleTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Product\WidgetStationProduct.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WidgetStatusBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WidgetTray.cpp">
+    <ClCompile Include="WidgetTrayState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetVision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\Common\CurveView\Chart\qcustomplot.cpp">
@@ -178,45 +136,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="Basic\PlotShowForm\AritightPlotItem.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="..\Common\Custom\BoxStatusForm.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="..\Common\Custom\CLoadingWidget.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="..\Common\Custom\CMsgBox.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="..\Common\Custom\CMulComboBox.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="..\Common\Custom\CMulComboBoxSearch.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="..\Common\Custom\CMulComboBoxSearchModel.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="..\Common\Custom\CMulNumLineEdit.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="..\Common\Custom\CMulTextLineEdit.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="..\Common\Custom\CPopTipScreen.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="..\Common\Custom\CRealTimeCurve.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="..\Common\Custom\CTimeSelectWidget.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="Basic\CameraPreviewForm\CameraPreviewForm.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="Product\ChartNGSort.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -226,31 +145,25 @@
     <QtMoc Include="..\Common\CurveView\Chart\CustomChart.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="..\Common\Custom\CutomDoubleSinBox.h">
+    <QtMoc Include="..\Common\MyQwtPlot.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="..\Common\Custom\CutomSinBox.h">
+    <QtMoc Include="..\Common\NonBlockingMsgBox.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="..\Common\Custom\NonBlockingMsgBox.h">
+    <ClInclude Include="..\Common\PipeLineDef.h">
       <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="Basic\PLCWarning\PLCAlarmPopUpForm.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="Basic\PLCWarning\PLCWarningForm.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
+    </ClInclude>
     <QtMoc Include="PluginAutoPage.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <ClInclude Include="Product\ProductDef.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <QtMoc Include="..\Common\Custom\QCustomItemDelegate.h">
+    <QtMoc Include="ProductForm\ProductDetailForm.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="..\Common\Custom\SwitchButton.h">
+    <QtMoc Include="..\Common\SwitchButton.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="Product\TableNGSort.h">
@@ -259,25 +172,13 @@
     <QtMoc Include="Product\TableProduct.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClInclude Include="..\Common\Custom\TrayCalculate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <QtMoc Include="..\Common\Custom\TrayCtrl.h">
+    <QtMoc Include="PartsSource\WearingParts.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="..\Common\Custom\TrayStatusForm.h">
+    <QtMoc Include="PartsSource\WearingPartsList.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="..\Common\Custom\WearingParts.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="..\Common\Custom\WearingPartsList.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="..\Common\Custom\WearingPartsListUser.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="WidgetAritightPlotForm.h">
+    <QtMoc Include="PartsSource\WearingPartsListUser.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="WidgetAutoPage.h">
@@ -286,10 +187,19 @@
     <QtMoc Include="WidgetBtnPanel.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="WidgetCalibImage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="WidgetConsumables.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="WidgetFlowState.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
     <QtMoc Include="..\Common\WidgetLog.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="Basic\ProcessLogForm\WidgetLogAll.h">
+    <QtMoc Include="WidgetLogAll.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="WidgetProductChange.h">
@@ -298,13 +208,22 @@
     <QtMoc Include="Product\WidgetProductTotal.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="ProductForm\WidgetProdutData.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="WidgetSingleTest.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
     <QtMoc Include="Product\WidgetStationProduct.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="WidgetStatusBar.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="WidgetTray.h">
+    <QtMoc Include="WidgetTrayState.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="WidgetVision.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="..\..\interface\coreinterface.h">
@@ -348,20 +267,7 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <CustomBuild Include="D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginAutoPage\temp\moc\moc_predefs.h.cbt">
+    <CustomBuild Include="D:\git\FilmTear\Plugins\PluginAutoPage\temp\moc\moc_predefs.h.cbt">
       <Filter>Generated Files</Filter>
     </CustomBuild>
     
@@ -391,35 +297,18 @@
     
     
     
-    
-    
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="Basic\PlotShowForm\AritightPlotItem.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="..\Common\Custom\BoxStatusForm.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="..\Common\Custom\CRealTimeCurve.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="Basic\CameraPreviewForm\CameraPreviewForm.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
     <QtUic Include="Product\ChartNGSort.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="Product\ChartProduceHour.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="Basic\PLCWarning\PLCAlarmPopUpForm.ui">
+    <QtUic Include="ProductForm\ProductDetailForm.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="Basic\PLCWarning\PLCWarningForm.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="..\Common\Custom\SwitchButton.ui">
+    <QtUic Include="..\Common\SwitchButton.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="Product\TableNGSort.ui">
@@ -428,22 +317,13 @@
     <QtUic Include="Product\TableProduct.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="..\Common\Custom\TrayCtrl.ui">
+    <QtUic Include="PartsSource\WearingParts.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="..\Common\Custom\TrayStatusForm.ui">
+    <QtUic Include="PartsSource\WearingPartsList.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="..\Common\Custom\WearingParts.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="..\Common\Custom\WearingPartsList.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="..\Common\Custom\WearingPartsListUser.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="WidgetAritightPlotForm.ui">
+    <QtUic Include="PartsSource\WearingPartsListUser.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="WidgetAutoPage.ui">
@@ -452,10 +332,22 @@
     <QtUic Include="WidgetBtnPanel.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="WidgetCalibImage.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="WidgetConsumables.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="WidgetFlowState.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
     <QtUic Include="..\Common\WidgetLog.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="Basic\ProcessLogForm\WidgetLogAll.ui">
+    <QtUic Include="WidgetLogAll.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="WidgetProduce.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="WidgetProductChange.ui">
@@ -464,30 +356,105 @@
     <QtUic Include="Product\WidgetProductTotal.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="ProductForm\WidgetProdutData.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="WidgetSingleTest.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
     <QtUic Include="Product\WidgetStationProduct.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="WidgetStatusBar.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="WidgetTray.ui">
+    <QtUic Include="WidgetTrayState.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="WidgetVision.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <None Include="resource\icon\???.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <QtRcc Include="..\Common\Custom\CustomRec.qrc">
-      <Filter>Resource Files</Filter>
-    </QtRcc>
     <None Include="resource\icon\EStop.png">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resource\icon\SpotCheck.png">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="resource\qss\blacksoft\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
     <None Include="resource\icon\application-exit.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\arrow_top.png">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resource\icon\arrowdown.png">
@@ -505,7 +472,97 @@
     <None Include="resource\icon\baolong.png">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Common\Custom\MyStyle\chenggong.png">
+    <None Include="resource\qss\blacksoft.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\checkbox_unchecked_disable.png">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resource\icon\config.png">
@@ -517,19 +574,22 @@
     <None Include="resource\icon\delete.png">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="resource\icon\failed.png">
+    <None Include="resource\icon\downArrow.png">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Common\Custom\MyStyle\fatal.png">
+    <None Include="resource\icon\failed.png">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resource\icon\favicon.ico">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="resource\icon\get1.png">
+    <None Include="resource\qss\flatgray.css">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Common\Custom\MyStyle\info.png">
+    <None Include="resource\icon\greenlight.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\icon\greylight.png">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resource\qss\lightblue.css">
@@ -538,22 +598,43 @@
     <None Include="resource\icon\logo.png">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="resource\img\main_config.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\img\main_exit.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\img\main_main.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\img\main_manual.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\img\main_produce.png">
+      <Filter>Resource Files</Filter>
+    </None>
     <None Include="resource\icon\makezero.png">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="resource\qss\blacksoft\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
     <None Include="resource\icon\motor.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Common\Custom\MyStyle\muladd.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Common\Custom\MyStyle\muldown.png">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resource\icon\nishizhen.png">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resource\icon\off_mini.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\icon\on.png">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resource\icon\on_mini.png">
@@ -565,10 +646,49 @@
     <QtRcc Include="resource\qss.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
+    <None Include="resource\qss\blacksoft\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\blacksoft\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\flatgray\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\qss\lightblue\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
     <None Include="resource\icon\reset.png">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resource\icon\restore.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\icon\rightArrow.png">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resource\icon\settings.png">
@@ -604,11 +724,8 @@
     <None Include="resource\icon\warning.png">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Common\Custom\MyStyle\warnning.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Common\Custom\MyStyle\yiwenhao.png">
-      <Filter>Resource Files</Filter>
-    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D:\git\FilmTear\Plugins\PluginAutoPage\PluginAutoPage_resource.rc" />
   </ItemGroup>
 </Project>

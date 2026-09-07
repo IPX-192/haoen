@@ -7,7 +7,6 @@ WidgetLog::WidgetLog(QWidget *parent) :
     ui(new Ui::WidgetLog)
 {
     ui->setupUi(this);
-    InitWidget();
 }
 
 WidgetLog::~WidgetLog()
@@ -15,12 +14,6 @@ WidgetLog::~WidgetLog()
     delete ui;
 }
 
-void WidgetLog::InitWidget()
-{
-	// 假设ui是您的用户界面对象
-	ui->textBrowser->setReadOnly(true);
-	ui->textBrowser->document()->setMaximumBlockCount(500);
-}
 
 void WidgetLog::addLog(QString msg, LogLevel level)
 {
@@ -68,6 +61,11 @@ void WidgetLog::addLog(QString msg, LogLevel level)
 }
 
 void WidgetLog::clearLog()
+{
+    ui->textBrowser->clear();
+}
+
+void WidgetLog::on_toolButton_clear_clicked()
 {
     ui->textBrowser->clear();
 }

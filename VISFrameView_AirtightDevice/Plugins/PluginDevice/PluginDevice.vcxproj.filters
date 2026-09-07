@@ -27,33 +27,54 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AirtightTest\CModbusClient.cpp">
+    <ClCompile Include="CModbusRFIDClient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DeviceManage.cpp">
+    <ClCompile Include="DisplacementSensorClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LightSourceClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LightSourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PluginDevice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ScanCode\ScanCodeClient.cpp">
+    <ClCompile Include="PressureSensorClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScanCodeClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TrayRfidManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="AirtightTest\CModbusClient.h">
+    <QtMoc Include="CModbusRFIDClient.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="DeviceManage.h">
+    <QtMoc Include="DisplacementSensorClient.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClInclude Include="LogDefine.h">
+    <QtMoc Include="LightSourceClient.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
+    </QtMoc>
+    <QtMoc Include="LightSourceManager.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
     <QtMoc Include="PluginDevice.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="ScanCode\ScanCodeClient.h">
+    <QtMoc Include="PressureSensorClient.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ScanCodeClient.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="TrayRfidManager.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="..\..\interface\coreinterface.h">
@@ -62,9 +83,6 @@
     <QtMoc Include="..\..\interface\plugininterface.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClInclude Include="..\..\interface\singleton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     
@@ -73,7 +91,11 @@
     
     
     
-    <CustomBuild Include="D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginDevice\temp\moc\moc_predefs.h.cbt">
+    
+    
+    
+    
+    <CustomBuild Include="D:\git\FilmTear\Plugins\PluginDevice\temp\moc\moc_predefs.h.cbt">
       <Filter>Generated Files</Filter>
     </CustomBuild>
   </ItemGroup>

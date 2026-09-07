@@ -3,9 +3,6 @@
 
 #include <QWidget>
 #include "../../interface/coreinterface.h"
-#include "VisMotorTool.h"
-#include "VisMotorToolData.h"
-#include "VisMotorManager.h"
 
 namespace Ui {
 class WidgetManualDebug;
@@ -19,16 +16,16 @@ class WidgetManualDebug :public QWidget
 public:
     explicit WidgetManualDebug(QWidget *parent = nullptr);
     ~WidgetManualDebug();
-
-public:
     void  AddLog(QString msg, LogLevel level);
-    void  LoadUIParam();
-    void  UpdateUIParam();
+	void  LoadUIParam();
+
+protected slots:
+	int  event_LoginUserChange();
 
 private slots:
-    void on_btnUpdateUI_clicked();
+	void on_btnUpdateUI_clicked();
 
-    void on_btnSaveParam_clicked();
+	void on_btnSaveParam_clicked();
 
 private:
     Ui::WidgetManualDebug *ui;

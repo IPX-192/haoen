@@ -13,9 +13,11 @@ public:
 
 public:
     virtual bool ConnectCore(QObject* core);
-    virtual int  OnCoreInitialized();
     virtual void InitActionList(Plugin_Interface* plugin);
     virtual int  OnInitialized();
+
+protected:
+    void  ShowSwitchUser(bool checkState);
 };
 
 #endif // PLUGINPARAM_H

@@ -15,13 +15,13 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="leftMargin">
-    <number>0</number>
+    <number>1</number>
    </property>
    <property name="topMargin">
-    <number>0</number>
+    <number>1</number>
    </property>
    <property name="rightMargin">
-    <number>0</number>
+    <number>6</number>
    </property>
    <property name="bottomMargin">
     <number>0</number>
@@ -30,7 +30,7 @@
     <widget class="QWidget" name="widgetLeftBar" native="true">
      <property name="minimumSize">
       <size>
-       <width>140</width>
+       <width>120</width>
        <height>0</height>
       </size>
      </property>
@@ -57,7 +57,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QToolButton" name="tbtnProduce_1">
+       <widget class="QToolButton" name="btnIOMonitor_1">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -70,7 +70,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="tbtnScan_2">
+       <widget class="QToolButton" name="btnScanCode_2">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -83,7 +83,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="tbtnCylinderControl_3">
+       <widget class="QToolButton" name="btnLight_3">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -91,12 +91,12 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>气缸控制</string>
+         <string>光源控制</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="tbtnAdjustableSpeedMotor_4">
+       <widget class="QToolButton" name="btnGrip_4">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -104,7 +104,46 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>流水线</string>
+         <string>手动操作</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="btnTrayScan_5">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>托盘扫码</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="btnPressDisp_6">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>压力位移</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="btnTyphoon_7">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>台风控制</string>
         </property>
        </widget>
       </item>
@@ -139,13 +178,13 @@
          <property name="geometry">
           <rect>
            <x>24</x>
-           <y>5</y>
+           <y>10</y>
            <width>91</width>
-           <height>35</height>
+           <height>31</height>
           </rect>
          </property>
          <property name="text">
-          <string>刷新界面</string>
+          <string>还原参数</string>
          </property>
         </widget>
         <widget class="QPushButton" name="btnSaveParam">
@@ -154,7 +193,7 @@
            <x>24</x>
            <y>60</y>
            <width>91</width>
-           <height>35</height>
+           <height>31</height>
           </rect>
          </property>
          <property name="text">
@@ -209,7 +248,7 @@
   <customwidget>
    <class>WidgetLog</class>
    <extends>QWidget</extends>
-   <header location="global">../Common/WidgetLog.h</header>
+   <header>../Common/WidgetLog.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

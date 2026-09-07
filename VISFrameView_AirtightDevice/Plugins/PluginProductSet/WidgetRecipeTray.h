@@ -2,7 +2,6 @@
 #define WIDGETRECIPETRAY_H
 
 #include <QWidget>
-#include <QPointF>
 #include <QVector4D>
 #include "ParamManager.h"
 
@@ -20,8 +19,7 @@ public:
     ~WidgetRecipeTray();
     enum TrayType {
         TestTray1,
-		TestTray2,
-        NgTray
+        TestTray2,
     };
 	enum GripType {
 		FeedGrip,
@@ -34,11 +32,13 @@ public:
 
 protected:
     void  ShowCurHoleInfo(GripType gripType, TrayType trayType,int index);
+    void  RefreshCalcMark();   //按复选框状态刷新所有托盘的基准点标红
 
 public slots:
 	void  LoadUIParam();
 	void  SaveUIParam();
 	void  UpdateParamToUI();
+	int   LoadRecipeFile();   
 
 protected:
     RecipeTray m_recipeTray;
@@ -50,13 +50,13 @@ protected:
 private slots:
     void on_comboBox_Recipe_currentIndexChanged(const QString &arg1);
 
-    void on_spinBox_feedTrayH_editingFinished();
+    void on_spinBox_trayRowsHolder_editingFinished();
 
-    void on_spinBox_feedTrayW_editingFinished();
+    void on_spinBox_trayColsHolder_editingFinished();
 
-    void on_spinBox_ngTrayW_editingFinished();
+    void on_spinBox_trayRowsPCB_editingFinished();
 
-    void on_spinBox_ngTrayH_editingFinished();
+    void on_spinBox_trayColsPCB_editingFinished();
 
     void on_btnSave_clicked();
 
@@ -64,11 +64,17 @@ private slots:
 
     void on_btnCalcuTrayPos_clicked();
 
-    void slotTrayClick(int index, int silos, int row, int col);
+    void on_checkBoxFirstRowCalc_toggled(bool checked);
 
-    void on_doubleSpinBoxPosX_editingFinished();
+    void  slotTrayClick(int index, int silos, int row, int col);
 
-    void on_doubleSpinBoxPosY_editingFinished();
+    void on_doubleSpinBoxPosX_valueChanged(double arg1);
+
+    void on_doubleSpinBoxPosY_valueChanged(double arg1);
+
+    void on_doubleSpinBoxPosZ_valueChanged(double arg1);
+
+    void on_doubleSpinBoxPosR_valueChanged(double arg1);
 
 private:
     Ui::WidgetRecipeTray *ui;

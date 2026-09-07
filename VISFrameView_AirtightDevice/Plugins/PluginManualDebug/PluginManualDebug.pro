@@ -1,16 +1,15 @@
-QT += widgets network serialport xml
+QT += widgets serialport
 
 TEMPLATE = lib
 DEFINES += PLUGINMANUALDEBUG_LIBRARY
 
 DESTDIR = $$PWD/../../bin/Plugin
-MOC_DIR     = $$PWD/../../temp/PluginManualDebug/moc
-RCC_DIR     = $$PWD/../../temp/PluginManualDebug/rcc
-UI_DIR      = $$PWD/../../temp/PluginManualDebug/ui
-OBJECTS_DIR = $$PWD/../../temp/PluginManualDebug/obj
+MOC_DIR     = $$PWD/temp/moc
+RCC_DIR     = $$PWD/temp/rcc
+UI_DIR      = $$PWD/temp/ui
+OBJECTS_DIR = $$PWD/temp/obj
 
 CONFIG += c++11
-
 CONFIG += force_debug_info    # 带调试信息
 QMAKE_CXXFLAGS_RELEASE_WITH_DEBUGINFO += -Od   #禁用优化
 
@@ -25,43 +24,35 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-include(../Common/Custom/Custom.pri)
-
-INCLUDEPATH += $$PWD/../Common/Custom
-
 SOURCES += \
     ../Common/WidgetLog.cpp \
-    Basic/AdjustableSpeedMotorForm/ConveyorRow.cpp \
-    Basic/AdjustableSpeedMotorForm/WidgetConveyorControl.cpp \
-    Basic/ScanCode/ScanCodeForm.cpp \
-    CylinderControl/CylinderWidget.cpp \
-    CylinderControl/WidgetCylinderTab.cpp \
     PluginManualDebug.cpp \
+    ScanCode/ScanCodeForm.cpp \
+    ScanCode/TrayRfidForm.cpp \
+    ScanCode/WidgetScanCodeDebug.cpp \
+    ScanCode/WidgetTrayScanDebug.cpp \
+    WidgetLightCtl.cpp \
+    WidgetManualCtl.cpp \
     WidgetManualDebug.cpp \
     WidgetMotorCtrl.cpp \
-    WidgetScanCodeDebug.cpp
+    WidgetPressDispDebug.cpp \
+    WidgetTyphoonCtl.cpp
 
 HEADERS += \
     ../../interface/coreinterface.h \
     ../../interface/plugininterface.h \
-    ../../interface/singleton.h \
     ../Common/WidgetLog.h \
-    Basic/AdjustableSpeedMotorForm/ConveyorRow.h \
-    Basic/AdjustableSpeedMotorForm/WidgetConveyorControl.h \
-    Basic/ScanCode/ScanCodeForm.h \
-    CylinderControl/CylinderWidget.h \
-    CylinderControl/WidgetCylinderTab.h \
     PluginManualDebug.h \
+    ScanCode/ScanCodeForm.h \
+    ScanCode/TrayRfidForm.h \
+    ScanCode/WidgetScanCodeDebug.h \
+    ScanCode/WidgetTrayScanDebug.h \
+    WidgetLightCtl.h \
+    WidgetManualCtl.h \
     WidgetManualDebug.h \
-    WidgetMotorCtrl.h   \
-    WidgetScanCodeDebug.h
-
-
-INCLUDEPATH += \
-            Basic/ScanCode/ \
-            ../../interface/ \
-            Basic/AdjustableSpeedMotorForm/ \
-            Basic/CylinderControlForm/CylinderCtrl/ \
+    WidgetMotorCtrl.h \
+    WidgetPressDispDebug.h \
+    WidgetTyphoonCtl.h
 
 # Default rules for deployment.
 unix {
@@ -71,49 +62,46 @@ unix {
 
 FORMS += \
     ../Common/WidgetLog.ui \
-    Basic/AdjustableSpeedMotorForm/WidgetConveyorControl.ui \
-    Basic/ScanCode/ScanCodeForm.ui \
-    CylinderControl/WidgetCylinderTab.ui \
+    ScanCode/ScanCodeForm.ui \
+    ScanCode/TrayRfidForm.ui \
+    ScanCode/WidgetScanCodeDebug.ui \
+    ScanCode/WidgetTrayScanDebug.ui \
     WidgetManualDebug.ui \
-    WidgetMotorCtrl.ui \
-    WidgetScanCodeDebug.ui
+    WidgetMotorCtrl.ui
 
-#事件循环库
+win32: LIBS += -L$$PWD/../../bin/ -lVISFramePluginModel
+
+INCLUDEPATH += $$PWD/../../VISFramePluginModel
+DEPENDPATH += $$PWD/../../VISFramePluginModel
+
+win32: LIBS += -L$$PWD/../../bin/Plugin -lPluginParam
+
+INCLUDEPATH += $$PWD/../PluginParam
+DEPENDPATH += $$PWD/../PluginParam
+
 win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppTool
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppToold
 
 INCLUDEPATH += $$(PATH_VIS)/VisAppTool
 DEPENDPATH += $$(PATH_VIS)/VisAppTool
 
-#运动控制库
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../3rd/VisMotorTool/ -lVisMotorTool
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../3rd/VisMotorTool/ -lVisMotorToold
 
 INCLUDEPATH += $$PWD/../../3rd/VisMotorTool
 DEPENDPATH += $$PWD/../../3rd/VisMotorTool
 
-#相机库
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../3rd/VisCameraTool/ -lVisCameraTool
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../3rd/VisCameraTool/ -lVisCameraToold
 
 INCLUDEPATH += $$PWD/../../3rd/VisCameraTool
 DEPENDPATH += $$PWD/../../3rd/VisCameraTool
 
-#Opencv动态库
+
 win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411d
 
 INCLUDEPATH += $$(PATH_VIS)/opencv/include
-DEPENDPATH += $$(PATH_VIS)/opencv/
-RESOURCES += \
-    Basic/AdjustableSpeedMotorForm/icons.qrc
+DEPENDPATH += $$(PATH_VIS)/opencv/include
 
-win32: LIBS += -L$$PWD/../../bin/ -lVISFramePluginModel
-INCLUDEPATH += $$PWD/../../VISFramePluginModel
-DEPENDPATH += $$PWD/../../VISFramePluginModel
-win32: LIBS += -L$$PWD/../../bin/Plugin -lPluginParam
-INCLUDEPATH += $$PWD/../PluginParam
-DEPENDPATH += $$PWD/../PluginParam
-INCLUDEPATH += $$PWD/../PluginDevice
-DEPENDPATH += $$PWD/../PluginDevice
 

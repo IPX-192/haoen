@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "ParamDef.h"
+#include "opencv2/opencv.hpp"
 #include "../../interface/coreinterface.h"
 
 namespace Ui {
@@ -25,9 +26,11 @@ private slots:
 
 private:
     void SaveChangeInfo();
+    void ReadChangeInfo();
 
 private:
     Ui::WidgetProductChange *ui;
+    int m_csvCount = 0;
 };
 
 #endif // WidgetProductChange_H

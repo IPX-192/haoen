@@ -234,13 +234,12 @@ Makefile: PluginAutoPage.pro D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-msv
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\qt_config.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-msvc\qmake.conf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\spec_post.prf \
-		.qmake.stash \
+		..\..\.qmake.stash \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exclusive_builds.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\common\msvc-version.conf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\toolchain.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\default_pre.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\win32\default_pre.prf \
-		..\Common\Custom\Custom.pri \
 		Product\Product.pri \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\resolve_config.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exclusive_builds_post.prf \
@@ -265,6 +264,7 @@ Makefile: PluginAutoPage.pro D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-msv
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5PrintSupport.prl \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Widgets.prl \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Gui.prl \
+		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Network.prl \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Core.prl
 	$(QMAKE) -o Makefile PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\spec_pre.prf:
@@ -424,13 +424,12 @@ D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\qt_functions.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\qt_config.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-msvc\qmake.conf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\spec_post.prf:
-.qmake.stash:
+..\..\.qmake.stash:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exclusive_builds.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\common\msvc-version.conf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\toolchain.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\default_pre.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\win32\default_pre.prf:
-..\Common\Custom\Custom.pri:
 Product\Product.pri:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\resolve_config.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exclusive_builds_post.prf:
@@ -455,6 +454,7 @@ D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5OpenGL.prl:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5PrintSupport.prl:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Widgets.prl:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Gui.prl:
+D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Network.prl:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile PluginAutoPage.pro -spec win32-msvc "CONFIG+=qtquickcompiler"
@@ -465,10 +465,10 @@ make_first: release-make_first debug-make_first  FORCE
 all: release-all debug-all  FORCE
 clean: release-clean debug-clean  FORCE
 	-$(DEL_FILE) ..\..\bin\Plugin\PluginAutoPage.exp
-	-$(DEL_FILE) ..\..\temp\PluginAutoPage\obj\PluginAutoPage.vc.pdb
+	-$(DEL_FILE) temp\obj\PluginAutoPage.vc.pdb
 distclean: release-distclean debug-distclean  FORCE
 	-$(DEL_FILE) Makefile
-	-$(DEL_FILE) .qmake.stash ..\..\bin\Plugin\PluginAutoPage.lib ..\..\bin\Plugin\PluginAutoPage.pdb
+	-$(DEL_FILE) ..\..\bin\Plugin\PluginAutoPage.lib ..\..\bin\Plugin\PluginAutoPage.pdb
 
 release-mocclean:
 	@set MAKEFLAGS=$(MAKEFLAGS)

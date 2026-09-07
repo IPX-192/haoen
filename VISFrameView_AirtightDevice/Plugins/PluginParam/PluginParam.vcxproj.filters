@@ -60,7 +60,7 @@
     
     
     
-    <CustomBuild Include="D:\Project\Freetech\VISFrameView_AirtightDevice\Plugins\PluginParam\temp\moc\moc_predefs.h.cbt">
+    <CustomBuild Include="D:\git\FilmTear\Plugins\PluginParam\temp\moc\moc_predefs.h.cbt">
       <Filter>Generated Files</Filter>
     </CustomBuild>
   </ItemGroup>

@@ -234,7 +234,7 @@ Makefile: PluginParam.pro D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-msvc\q
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\qt_config.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-msvc\qmake.conf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\spec_post.prf \
-		.qmake.stash \
+		..\..\.qmake.stash \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exclusive_builds.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\common\msvc-version.conf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\toolchain.prf \
@@ -421,7 +421,7 @@ D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\qt_functions.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\qt_config.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-msvc\qmake.conf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\spec_post.prf:
-.qmake.stash:
+..\..\.qmake.stash:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exclusive_builds.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\common\msvc-version.conf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\toolchain.prf:
@@ -459,10 +459,10 @@ make_first: release-make_first debug-make_first  FORCE
 all: release-all debug-all  FORCE
 clean: release-clean debug-clean  FORCE
 	-$(DEL_FILE) ..\..\bin\Plugin\PluginParam.exp
-	-$(DEL_FILE) ..\..\temp\PluginParam\obj\PluginParam.vc.pdb
+	-$(DEL_FILE) temp\obj\PluginParam.vc.pdb
 distclean: release-distclean debug-distclean  FORCE
 	-$(DEL_FILE) Makefile
-	-$(DEL_FILE) .qmake.stash ..\..\bin\Plugin\PluginParam.lib ..\..\bin\Plugin\PluginParam.pdb
+	-$(DEL_FILE) ..\..\bin\Plugin\PluginParam.lib ..\..\bin\Plugin\PluginParam.pdb
 
 release-mocclean:
 	@set MAKEFLAGS=$(MAKEFLAGS)

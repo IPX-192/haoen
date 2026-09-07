@@ -1,22 +1,17 @@
-QT += widgets network serialport xml
-QT += printsupport
+QT += widgets network serialport opengl xml
+
 TEMPLATE = lib
 DEFINES += PLUGINPRODUCTSET_LIBRARY
 
 DESTDIR = $$PWD/../../bin/Plugin
-MOC_DIR     = $$PWD/../../temp/PluginProductSet/moc
-RCC_DIR     = $$PWD/../../temp/PluginProductSet/rcc
-UI_DIR      = $$PWD/../../temp/PluginProductSet/ui
-OBJECTS_DIR = $$PWD/../../temp/PluginProductSet/obj
+MOC_DIR     = $$PWD/temp/moc
+RCC_DIR     = $$PWD/temp/rcc
+UI_DIR      = $$PWD/temp/ui
+OBJECTS_DIR = $$PWD/temp/obj
 
 CONFIG += c++11
-
 CONFIG += force_debug_info    # 带调试信息
 QMAKE_CXXFLAGS_RELEASE_WITH_DEBUGINFO += -Od   #禁用优化
-
-include(../Common/Custom/Custom.pri)
-
-INCLUDEPATH += $$PWD/../Common/Custom
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -30,38 +25,38 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    ../Common/WidgetLog.cpp \
-    Item/AritightForm.cpp \
     ItemDelegate.cpp \
     PluginProductSet.cpp \
-    WidgetAritight.cpp \
+    Tray/TrayCtrl.cpp \
     WidgetMatrixCfg.cpp \
     WidgetProductSet.cpp \
+    WidgetRecipeFilmTear.cpp \
     WidgetRecipeGrip.cpp \
     WidgetRecipeMotor.cpp \
     WidgetRecipePlatform.cpp \
-    WidgetRecipeTray.cpp
+    WidgetRecipeTray.cpp \
+    WidgetRecipeVision.cpp \
+    WidgetRecipeDirty.cpp \
+    WidgetRecipeScanCode.cpp
 
 HEADERS += \
     ../../interface/coreinterface.h \
     ../../interface/plugininterface.h \
-    ../../interface/singleton.h \
-    ../Common/FeildDefine.h \
-    ../Common/WidgetLog.h \
-    Item/AritightForm.h \
     ItemDelegate.h \
     PluginProductSet.h \
-    WidgetAritight.h \
+    Tray/TrayCtrl.h \
     WidgetMatrixCfg.h \
     WidgetProductSet.h \
+    WidgetRecipeFilmTear.h \
     WidgetRecipeGrip.h \
     WidgetRecipeMotor.h \
     WidgetRecipePlatform.h \
-    WidgetRecipeTray.h
+    WidgetRecipeTray.h \
+    WidgetRecipeVision.h \
+    WidgetRecipeDirty.h \
+    WidgetRecipeScanCode.h
 
-INCLUDEPATH += \
-    ../../interface/ \
-    ../Common/ \
+LIBS += -lAdvapi32
 
 # Default rules for deployment.
 unix {
@@ -70,53 +65,80 @@ unix {
 !isEmpty(target.path): INSTALLS += target
 
 FORMS += \
-    ../Common/WidgetLog.ui \
-    Item/AritightForm.ui \
-    WidgetAritight.ui \
+    Tray/TrayCtrl.ui \
     WidgetMatrixCfg.ui \
     WidgetProductSet.ui \
+    WidgetRecipeFilmTear.ui \
     WidgetRecipeGrip.ui \
     WidgetRecipeMotor.ui \
     WidgetRecipePlatform.ui \
-    WidgetRecipeTray.ui
+    WidgetRecipeTray.ui \
+    WidgetRecipeVision.ui \
+    WidgetRecipeDirty.ui \
+    WidgetRecipeScanCode.ui
 
-#运动控制库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../3rd/VisMotorTool/ -lVisMotorTool
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../3rd/VisMotorTool/ -lVisMotorToold
+win32: LIBS += -L$$PWD/../../bin/ -lVISFramePluginModel
 
-INCLUDEPATH += $$PWD/../../3rd/VisMotorTool
-DEPENDPATH += $$PWD/../../3rd/VisMotorTool
+INCLUDEPATH += $$PWD/../../VISFramePluginModel
+DEPENDPATH += $$PWD/../../VISFramePluginModel
 
-#事件循环库
+win32: LIBS += -L$$PWD/../../bin/Plugin -lPluginParam
+
+INCLUDEPATH += $$PWD/../PluginParam
+DEPENDPATH += $$PWD/../PluginParam
+
 win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppTool
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppToold
 
 INCLUDEPATH += $$(PATH_VIS)/VisAppTool
 DEPENDPATH += $$(PATH_VIS)/VisAppTool
 
-#Opencv动态库
-win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411d
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../3rd/VisMotorTool/ -lVisMotorTool
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../3rd/VisMotorTool/ -lVisMotorToold
 
-INCLUDEPATH += $$(PATH_VIS)/opencv/include
-DEPENDPATH += $$(PATH_VIS)/opencv/
+INCLUDEPATH += $$PWD/../../3rd/VisMotorTool
+DEPENDPATH += $$PWD/../../3rd/VisMotorTool
 
-#相机库
+
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../3rd/VisCameraTool/ -lVisCameraTool
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../3rd/VisCameraTool/ -lVisCameraToold
 
 INCLUDEPATH += $$PWD/../../3rd/VisCameraTool
 DEPENDPATH += $$PWD/../../3rd/VisCameraTool
 
-#相机显示界面库
-win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/VisCommon/ -lVisCommon
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/VisCommon/ -lVisCommond
+INCLUDEPATH += $$PWD/../../3rd/VisFindEdge
+INCLUDEPATH += $$PWD/../../3rd/halcon/include
+INCLUDEPATH += $$PWD/../../3rd/halcon/include/halconc
+INCLUDEPATH += $$PWD/../../3rd/halcon/include/halconcpp
+INCLUDEPATH += $$PWD/../../3rd/halcon/include/hclib
+INCLUDEPATH += $$PWD/../../3rd/halcon/include/hdevengine
+INCLUDEPATH += $$PWD/../../3rd/halcon/include/hlib
+INCLUDEPATH += $$PWD/../../3rd/halconMatchDllPlatform
+
+win32: LIBS += -L$$PWD/../../3rd/AlgorithmModule/ -lAlgorithmModule
+INCLUDEPATH += $$PWD/../../3rd/AlgorithmModule
+DEPENDPATH += $$PWD/../../3rd/AlgorithmModule
+
+win32: LIBS += -L$$PWD/../../3rd/ImageDraw/ -lImageDraw
+INCLUDEPATH += $$PWD/../../3rd/ImageDraw
+DEPENDPATH += $$PWD/../../3rd/ImageDraw
+
+win32: LIBS += -L$$PWD/../../3rd/VisFindEdge/ -lVisFindEdge
+INCLUDEPATH += $$PWD/../../3rd/VisFindEdge
+DEPENDPATH += $$PWD/../../3rd/VisFindEdge
+
+win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411d
+
+INCLUDEPATH += $$(PATH_VIS)/opencv/include
+DEPENDPATH += $$(PATH_VIS)/opencv/include
 
 INCLUDEPATH += $$(PATH_VIS)/VisCommon
 DEPENDPATH += $$(PATH_VIS)/VisCommon
-win32: LIBS += -L$$PWD/../../bin/ -lVISFramePluginModel
-INCLUDEPATH += $$PWD/../../VISFramePluginModel
-DEPENDPATH += $$PWD/../../VISFramePluginModel
-win32: LIBS += -L$$PWD/../../bin/Plugin -lPluginParam
-INCLUDEPATH += $$PWD/../PluginParam
-DEPENDPATH += $$PWD/../PluginParam
+
+win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/VisCommon/ -lVisCommon
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/VisCommon/ -lVisCommond
+
+INCLUDEPATH += -L$$PWD/../../3rd/VisAnomalyDetect
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../3rd/VisAnomalyDetect/ -lVisAnomalyDetect
+

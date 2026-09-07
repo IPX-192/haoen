@@ -4,7 +4,6 @@
 #include "VISFramePluginModel.h"
 #include "../../interface/singleton.h"
 
-//自动运行界面
 class PluginAutoPage: public VISFramePluginModel
 {
     Q_OBJECT
@@ -16,7 +15,9 @@ public:
 public:
     virtual void InitWidgetList(Plugin_Interface* plugin);
     virtual void InitActionList(Plugin_Interface* plugin);
-    virtual int  OnViewCreated();
+
+protected:
+    void  ShowConsumables(bool checkState);
 };
 
 #endif // PLUGINAUTOPAGE_H

@@ -20,19 +20,19 @@ protected:
     void  InitTable();
 
 protected:
-    QStandardItemModel*  m_pModel;
-    QVector<QStringList> m_vecMatrix;
+   QStandardItemModel*  m_pModel;
+   QVector<QStringList> m_vecMatrix;
 
 private slots:
-    void on_btnNewMatrix_clicked();
+   void on_btnNewMatrix_clicked();
 
-    void on_btnDeleteMatrix_clicked();
+   void on_btnDeleteMatrix_clicked();
 
 public slots:
-    void  LoadUIParam();
-    void  SaveUIParam();
-    void  UpdateParamToUI();
-    int   LoadMatrixFile();
+	void  LoadUIParam();
+	void  SaveUIParam();
+	void  UpdateParamToUI();
+
 signals:
     void  sigAddPlatfrom();
 

@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include "Singleton.h"
-#include <QTimer>
+#include <QVBoxLayout>
 
 namespace Ui {
 class WidgetMotorCtrl;
@@ -16,14 +16,22 @@ class WidgetMotorCtrl : public QWidget
 public:
     explicit WidgetMotorCtrl(QWidget *parent = nullptr);
     ~WidgetMotorCtrl();
-    void  InitMotor();
+
+public:
+    void InitMotor();
+
+public slots:
+    int  event_CloseMotorDebug();   // 进入生产模式时关闭电机调试窗口
+
 protected:
     void showEvent(QShowEvent *event);
+    void closeEvent(QCloseEvent *event);
+
 private:
     Ui::WidgetMotorCtrl *ui;
-
-    QTimer *m_timer = nullptr;
-    int     m_heartIndex = 0;
+    QWidget *m_widgetMotor = nullptr;
+    QWidget *m_widgetIoDebug = nullptr;
+    QVBoxLayout *m_layout = nullptr;
 };
 
 #endif // WIDGETMOTORCTRL_H

@@ -4,13 +4,12 @@ TEMPLATE = lib
 DEFINES += PLUGINPARAM_LIBRARY
 
 DESTDIR = $$PWD/../../bin/Plugin
-MOC_DIR     = $$PWD/../../temp/PluginParam/moc
-RCC_DIR     = $$PWD/../../temp/PluginParam/rcc
-UI_DIR      = $$PWD/../../temp/PluginParam/ui
-OBJECTS_DIR = $$PWD/../../temp/PluginParam/obj
+MOC_DIR     = $$PWD/temp/moc
+RCC_DIR     = $$PWD/temp/rcc
+UI_DIR      = $$PWD/temp/ui
+OBJECTS_DIR = $$PWD/temp/obj
 
 CONFIG += c++11
-
 CONFIG += force_debug_info    # 带调试信息
 QMAKE_CXXFLAGS_RELEASE_WITH_DEBUGINFO += -Od   #禁用优化
 
@@ -28,14 +27,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     ParamDef.cpp \
     ParamManager.cpp \
-    PluginParam.cpp
+    PluginParam.cpp \
 
 HEADERS += \
     ../../interface/coreinterface.h \
     ../../interface/plugininterface.h \
     ParamDef.h \
     ParamManager.h \
-    PluginParam.h
+    PluginParam.h \
 
 # Default rules for deployment.
 unix {
@@ -43,11 +42,33 @@ unix {
 }
 !isEmpty(target.path): INSTALLS += target
 
+FORMS += \
+
+win32: LIBS += -L$$PWD/../../bin/ -lVISFramePluginModel
+
+INCLUDEPATH += $$PWD/../../VISFramePluginModel
+DEPENDPATH += $$PWD/../../VISFramePluginModel
+
 win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppTool
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppToold
 
 INCLUDEPATH += $$(PATH_VIS)/VisAppTool
 DEPENDPATH += $$(PATH_VIS)/VisAppTool
-win32: LIBS += -L$$PWD/../../bin/ -lVISFramePluginModel
-INCLUDEPATH += $$PWD/../../VISFramePluginModel
-DEPENDPATH += $$PWD/../../VISFramePluginModel
+
+win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411d
+
+INCLUDEPATH += $$(PATH_VIS)/opencv/include
+DEPENDPATH += $$(PATH_VIS)/opencv/include
+
+win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/VisLogin/ -lVisLogin
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/VisLogin/ -lVisLogind
+
+INCLUDEPATH += $$(PATH_VIS)/VisLogin
+DEPENDPATH += $$(PATH_VIS)/VisLogin
+
+win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411d
+
+INCLUDEPATH += $$(PATH_VIS)/opencv/include
+DEPENDPATH += $$(PATH_VIS)/opencv/include

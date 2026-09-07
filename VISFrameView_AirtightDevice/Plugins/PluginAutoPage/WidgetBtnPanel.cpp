@@ -1,21 +1,32 @@
 ﻿#include "WidgetBtnPanel.h"
 #include "ui_WidgetBtnPanel.h"
 #include <QTime>
+#include <QInputDialog>
 #include <QMessageBox>
-#include "SwitchButton.h"
+#include "../Common/SwitchButton.h"
 #include "VisAppBus.h"
 #include "ParamManager.h"
+#include "../Common/NonBlockingMsgBox.h"
 
 WidgetBtnPanel::WidgetBtnPanel(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::WidgetBtnPanel)
 {
     ui->setupUi(this);
-    //m_autoModel=new SwitchButton();
-    //m_autoModel->SetTitle(QString::fromLocal8Bit("自动模式"));
-    //ui->frameAutoModel->layout()->addWidget(m_autoModel);
-    //connect(m_autoModel, &SwitchButton::CheckedChanged, this, &WidgetBtnPanel::slotAutoModel,Qt::QueuedConnection);
-    VisAppBus::subscibeEvent(this, "UpdateDevStatus");
+    m_autoModel = new SwitchButton();
+    m_autoModel->SetTitle(QString::fromLocal8Bit("自动模式"));
+    ui->frameAutoModel->layout()->addWidget(m_autoModel);
+    connect(m_autoModel, &SwitchButton::CheckedChanged, this, &WidgetBtnPanel::slotAutoModel,Qt::QueuedConnection);
+    connect(ui->btnClear, &QPushButton::clicked, this, [=]
+    {
+//        ui->btnReset->setEnabled(false);
+//        m_autoModel->setEnabled(false);
+//        VisAppBus::sendEvent("ClearModule");
+//        ui->btnReset->setEnabled(true);
+//        m_autoModel->setEnabled(true);
+        VisAppBus::sendEvent("SetBackFlowReady", true, QString());   //手动放盘后通知回流托盘就绪(无托盘码)
+    });
+    VisAppBus::subscibeEvent(this, "SetMachineStatus");
 }
 
 WidgetBtnPanel::~WidgetBtnPanel()
@@ -23,90 +34,81 @@ WidgetBtnPanel::~WidgetBtnPanel()
     delete ui;
 }
 
-void WidgetBtnPanel::SetState(MachineRunStatus state)
+void WidgetBtnPanel::SetState(RunState state)
 {
 	QList<QPushButton*> tbtns = this->findChildren<QPushButton*>();
 	for (auto btn : tbtns) {
-        if (state == MachineRunStatus::Idle) {
+        if (state == IdleState || state == ProduceState) {
             btn->setEnabled(true);
         }	
         else {
+            m_autoModel->setEnabled(false);
             btn->setEnabled(false);
         }	
 	}
-    if (state == MachineRunStatus::NoHomed) {
-        ChangeExeStatus(QString(u8"未复位"), QColor(0, 128, 0),true);
-        ui->btnReset->setEnabled(true);
-        ui->btnEstop->setEnabled(true);
-        ui->btnAlarmCleared->setEnabled(true);
+	if (state == IdleState) {
+		m_autoModel->setEnabled(true);
+        m_autoModel->ChangeState(false);
+        ChangeExeStatus(QString(u8"空闲"), QColor(0, 128, 0),true);
 	}
-    else if (state == MachineRunStatus::Homed) {
+	else if (state == ResetState) {
 		ui->btnEstop->setEnabled(true);
-        ChangeExeStatus(QString(u8"复位中"), QColor(255, 0, 0), false);
-        ui->btnReset->setEnabled(true);
-        ui->btnAlarmCleared->setEnabled(true);
+        m_autoModel->setEnabled(false);
+        ChangeExeStatus(QString(u8"复位"), QColor(255, 0, 0), false);
 	}
-    else if (state == MachineRunStatus::Idle) {
-        ChangeExeStatus(QString(u8"空闲"), QColor(0, 128, 0), true);
-        ui->btnReset->setEnabled(false);
-        ui->btnEstop->setEnabled(true);
-        ui->btnAutoStart->setEnabled(true);
-        ui->btnSpotCheck->setEnabled(true);
-        ui->btnAlarmCleared->setEnabled(true);
-    }
-    else if (state == MachineRunStatus::AutoRunning) {
-        ChangeExeStatus(QString(u8"自动生产"), QColor(0, 128, 0), true);
-        ui->btnReset->setEnabled(false);
-        ui->btnEstop->setEnabled(true);
-        ui->btnAutoStart->setEnabled(false);
+	else if(state == ProduceState) {
+		m_autoModel->setEnabled(false);
         ui->btnSpotCheck->setEnabled(false);
-        ui->btnAlarmCleared->setEnabled(true);
-        ui->btnAutoPause->setEnabled(true);
+        ui->btnClear->setEnabled(true);
+		ui->btnReset->setEnabled(false);
+        ui->btnAutoRestore->setEnabled(false);
+        ChangeExeStatus(QString(u8"自动"), QColor(0, 128, 0),false);
+	}
+}
+
+void WidgetBtnPanel::slotAutoModel(bool checked)
+{
+    if (checked)
+    {
+        if (!m_autoModel->isEnabled())return;
+        VisAppBus::sendEvent("InitCalibTabelTitle");
+        SetState(ProduceState);
+		VisAppBus::sendEvent("UiAutoMode", true);
+        int nRes = VisAppBus::sendEvent("AutoStart");
+        if (nRes != 0) {
+            ShowSystemLog(Log_Error, QString(u8"进入生产模式失败"));
+            SetState(IdleState);
+			VisAppBus::sendEvent("UiAutoMode", false);
+            return;
+        } 
+        GlobalParam->autoRunning = true;
     }
-    else if (state == MachineRunStatus::Pause) {
-        ChangeExeStatus(QString(u8"手动模式"), QColor(0, 128, 0), true);
+    else
+    {
+        VisAppBus::sendEvent("UiAutoMode", false);
+        GlobalParam->autoRunning = false;
     }
 }
 
 void WidgetBtnPanel::on_btnReset_clicked()
 {
-    ShowSystemLog(Log_Info, QString::fromUtf8(u8"系统复位按钮点击"));
-    int nRes = VisAppBus::sendEvent("AutoReset");
-}
-
-void WidgetBtnPanel::on_btnAutoStart_clicked()
-{
-    ShowSystemLog(Log_Info, QString::fromUtf8(u8"启动按钮点击"));
-    int nRes = VisAppBus::sendEvent("AutoStart");
-    if (nRes != 0) {
-        ShowSystemLog(Log_Error, QString(u8"进入生产模式失败"));
-        return;
-    }
-}
-
-void WidgetBtnPanel::on_btnAutoStop_clicked()
-{
-    ShowSystemLog(Log_Info, QString::fromUtf8(u8"停止按钮点击"));
+    if (!ui->btnReset->isEnabled())return;
+	VisAppBus::sendEvent("UiAutoMode", true);
+	SetState(ResetState);
+	int nRes = VisAppBus::sendEvent("AutoReset");
+    SetState(IdleState);
+	VisAppBus::sendEvent("UiAutoMode", false);
 }
 
 void WidgetBtnPanel::on_btnAutoPause_clicked()
 {
-    ShowSystemLog(Log_Info, QString::fromUtf8(u8"暂停按钮点击"));
     VisAppBus::sendEvent("AutoPause");
     ui->btnAutoPause->setEnabled(false);
     ui->btnAutoRestore->setEnabled(true);
 }
 
-void WidgetBtnPanel::on_btnClearModule_clicked()
-{
-	if (QMessageBox::question(this, u8"提示", u8"是否开始清料") == QMessageBox::Yes) {
-		VisAppBus::sendEvent("ClearModule");
-	}
-}
-
 void WidgetBtnPanel::on_btnAutoRestore_clicked()
 {
-    ShowSystemLog(Log_Info, QString::fromUtf8(u8"恢复按钮点击"));
     VisAppBus::sendEvent("AutoResume");
 	ui->btnAutoPause->setEnabled(true);
     ui->btnAutoRestore->setEnabled(false);
@@ -114,28 +116,37 @@ void WidgetBtnPanel::on_btnAutoRestore_clicked()
 
 void WidgetBtnPanel::on_btnAlarmCleared_clicked()
 {
-    ShowSystemLog(Log_Info, QString::fromUtf8(u8"报警清除按钮点击"));
     VisAppBus::sendEvent("ClearWarning");
 }
 
 void WidgetBtnPanel::on_btnEstop_clicked()
 {
-    ShowSystemLog(Log_Info, QString::fromUtf8(u8"紧急停止按钮点击"));
+    ShowSystemLog(Log_Error, QString(u8"界面按钮触发急停"));
     VisAppBus::sendEvent("AutoEmg");
+    SetState(IdleState);
+}
+
+int WidgetBtnPanel::event_SetMachineStatus(MachineRunStatus status)
+{
+    if (status == AutoRunning) {
+        slotAutoModel(true);
+        tagOutputInfo outInfo;
+        outInfo._type = INFT_MACHINE_Auto;
+        emit GlobalParam->frameCore->sig_OutputInfo(outInfo);
+    }
+    else if (status == Homed) {
+        on_btnReset_clicked();
+    }
+    else if (status == Pause) {
+        if (ui->btnAutoPause->isEnabled())
+            on_btnAutoPause_clicked();
+        else
+            on_btnAutoRestore_clicked();
+    }
+    return 0;
 }
 
 void WidgetBtnPanel::on_btnSpotCheck_clicked()
 {
-    int nRes = VisAppBus::sendEvent("AutoSpot");
-    if (nRes != 0) {
-        ShowSystemLog(Log_Error, QString(u8"进入点检模式失败"));
-        return;
-    }
+       VisAppBus::sendEvent("SupplyMaterial");
 }
-
-int WidgetBtnPanel::event_UpdateDevStatus(MachineRunStatus status)
-{
-    SetState(status);
-    return 0;
-}
-

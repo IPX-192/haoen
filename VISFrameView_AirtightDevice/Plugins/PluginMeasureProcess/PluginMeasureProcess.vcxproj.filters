@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CylinderCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grab\WorkNode\DirtyNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grab\WorkNode\FilmTearNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\NonBlockingMsgBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grab\WorkNode\PCBCleanNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PipeLine\PipeLineManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PluginMeasureProcess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grab\ThreadBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grab\ThreadClean.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grab\ThreadFeed.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grab\TurntableGrab.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grab\TurntableProcess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grab\TurntableWorkStep.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PipeLine\UdpClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PipeLine\UdpServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="CylinderCtrl.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="Grab\WorkNode\DirtyNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Grab\WorkNode\FilmTearNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\Common\NonBlockingMsgBox.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="Grab\WorkNode\PCBCleanNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="PipeLine\PipeLineManager.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="PluginMeasureProcess.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Grab\ThreadBox.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Grab\ThreadClean.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Grab\ThreadFeed.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="Grab\ThreadGrabDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="Grab\TurntableGrab.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Grab\TurntableProcess.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="Grab\TurntableWorkStep.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="PipeLine\UdpClient.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="PipeLine\UdpServer.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\interface\coreinterface.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\interface\plugininterface.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <CustomBuild Include="D:\git\FilmTear\Plugins\PluginMeasureProcess\temp\moc\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D:\git\FilmTear\Plugins\PluginMeasureProcess\PluginMeasureProcess_resource.rc" />
+  </ItemGroup>
+</Project>

@@ -46,7 +46,7 @@ QGroupBox::!enabled{
        <item>
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>产品型号:</string>
+          <string>产品料号:</string>
          </property>
         </widget>
        </item>

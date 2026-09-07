@@ -22,7 +22,7 @@ class WidgetShield : public QWidget
     Q_OBJECT
 
 public:
-    explicit WidgetShield(QWidget *parent = nullptr);
+    explicit WidgetShield(QWidget *parent = nullptr, const QString& iniFilePath = QString());
     ~WidgetShield();
 
 public slots:
@@ -38,6 +38,7 @@ private:
     // Member variables
     ShieldTableModel *m_model;
     QTableView *m_tableView;
+    QString m_iniFilePath;  //
 	QMap<QString, QPair<bool*, QString>>m_shieldDataMap; //名称-（是否使用，点位地址）
 };
 

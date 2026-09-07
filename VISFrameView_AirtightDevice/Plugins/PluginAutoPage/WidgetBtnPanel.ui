@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>354</width>
+    <width>282</width>
     <height>206</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -26,7 +26,7 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
-   <item row="0" column="0">
+   <item>
     <widget class="QFrame" name="frameDevice">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -51,18 +51,15 @@
      <property name="styleSheet">
       <string notr="true">QFrame#frameDevice{border:none}</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_12">
-      <property name="spacing">
-       <number>6</number>
-      </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
       <property name="leftMargin">
-       <number>3</number>
+       <number>0</number>
       </property>
       <property name="topMargin">
        <number>0</number>
       </property>
       <property name="rightMargin">
-       <number>3</number>
+       <number>0</number>
       </property>
       <property name="bottomMargin">
        <number>0</number>
@@ -70,26 +67,48 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QPushButton" name="btnAutoStart">
+         <widget class="QFrame" name="frameAutoModel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
             <width>0</width>
             <height>45</height>
            </size>
           </property>
-          <property name="text">
-           <string>   启 动</string>
-          </property>
-          <property name="icon">
-           <iconset resource="resource/qss.qrc">
-            <normaloff>:/icon/start.png</normaloff>:/icon/start.png</iconset>
-          </property>
-          <property name="iconSize">
+          <property name="maximumSize">
            <size>
-            <width>30</width>
-            <height>30</height>
+            <width>16777215</width>
+            <height>16777215</height>
            </size>
           </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_14">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+          </layout>
          </widget>
         </item>
         <item>
@@ -100,8 +119,13 @@
             <height>45</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="text">
-           <string> 系统复位</string>
+           <string>系统复位</string>
           </property>
           <property name="icon">
            <iconset resource="resource/qss.qrc">
@@ -120,29 +144,6 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_23">
         <item>
-         <widget class="QPushButton" name="btnAutoStop">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>45</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>   停 止</string>
-          </property>
-          <property name="icon">
-           <iconset resource="resource/qss.qrc">
-            <normaloff>:/icon/stop.png</normaloff>:/icon/stop.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>32</width>
-            <height>32</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QPushButton" name="btnSpotCheck">
           <property name="minimumSize">
            <size>
@@ -150,17 +151,50 @@
             <height>45</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="text">
-           <string>   点 检</string>
+           <string> 料仓补料</string>
           </property>
           <property name="icon">
            <iconset resource="resource/qss.qrc">
-            <normaloff>:/icon/SpotCheck.png</normaloff>:/icon/SpotCheck.png</iconset>
+            <normaloff>:/icon/start.png</normaloff>:/icon/start.png</iconset>
           </property>
           <property name="iconSize">
            <size>
             <width>30</width>
             <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnClear">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>45</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>手动上盘</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resource/qss.qrc">
+            <normaloff>:/icon/delete.png</normaloff>:/icon/delete.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
            </size>
           </property>
          </widget>
@@ -176,6 +210,11 @@
             <width>0</width>
             <height>45</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
           </property>
           <property name="text">
            <string>   暂 停</string>
@@ -199,6 +238,11 @@
             <width>0</width>
             <height>45</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
           </property>
           <property name="text">
            <string>   恢 复</string>
@@ -227,8 +271,13 @@
             <height>45</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="text">
-           <string> 报警清除</string>
+           <string>报警清除</string>
           </property>
           <property name="icon">
            <iconset resource="resource/qss.qrc">
@@ -250,8 +299,13 @@
             <height>45</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="text">
-           <string> 紧急停止</string>
+           <string>紧急停止</string>
           </property>
           <property name="icon">
            <iconset resource="resource/qss.qrc">

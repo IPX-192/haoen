@@ -1,9 +1,11 @@
 ﻿#ifndef PLUGINSYSTEMSET_H
 #define PLUGINSYSTEMSET_H
-#include <QSharedPointer>
-#include "VISFramePluginModel.h"
 
-//系统设置界面
+#include "VISFramePluginModel.h"
+#include "MesHttpPost.h"
+#include <QTimer>
+
+class WidgetMesLogin;
 class PluginSystemSet:public VISFramePluginModel
 {
     Q_OBJECT
@@ -15,8 +17,26 @@ public:
 public:
     virtual void InitWidgetList(Plugin_Interface* plugin);
     virtual void InitActionList(Plugin_Interface* plugin);
-    virtual int  OnInitialized();
-    virtual int  OnViewClosing();
+    virtual int OnInitialized();
+
+protected:
+    WidgetMesLogin* m_widgetMesLogin=nullptr;
+    QEventLoop* m_eventloop = nullptr;
+
+public slots:
+    int event_ShowLogin();
+    //MES接口总线
+    int event_MesValidateNumber(QString sn, bool& outValidate);                    //条码校验(PCB扫码后)
+    int event_MesSaveProcessOpResult(QString sn, int opResult,
+                                     QList<DataDetail> detailAll, QString& outMainId, bool& outSuccess); //保存工序操作结果(成功标志走输出参数,不依赖总线返回值)
+    int event_MesCompleteTask(QString sn, bool isSuccess, QString errCode,
+                              QString errInfo, bool bindMat, bool& outTaskResult); //工序过站
+
+    void SlotPostHeartBeatTimeout();
+
+private:
+    QTimer    m_heartTimer;
+
 };
 
 #endif // PLUGINMANUALDEBUG_H

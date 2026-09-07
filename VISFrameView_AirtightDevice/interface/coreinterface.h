@@ -14,7 +14,7 @@ Version : 1.0.1
 #include <QThreadPool>
 #include <QMetaType>
 #include <QMutex>
-#include "VisAppBus.h"
+
 #include "plugininterface.h"
 
 #ifndef __FILENAME__

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>796</width>
-    <height>20</height>
+    <width>560</width>
+    <height>42</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,7 +57,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="LabelMesOpen">
+    <widget class="QLabel" name="label_user_2">
      <property name="font">
       <font>
        <family>Agency FB</family>
@@ -83,7 +83,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="LabelScanCodeOpen">
+    <widget class="QLabel" name="label_user_3">
      <property name="font">
       <font>
        <family>Agency FB</family>
@@ -91,10 +91,10 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 0, 0);</string>
+      <string notr="true">background-color: rgb(125, 125, 125);</string>
      </property>
      <property name="text">
-      <string>扫码器关闭</string>
+      <string>安全光栅已关闭</string>
      </property>
     </widget>
    </item>
@@ -105,6 +105,22 @@
      </property>
      <property name="orientation">
       <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_user_4">
+     <property name="font">
+      <font>
+       <family>Agency FB</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string>气压检测已开启</string>
      </property>
     </widget>
    </item>

@@ -234,13 +234,12 @@ Makefile: PluginProductSet.pro D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-m
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\qt_config.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-msvc\qmake.conf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\spec_post.prf \
-		.qmake.stash \
+		..\..\.qmake.stash \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exclusive_builds.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\common\msvc-version.conf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\toolchain.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\default_pre.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\win32\default_pre.prf \
-		..\Common\Custom\Custom.pri \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\resolve_config.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exclusive_builds_post.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\default_post.prf \
@@ -260,7 +259,7 @@ Makefile: PluginProductSet.pro D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-m
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\yacc.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\lex.prf \
 		PluginProductSet.pro \
-		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5PrintSupport.prl \
+		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5OpenGL.prl \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Widgets.prl \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Gui.prl \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Network.prl \
@@ -425,13 +424,12 @@ D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\qt_functions.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\qt_config.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-msvc\qmake.conf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\spec_post.prf:
-.qmake.stash:
+..\..\.qmake.stash:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exclusive_builds.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\common\msvc-version.conf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\toolchain.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\default_pre.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\win32\default_pre.prf:
-..\Common\Custom\Custom.pri:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\resolve_config.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exclusive_builds_post.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\default_post.prf:
@@ -451,7 +449,7 @@ D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exceptions.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\yacc.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\lex.prf:
 PluginProductSet.pro:
-D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5PrintSupport.prl:
+D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5OpenGL.prl:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Widgets.prl:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Gui.prl:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Network.prl:
@@ -467,10 +465,10 @@ make_first: release-make_first debug-make_first  FORCE
 all: release-all debug-all  FORCE
 clean: release-clean debug-clean  FORCE
 	-$(DEL_FILE) ..\..\bin\Plugin\PluginProductSet.exp
-	-$(DEL_FILE) ..\..\temp\PluginProductSet\obj\PluginProductSet.vc.pdb
+	-$(DEL_FILE) temp\obj\PluginProductSet.vc.pdb
 distclean: release-distclean debug-distclean  FORCE
 	-$(DEL_FILE) Makefile
-	-$(DEL_FILE) .qmake.stash ..\..\bin\Plugin\PluginProductSet.lib ..\..\bin\Plugin\PluginProductSet.pdb
+	-$(DEL_FILE) ..\..\bin\Plugin\PluginProductSet.lib ..\..\bin\Plugin\PluginProductSet.pdb
 
 release-mocclean:
 	@set MAKEFLAGS=$(MAKEFLAGS)

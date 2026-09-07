@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>798</width>
-    <height>640</height>
+    <width>741</width>
+    <height>523</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,16 +15,16 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="leftMargin">
-    <number>0</number>
+    <number>1</number>
    </property>
    <property name="topMargin">
-    <number>0</number>
+    <number>1</number>
    </property>
    <property name="rightMargin">
-    <number>0</number>
+    <number>6</number>
    </property>
    <property name="bottomMargin">
-    <number>0</number>
+    <number>1</number>
    </property>
    <item>
     <widget class="QWidget" name="widgetLeftBar" native="true">
@@ -51,7 +51,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QToolButton" name="tbtnDataSave_1">
+       <widget class="QToolButton" name="btnShiled_1">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -59,12 +59,12 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>数据存储</string>
+         <string>功能屏蔽</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="tbtnMesParam_2">
+       <widget class="QToolButton" name="btnGrip_2">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -72,12 +72,12 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>MES参数</string>
+         <string>夹爪参数</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="tbtnElectricGripperParam_3">
+       <widget class="QToolButton" name="btnBox_3">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -85,46 +85,7 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>电爪配置</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QToolButton" name="tbtnPlcDelay_4">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>运行延时</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QToolButton" name="tbtnShield_5">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>屏蔽配置</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QToolButton" name="tbtnAritight_6">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>气密配置</string>
+         <string>料箱参数</string>
         </property>
        </widget>
       </item>
@@ -158,20 +119,20 @@
         <widget class="QPushButton" name="btnUpdateUI">
          <property name="geometry">
           <rect>
-           <x>26</x>
+           <x>24</x>
            <y>10</y>
            <width>91</width>
            <height>31</height>
           </rect>
          </property>
          <property name="text">
-          <string>刷新界面</string>
+          <string>还原参数</string>
          </property>
         </widget>
         <widget class="QPushButton" name="btnSaveParam">
          <property name="geometry">
           <rect>
-           <x>26</x>
+           <x>24</x>
            <y>60</y>
            <width>91</width>
            <height>31</height>
@@ -188,7 +149,7 @@
    </item>
    <item>
     <widget class="QWidget" name="widgetFunc" native="true">
-     <layout class="QVBoxLayout" name="verticalLayout_3">
+     <layout class="QGridLayout" name="gridLayout_2">
       <property name="leftMargin">
        <number>0</number>
       </property>
@@ -201,52 +162,14 @@
       <property name="bottomMargin">
        <number>0</number>
       </property>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <item>
-         <widget class="QStackedWidget" name="stackedWidget">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="WidgetLog" name="widget_Log" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>190</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>190</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-         </widget>
-        </item>
-       </layout>
+      <item row="0" column="0">
+       <widget class="QStackedWidget" name="stackedWidget"/>
       </item>
      </layout>
     </widget>
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>WidgetLog</class>
-   <extends>QWidget</extends>
-   <header>../Common/WidgetLog.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>988</width>
+    <width>816</width>
     <height>477</height>
    </rect>
   </property>
@@ -28,75 +28,14 @@
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>170</height>
+       <height>90</height>
       </size>
      </property>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>7</x>
-        <y>9</y>
-        <width>71</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Agency FB</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>平台名称</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_Platform">
-      <property name="geometry">
-       <rect>
-        <x>77</x>
-        <y>9</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>50</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Agency FB</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>装配序列号</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_ProductNo">
-      <property name="geometry">
-       <rect>
-        <x>296</x>
-        <y>50</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
      <widget class="QLineEdit" name="lineEdit_productShow">
       <property name="geometry">
        <rect>
-        <x>77</x>
-        <y>50</y>
+        <x>118</x>
+        <y>10</y>
         <width>113</width>
         <height>25</height>
        </rect>
@@ -105,8 +44,8 @@
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>7</x>
-        <y>50</y>
+        <x>10</x>
+        <y>10</y>
         <width>81</width>
         <height>31</height>
        </rect>
@@ -118,14 +57,14 @@
        </font>
       </property>
       <property name="text">
-       <string>上位机</string>
+       <string>料号名称</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_BarCodeLimit1">
       <property name="geometry">
        <rect>
-        <x>535</x>
-        <y>10</y>
+        <x>118</x>
+        <y>50</y>
         <width>113</width>
         <height>25</height>
        </rect>
@@ -137,7 +76,7 @@
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>210</x>
+        <x>243</x>
         <y>9</y>
         <width>71</width>
         <height>31</height>
@@ -156,7 +95,7 @@
      <widget class="QLineEdit" name="lineEdit_productName">
       <property name="geometry">
        <rect>
-        <x>296</x>
+        <x>323</x>
         <y>9</y>
         <width>113</width>
         <height>25</height>
@@ -166,8 +105,8 @@
      <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>427</x>
-        <y>8</y>
+        <x>10</x>
+        <y>48</y>
         <width>111</width>
         <height>31</height>
        </rect>
@@ -179,14 +118,14 @@
        </font>
       </property>
       <property name="text">
-       <string>1条码固定字符</string>
+       <string>条码固定字符</string>
       </property>
      </widget>
      <widget class="QPushButton" name="btnNewMatrix">
       <property name="geometry">
        <rect>
-        <x>880</x>
-        <y>8</y>
+        <x>470</x>
+        <y>10</y>
         <width>75</width>
         <height>25</height>
        </rect>
@@ -204,7 +143,7 @@
      <widget class="QPushButton" name="btnDeleteMatrix">
       <property name="geometry">
        <rect>
-        <x>880</x>
+        <x>470</x>
         <y>50</y>
         <width>75</width>
         <height>25</height>
@@ -223,8 +162,8 @@
      <widget class="QLabel" name="label_7">
       <property name="geometry">
        <rect>
-        <x>660</x>
-        <y>8</y>
+        <x>243</x>
+        <y>48</y>
         <width>81</width>
         <height>31</height>
        </rect>
@@ -236,268 +175,17 @@
        </font>
       </property>
       <property name="text">
-       <string>1起始位置</string>
+       <string>起始位置</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_BarCodeStartPos1">
       <property name="geometry">
        <rect>
-        <x>740</x>
-        <y>10</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_8">
-      <property name="geometry">
-       <rect>
-        <x>427</x>
-        <y>48</y>
-        <width>111</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Agency FB</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>2条码固定字符</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_9">
-      <property name="geometry">
-       <rect>
-        <x>660</x>
-        <y>48</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Agency FB</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>2起始位置</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_BarCodeLimit2">
-      <property name="geometry">
-       <rect>
-        <x>535</x>
+        <x>323</x>
         <y>50</y>
         <width>113</width>
         <height>25</height>
        </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_BarCodeStartPos2">
-      <property name="geometry">
-       <rect>
-        <x>740</x>
-        <y>50</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_5">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>90</y>
-        <width>61</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Agency FB</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>托 盘 1</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_ProductFamily1">
-      <property name="geometry">
-       <rect>
-        <x>77</x>
-        <y>90</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_FixtureSn1">
-      <property name="geometry">
-       <rect>
-        <x>296</x>
-        <y>90</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_19">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>90</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Agency FB</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>治具防错码1</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_20">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>130</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Agency FB</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>治具防错码2</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_ProductFamily2">
-      <property name="geometry">
-       <rect>
-        <x>77</x>
-        <y>130</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_FixtureSn2">
-      <property name="geometry">
-       <rect>
-        <x>296</x>
-        <y>130</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_21">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>130</y>
-        <width>61</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Agency FB</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>托 盘 2</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_22">
-      <property name="geometry">
-       <rect>
-        <x>660</x>
-        <y>90</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Agency FB</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>镜头码防错</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_LensProductNo">
-      <property name="geometry">
-       <rect>
-        <x>535</x>
-        <y>90</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_LensCodeEnable">
-      <property name="geometry">
-       <rect>
-        <x>740</x>
-        <y>90</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_23">
-      <property name="geometry">
-       <rect>
-        <x>427</x>
-        <y>90</y>
-        <width>111</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Agency FB</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>镜头水洗序列号</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="btnDeleteMatrix_3">
-      <property name="geometry">
-       <rect>
-        <x>880</x>
-        <y>90</y>
-        <width>75</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Agency FB</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>复制</string>
       </property>
      </widget>
     </widget>

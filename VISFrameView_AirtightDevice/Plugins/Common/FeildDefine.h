@@ -1,251 +1,215 @@
 #ifndef FEILDDEFNE_H
 #define FEILDDEFNE_H
 
-
-#define In_Spare52                                        "In_Spare52"                                        //
-#define In_Spare53                                        "In_Spare53"                                        //
-#define In_Spare67                                        "In_Spare67"                                        //
-#define In_Spare68                                        "In_Spare68"                                        //
-#define In_Spare82                                        "In_Spare82"                                        //
-#define In_Spare83                                        "In_Spare83"                                        //
-#define In_Spare97                                        "In_Spare97"                                        //
-#define In_Spare98                                        "In_Spare98"                                        //
-#define In_Spare112                                       "In_Spare112"                                       //
-#define In_Spare113                                       "In_Spare113"                                       //
-#define In_Spare114                                       "In_Spare114"                                       //
-#define In_Spare115                                       "In_Spare115"                                       //
-#define In_Spare116                                       "In_Spare116"                                       //
-#define In_Spare117                                       "In_Spare117"                                       //
-#define In_Spare118                                       "In_Spare118"                                       //
-#define In_Spare119                                       "In_Spare119"                                       //
-#define In_Spare120                                       "In_Spare120"                                       //
-#define In_Spare121                                       "In_Spare121"                                       //
-#define In_Spare122                                       "In_Spare122"                                       //
-#define In_Spare123                                       "In_Spare123"                                       //
-#define In_Spare124                                       "In_Spare124"                                       //
-#define In_Spare125                                       "In_Spare125"                                       //
-#define In_Spare126                                       "In_Spare126"                                       //
-#define In_Spare127                                       "In_Spare127"                                       //
-#define In_Spare128                                       "In_Spare128"                                       //
-#define In_Spare129                                       "In_Spare129"                                       //
-#define In_Spare130                                       "In_Spare130"                                       //
-#define In_Spare131                                       "In_Spare131"                                       //
-#define In_Spare132                                       "In_Spare132"                                       //
-#define In_Spare133                                       "In_Spare133"                                       //
-#define In_Spare134                                       "In_Spare134"                                       //
-#define In_Spare135                                       "In_Spare135"                                       //
-#define In_Spare136                                       "In_Spare136"                                       //
-#define In_Spare137                                       "In_Spare137"                                       //
-#define In_Spare138                                       "In_Spare138"                                       //
-#define In_Spare139                                       "In_Spare139"                                       //
-#define In_Spare140                                       "In_Spare140"                                       //
-#define In_Spare141                                       "In_Spare141"                                       //
-#define In_Spare142                                       "In_Spare142"                                       //
-#define In_Spare143                                       "In_Spare143"                                       //
+#include <QString>
 
 
-#define Out_Spare3                                        "Out_Spare3"                                        //
-#define Out_Spare17                                       "Out_Spare17"                                       //
-#define Out_Spare19                                       "Out_Spare19"                                       //
-#define Out_Spare23                                       "Out_Spare23"                                       //
-#define Out_Spare25                                       "Out_Spare25"                                       //
+#define IN_PipeLineCleanGripDown                          "IN_PipeLineCleanGripDown"                          //Á÷ÏßÇåÏ´PCB¼Ğ×¦ÔÚÏÂ
+#define IN_PipeLineCleanGripUp                            "IN_PipeLineCleanGripUp"                            //Á÷ÏßÇåÏ´PCB¼Ğ×¦ÔÚÉÏ
+#define IN_PipeLineFeedTurntableGripDown                  "IN_PipeLineFeedTurntableGripDown"                  //Á÷Ïß×ªÅÌÉÏÁÏ¼Ğ×¦ÔÚÏÂ
+#define IN_PipeLineFeedTurntableGripUp                    "IN_PipeLineFeedTurntableGripUp"                    //Á÷Ïß×ªÅÌÉÏÁÏ¼Ğ×¦ÔÚÉÏ
+#define IN_PipeLineBlankTurntableGripDown                 "IN_PipeLineBlankTurntableGripDown"                 //Á÷Ïß×ªÅÌÏÂÁÏ¼Ğ×¦ÔÚÏÂ
+#define IN_PipeLineBlankTurntableGripUp                   "IN_PipeLineBlankTurntableGripUp"                   //Á÷Ïß×ªÅÌÏÂÁÏ¼Ğ×¦ÔÚÉÏ
+#define IN_TurntableCleanGripDown                         "IN_TurntableCleanGripDown"                         //×ªÅÌÇåÏ´PCB¼Ğ×¦ÔÚÏÂ
+#define IN_TurntableCleanGripUp                           "IN_TurntableCleanGripUp"                           //×ªÅÌÇåÏ´PCB¼Ğ×¦ÔÚÉÏ
+#define IN_FeedPCBGripOvervoltage                         "IN_FeedPCBGripOvervoltage"                         //ÉÏÁÏPCB¼Ğ×¦¹ıÑ¹
+#define IN_FeedHolderGripOvervoltage                      "IN_FeedHolderGripOvervoltage"                      //ÉÏÁÏ¿ÇÌå¼Ğ×¦¹ıÑ¹
+#define IN_FilmtearGripOvervoltage                        "IN_FilmtearGripOvervoltage"                        //ËºÄ¤¼Ğ×¦¹ıÑ¹
 
 
-#define In_Tray1Tilt1                                     "In_Tray1Tilt1"                                     //1æ–™ç›˜å€¾æ–œæ£€æµ‹1
-#define In_Tray1Tilt2                                     "In_Tray1Tilt2"                                     //1æ–™ç›˜å€¾æ–œæ£€æµ‹2
-#define In_Tray1Tilt3                                     "In_Tray1Tilt3"                                     //1æ–™ç›˜å€¾æ–œæ£€æµ‹3
-#define In_Tray1Tilt4                                     "In_Tray1Tilt4"                                     //1æ–™ç›˜å€¾æ–œæ£€æµ‹4
-#define In_Check1Material1                                "In_Check1Material1"                                //1ç‚¹æ£€ç‰©æ–™æ£€æµ‹1
-#define In_Check1Material2                                "In_Check1Material2"                                //1ç‚¹æ£€ç‰©æ–™æ£€æµ‹2
-#define In_Check1Material3                                "In_Check1Material3"                                //1ç‚¹æ£€ç‰©æ–™æ£€æµ‹3
-#define In_Check1Material4                                "In_Check1Material4"                                //1ç‚¹æ£€ç‰©æ–™æ£€æµ‹4
-#define In_NGTray1Material1                               "In_NGTray1Material1"                               //1NGæ–™ç›˜ç‰©æ–™æ£€æµ‹1
-#define In_NGTray1Material2                               "In_NGTray1Material2"                               //1NGæ–™ç›˜ç‰©æ–™æ£€æµ‹2
-#define In_Tray2Tilt1                                     "In_Tray2Tilt1"                                     //2æ–™ç›˜å€¾æ–œæ£€æµ‹1
-#define In_Tray2Tilt2                                     "In_Tray2Tilt2"                                     //2æ–™ç›˜å€¾æ–œæ£€æµ‹2
-#define In_Tray2Tilt3                                     "In_Tray2Tilt3"                                     //2æ–™ç›˜å€¾æ–œæ£€æµ‹3
-#define In_Tray2Tilt4                                     "In_Tray2Tilt4"                                     //2æ–™ç›˜å€¾æ–œæ£€æµ‹4
-#define In_Check2Material1                                "In_Check2Material1"                                //2ç‚¹æ£€ç‰©æ–™æ£€æµ‹1
-#define In_Check2Material2                                "In_Check2Material2"                                //2ç‚¹æ£€ç‰©æ–™æ£€æµ‹2
-#define In_Check2Material3                                "In_Check2Material3"                                //2ç‚¹æ£€ç‰©æ–™æ£€æµ‹3
-#define In_Check2Material4                                "In_Check2Material4"                                //2ç‚¹æ£€ç‰©æ–™æ£€æµ‹4
-#define In_NGTray2Material1                               "In_NGTray2Material1"                               //2NGæ–™ç›˜ç‰©æ–™æ£€æµ‹1
-#define In_NGTray2Material2                               "In_NGTray2Material2"                               //2NGæ–™ç›˜ç‰©æ–™æ£€æµ‹2
-#define In_Tray1ClampRetract                              "In_Tray1ClampRetract"                              //1æ–™ç›˜å¤¹ç´§ç¼©å›æ£€æµ‹
-#define In_Tray1ClampExtend                               "In_Tray1ClampExtend"                               //1æ–™ç›˜å¤¹ç´§ä¼¸å‡ºæ£€æµ‹
-#define In_Tray2ClampRetract                              "In_Tray2ClampRetract"                              //2æ–™ç›˜å¤¹ç´§ç¼©å›æ£€æµ‹
-#define In_Tray2ClampExtend                               "In_Tray2ClampExtend"                               //2æ–™ç›˜å¤¹ç´§ä¼¸å‡ºæ£€æµ‹
+#define Out_PipeLineCleanGripDown                         "Out_PipeLineCleanGripDown"                         //Á÷ÏßÇåÏ´PCB¼Ğ×¦ÏòÏÂ
+#define Out_PipeLineCleanGripUp                           "Out_PipeLineCleanGripUp"                           //Á÷ÏßÇåÏ´PCB¼Ğ×¦ÏòÉÏ
+#define Out_PipeLineFeedTurntableGripUp                   "Out_PipeLineFeedTurntableGripUp"                   //Á÷Ïß×ªÅÌÉÏÁÏ¼Ğ×¦ÏòÉÏ
+#define Out_PipeLineFeedTurntableGripDown                 "Out_PipeLineFeedTurntableGripDown"                 //Á÷Ïß×ªÅÌÉÏÁÏ¼Ğ×¦ÏòÏÂ
+#define Out_PipeLineBlankTurntableGripUp                  "Out_PipeLineBlankTurntableGripUp"                  //Á÷Ïß×ªÅÌÏÂÁÏ¼Ğ×¦ÏòÉÏ
+#define Out_PipeLineBlankTurntableGripDown                "Out_PipeLineBlankTurntableGripDown"                //Á÷Ïß×ªÅÌÏÂÁÏ¼Ğ×¦ÏòÏÂ
+#define Out_TurntableCleanGripDown                        "Out_TurntableCleanGripDown"                        //×ªÅÌÇåÏ´PCB¼Ğ×¦ÏòÏÂ
+#define Out_TurntableCleanGripUp                          "Out_TurntableCleanGripUp"                          //×ªÅÌÇåÏ´PCB¼Ğ×¦ÏòÉÏ
 
 
-#define Out_Tray1Clamp                                    "Out_Tray1Clamp"                                    //æ–™ç›˜1å¤¹ç´§
-#define Out_Tray2Clamp                                    "Out_Tray2Clamp"                                    //æ–™ç›˜2å¤¹ç´§
+#define IN_FilmTearDetect                                 "IN_FilmTearDetect"                                 //ËºÄ¤É«´ø¼ì²â
 
 
-#define In_Test1Front                                     "In_Test1Front"                                     //1æµ‹è¯•å‰åˆ°ä½æ£€æµ‹
-#define In_Test1Back                                      "In_Test1Back"                                      //1æµ‹è¯•ååˆ°ä½æ£€æµ‹
-#define In_Test1Material                                  "In_Test1Material"                                  //1æµ‹è¯•ç‰©æ–™æ£€æµ‹
-#define In_Test1FixtureMistake1                           "In_Test1FixtureMistake1"                           //1æµ‹è¯•è½½å…·é˜²å‘†1
-#define In_Test1FixtureMistake2                           "In_Test1FixtureMistake2"                           //1æµ‹è¯•è½½å…·é˜²å‘†2
-#define In_Test1FixtureMistake3                           "In_Test1FixtureMistake3"                           //1æµ‹è¯•è½½å…·é˜²å‘†3
-#define In_Test1FixtureMistake4                           "In_Test1FixtureMistake4"                           //1æµ‹è¯•è½½å…·é˜²å‘†4
-#define In_Test1UpperMoldMistake1                         "In_Test1UpperMoldMistake1"                         //1æµ‹è¯•ä¸Šæ¨¡é˜²å‘†1
-#define In_Test1UpperMoldMistake2                         "In_Test1UpperMoldMistake2"                         //1æµ‹è¯•ä¸Šæ¨¡é˜²å‘†2
-#define In_Test1UpperMoldMistake3                         "In_Test1UpperMoldMistake3"                         //1æµ‹è¯•ä¸Šæ¨¡é˜²å‘†3
-#define In_Test1UpperMoldMistake4                         "In_Test1UpperMoldMistake4"                         //1æµ‹è¯•ä¸Šæ¨¡é˜²å‘†4
-#define In_Test1UpperMoldRetract                          "In_Test1UpperMoldRetract"                          //1æµ‹è¯•ä¸Šæ¨¡ç¼©å›æ£€æµ‹
-#define In_Test1UpperMoldExtend                           "In_Test1UpperMoldExtend"                           //1æµ‹è¯•ä¸Šæ¨¡ä¼¸å‡ºæ£€æµ‹
+#define IN_FilmTearTest                                   "IN_FilmTearTest"                                   //²âÊÔÊ¹ÓÃ
 
 
-#define Out_Test1UpperMoldRetract                         "Out_Test1UpperMoldRetract"                         //1æµ‹è¯•ä¸Šæ¨¡ç¼©å›
-#define Out_Test1UpperMoldExtend                          "Out_Test1UpperMoldExtend"                          //1æµ‹è¯•ä¸Šæ¨¡ä¼¸å‡º
-#define Out_Test1FrontBackRetract                         "Out_Test1FrontBackRetract"                         //1æµ‹è¯•å‰åç¼©å›
-#define Out_Test1FrontBackExtend                          "Out_Test1FrontBackExtend"                          //1æµ‹è¯•å‰åä¼¸å‡º
+#define IN_PCBBoxTray                                     "IN_PCBBoxTray"                                     //PCBÁÏ²ÖÓĞÍĞÅÌ
+#define IN_HolderBoxTray                                  "IN_HolderBoxTray"                                  //¿ÇÌåÁÏ²ÖÓĞÍĞÅÌ
+#define IN_HolderBoxReady                                 "IN_HolderBoxReady"                                 //Ç°¿ÇÁÏ²Ö¾ÍĞ÷
+#define IN_PCBBoxReady                                    "IN_PCBBoxReady"                                    //PCBÁÏ²Ö¾ÍĞ÷
+#define IN_PCBTrayTilt1                                   "IN_PCBTrayTilt1"                                   //PCBÈ¡ÁÏÅÌÇãĞ±1
+#define IN_PCBTrayTilt2                                   "IN_PCBTrayTilt2"                                   //PCBÈ¡ÁÏÅÌÇãĞ±2
+#define IN_HolderTrayTilt1                                "IN_HolderTrayTilt1"                                //¿ÇÌåÈ¡ÁÏÅÌÇãĞ±1
+#define IN_HolderTrayTilt2                                "IN_HolderTrayTilt2"                                //¿ÇÌåÈ¡ÁÏÅÌÇãĞ±2
 
 
-#define In_Test2Front                                     "In_Test2Front"                                     //2æµ‹è¯•å‰åˆ°ä½æ£€æµ‹
-#define In_Test2Back                                      "In_Test2Back"                                      //2æµ‹è¯•ååˆ°ä½æ£€æµ‹
-#define In_Test2Material                                  "In_Test2Material"                                  //2æµ‹è¯•ç‰©æ–™æ£€æµ‹
-#define In_Test2FixtureMistake1                           "In_Test2FixtureMistake1"                           //2æµ‹è¯•è½½å…·é˜²å‘†1
-#define In_Test2FixtureMistake2                           "In_Test2FixtureMistake2"                           //2æµ‹è¯•è½½å…·é˜²å‘†2
-#define In_Test2FixtureMistake3                           "In_Test2FixtureMistake3"                           //2æµ‹è¯•è½½å…·é˜²å‘†3
-#define In_Test2FixtureMistake4                           "In_Test2FixtureMistake4"                           //2æµ‹è¯•è½½å…·é˜²å‘†4
-#define In_Test2UpperMoldMistake1                         "In_Test2UpperMoldMistake1"                         //2æµ‹è¯•ä¸Šæ¨¡é˜²å‘†1
-#define In_Test2UpperMoldMistake2                         "In_Test2UpperMoldMistake2"                         //2æµ‹è¯•ä¸Šæ¨¡é˜²å‘†2
-#define In_Test2UpperMoldMistake3                         "In_Test2UpperMoldMistake3"                         //2æµ‹è¯•ä¸Šæ¨¡é˜²å‘†3
-#define In_Test2UpperMoldMistake4                         "In_Test2UpperMoldMistake4"                         //2æµ‹è¯•ä¸Šæ¨¡é˜²å‘†4
-#define In_Test2UpperMoldRetract                          "In_Test2UpperMoldRetract"                          //2æµ‹è¯•ä¸Šæ¨¡ç¼©å›æ£€æµ‹
-#define In_Test2UpperMoldExtend                           "In_Test2UpperMoldExtend"                           //2æµ‹è¯•ä¸Šæ¨¡ä¼¸å‡ºæ£€æµ‹
+#define OUT_Test                                          "OUT_Test"                                          //²âÊÔÊ¹ÓÃ
 
 
-#define Out_Test2UpperMoldRetract                         "Out_Test2UpperMoldRetract"                         //2æµ‹è¯•ä¸Šæ¨¡ç¼©å›
-#define Out_Test2UpperMoldExtend                          "Out_Test2UpperMoldExtend"                          //2æµ‹è¯•ä¸Šæ¨¡ä¼¸å‡º
-#define Out_Test2FrontBackRetract                         "Out_Test2FrontBackRetract"                         //2æµ‹è¯•å‰åç¼©å›
-#define Out_Test2FrontBackExtend                          "Out_Test2FrontBackExtend"                          //2æµ‹è¯•å‰åä¼¸å‡º
+#define IN_PipeLinePCB                                    "IN_PipeLinePCB"                                    //Á÷ÏßÉÏÁÏPCB´¦ÓĞÅÌ
+#define IN_PipeLineClean                                  "IN_PipeLineClean"                                  //Á÷ÏßÇåÏ´PCB´¦ÓĞÅÌ
+#define IN_PipeLineTurntable                              "IN_PipeLineTurntable"                              //Á÷ÏßÉÏÁÏ×ªÅÌ´¦ÓĞÅÌ
+#define IN_PipeLineBackFlowBlockDown                      "IN_PipeLineBackFlowBlockDown"                      //»ØÁ÷Ïß»º´æ×èµ²ÔÚÏÂ
+#define IN_PipeLineFeedPCBBlockDown                       "IN_PipeLineFeedPCBBlockDown"                       //Á÷ÏßÉÏÁÏPCB×èµ²ÔÚÏÂ
+#define IN_PipeLinePCBCleanBlockDown                      "IN_PipeLinePCBCleanBlockDown"                      //Á÷ÏßÇåÏ´PCB×èµ²ÔÚÏÂ
+#define IN_PipeLineTurntableBlockDown                     "IN_PipeLineTurntableBlockDown"                     //Á÷ÏßÉÏÁÏ×ªÅÌ×èµ²ÔÚÏÂ
+#define IN_PipeLineFeedPCBPushDown                        "IN_PipeLineFeedPCBPushDown"                        //Á÷ÏßÉÏÁÏPCB¶¥ÉıÔÚÏÂ
+#define IN_PipeLineCleanPCBPushDown                       "IN_PipeLineCleanPCBPushDown"                       //Á÷ÏßÇåÏ´PCB¶¥ÉıÔÚÏÂ
+#define IN_PipeLineTurntableFeedPushDown                  "IN_PipeLineTurntableFeedPushDown"                  //Á÷ÏßÉÏÁÏ×ªÅÌ¶¥ÉıÔÚÏÂ
+#define IN_PipeLineFeedPCBTilt1                           "IN_PipeLineFeedPCBTilt1"                           //Á÷Ë®ÏßÉÏÁÏPCBÍáĞ±1
+#define IN_PipeLineFeedPCBTilt2                           "IN_PipeLineFeedPCBTilt2"                           //Á÷Ë®ÏßÉÏÁÏPCBÍáĞ±2
+#define IN_PipeLineCleanPCBTilt1                          "IN_PipeLineCleanPCBTilt1"                          //Á÷Ë®ÏßÇåÏ´PCBÍáĞ±1
+#define IN_PipeLineCleanPCBTilt2                          "IN_PipeLineCleanPCBTilt2"                          //Á÷Ë®ÏßÇåÏ´PCBÍáĞ±2
+#define IN_PipeLineTurntableFeedTilt1                     "IN_PipeLineTurntableFeedTilt1"                     //Á÷Ë®ÏßÉÏÁÏ×ªÅÌÍáĞ±1
+#define IN_PipeLineTurntableFeedTilt2                     "IN_PipeLineTurntableFeedTilt2"                     //Á÷Ë®ÏßÉÏÁÏ×ªÅÌÍáĞ±2
+#define IN_PipeLineBackFlowBuf                            "IN_PipeLineBackFlowBuf"                            //»ØÁ÷Ïß»º´æÓĞÅÌ
 
 
-#define In_Test3Front                                     "In_Test3Front"                                     //3æµ‹è¯•å‰åˆ°ä½æ£€æµ‹
-#define In_Test3Back                                      "In_Test3Back"                                      //3æµ‹è¯•ååˆ°ä½æ£€æµ‹
-#define In_Test3Material                                  "In_Test3Material"                                  //3æµ‹è¯•ç‰©æ–™æ£€æµ‹
-#define In_Test3FixtureMistake1                           "In_Test3FixtureMistake1"                           //3æµ‹è¯•è½½å…·é˜²å‘†1
-#define In_Test3FixtureMistake2                           "In_Test3FixtureMistake2"                           //3æµ‹è¯•è½½å…·é˜²å‘†2
-#define In_Test3FixtureMistake3                           "In_Test3FixtureMistake3"                           //3æµ‹è¯•è½½å…·é˜²å‘†3
-#define In_Test3FixtureMistake4                           "In_Test3FixtureMistake4"                           //3æµ‹è¯•è½½å…·é˜²å‘†4
-#define In_Test3UpperMoldMistake1                         "In_Test3UpperMoldMistake1"                         //3æµ‹è¯•ä¸Šæ¨¡é˜²å‘†1
-#define In_Test3UpperMoldMistake2                         "In_Test3UpperMoldMistake2"                         //3æµ‹è¯•ä¸Šæ¨¡é˜²å‘†2
-#define In_Test3UpperMoldMistake3                         "In_Test3UpperMoldMistake3"                         //3æµ‹è¯•ä¸Šæ¨¡é˜²å‘†3
-#define In_Test3UpperMoldMistake4                         "In_Test3UpperMoldMistake4"                         //3æµ‹è¯•ä¸Šæ¨¡é˜²å‘†4
-#define In_Test3UpperMoldRetract                          "In_Test3UpperMoldRetract"                          //3æµ‹è¯•ä¸Šæ¨¡ç¼©å›æ£€æµ‹
-#define In_Test3UpperMoldExtend                           "In_Test3UpperMoldExtend"                           //3æµ‹è¯•ä¸Šæ¨¡ä¼¸å‡ºæ£€æµ‹
+#define Out_PipeLineBackFlowMotorL                        "Out_PipeLineBackFlowMotorL"                        //»ØÁ÷Ïßµç»ú×ó×ª
+#define Out_PipeLineBackFlowMotorR                        "Out_PipeLineBackFlowMotorR"                        //»ØÁ÷Ïßµç»úÓÒ×ª
+#define Out_PipeLineMotorL                                "Out_PipeLineMotorL"                                //ÊäËÍÏßµç»ú×ó×ª
+#define Out_PipeLineMotorR                                "Out_PipeLineMotorR"                                //ÊäËÍÏßµç»úÓÒ×ª
+#define Out_PipeLineBackFlowBlockUp                       "Out_PipeLineBackFlowBlockUp"                       //»ØÁ÷Ïß×èµ²ÏòÉÏ
+#define Out_PipeLineFeedPCBBlockUp                        "Out_PipeLineFeedPCBBlockUp"                        //Á÷ÏßÉÏÁÏPCB×èµ²ÉÏÉı
+#define Out_PipeLinePCBCleanBlockUp                       "Out_PipeLinePCBCleanBlockUp"                       //Á÷ÏßÇåÏ´PCB×èµ²ÉÏÉı
+#define Out_PipeLineTurntableBlockUp                      "Out_PipeLineTurntableBlockUp"                      //Á÷ÏßÉÏÁÏ×ªÅÌ×èµ²ÉÏÉı
+#define Out_PipeLineFeedPCBPushUp                         "Out_PipeLineFeedPCBPushUp"                         //Á÷ÏßÉÏÁÏPCB¶¥ÉıÉÏÉı
+#define Out_PipeLineFeedPCBPushDown                       "Out_PipeLineFeedPCBPushDown"                       //Á÷ÏßÉÏÁÏPCB¶¥ÉıÏÂ½µ
+#define Out_PipeLineCleanPCBPushDown                      "Out_PipeLineCleanPCBPushDown"                      //Á÷ÏßÇåÏ´PCB¶¥ÉıÏÂ½µ
+#define Out_PipeLineCleanPCBPushUp                        "Out_PipeLineCleanPCBPushUp"                        //Á÷ÏßÇåÏ´PCB¶¥ÉıÉÏÉı
+#define Out_PipeLineTurntablePushDown                     "Out_PipeLineTurntablePushDown"                     //Á÷ÏßÉÏÁÏ×ªÅÌ¶¥ÉıÏÂ½µ
+#define Out_PipeLineTurntablePushUp                       "Out_PipeLineTurntablePushUp"                       //Á÷ÏßÉÏÁÏ×ªÅÌ¶¥ÉıÉÏÉı
 
 
-#define Out_Test3UpperMoldRetract                         "Out_Test3UpperMoldRetract"                         //3æµ‹è¯•ä¸Šæ¨¡ç¼©å›
-#define Out_Test3UpperMoldExtend                          "Out_Test3UpperMoldExtend"                          //3æµ‹è¯•ä¸Šæ¨¡ä¼¸å‡º
-#define Out_Test3FrontBackRetract                         "Out_Test3FrontBackRetract"                         //3æµ‹è¯•å‰åç¼©å›
-#define Out_Test3FrontBackExtend                          "Out_Test3FrontBackExtend"                          //3æµ‹è¯•å‰åä¼¸å‡º
+#define IN_PipeLineTransferL                              "IN_PipeLineTransferL"                              //½Ó²µÏß×ó±ßÓĞÅÌ
+#define IN_PipeLineTransferR                              "IN_PipeLineTransferR"                              //½Ó²µÏßÓÒ±ßÓĞÅÌ
 
 
-#define In_Test4Front                                     "In_Test4Front"                                     //4æµ‹è¯•å‰åˆ°ä½æ£€æµ‹
-#define In_Test4Back                                      "In_Test4Back"                                      //4æµ‹è¯•ååˆ°ä½æ£€æµ‹
-#define In_Test4Material                                  "In_Test4Material"                                  //4æµ‹è¯•ç‰©æ–™æ£€æµ‹
-#define In_Test4FixtureMistake1                           "In_Test4FixtureMistake1"                           //4æµ‹è¯•è½½å…·é˜²å‘†1
-#define In_Test4FixtureMistake2                           "In_Test4FixtureMistake2"                           //4æµ‹è¯•è½½å…·é˜²å‘†2
-#define In_Test4FixtureMistake3                           "In_Test4FixtureMistake3"                           //4æµ‹è¯•è½½å…·é˜²å‘†3
-#define In_Test4FixtureMistake4                           "In_Test4FixtureMistake4"                           //4æµ‹è¯•è½½å…·é˜²å‘†4
-#define In_Test4UpperMoldMistake1                         "In_Test4UpperMoldMistake1"                         //4æµ‹è¯•ä¸Šæ¨¡é˜²å‘†1
-#define In_Test4UpperMoldMistake2                         "In_Test4UpperMoldMistake2"                         //4æµ‹è¯•ä¸Šæ¨¡é˜²å‘†2
-#define In_Test4UpperMoldMistake3                         "In_Test4UpperMoldMistake3"                         //4æµ‹è¯•ä¸Šæ¨¡é˜²å‘†3
-#define In_Test4UpperMoldMistake4                         "In_Test4UpperMoldMistake4"                         //4æµ‹è¯•ä¸Šæ¨¡é˜²å‘†4
-#define In_Test4UpperMoldRetract                          "In_Test4UpperMoldRetract"                          //4æµ‹è¯•ä¸Šæ¨¡ç¼©å›æ£€æµ‹
-#define In_Test4UpperMoldExtend                           "In_Test4UpperMoldExtend"                           //4æµ‹è¯•ä¸Šæ¨¡ä¼¸å‡ºæ£€æµ‹
+#define Out_TransferBack                                  "Out_TransferBack"                                  //Á÷Ïß½Ó²µÌ¨Ëõ»Ø
+#define Out_TransferExend                                 "Out_TransferExend"                                 //Á÷Ïß½Ó²µÌ¨Éì³ö
 
 
-#define Out_Test4UpperMoldRetract                         "Out_Test4UpperMoldRetract"                         //4æµ‹è¯•ä¸Šæ¨¡ç¼©å›
-#define Out_Test4UpperMoldExtend                          "Out_Test4UpperMoldExtend"                          //4æµ‹è¯•ä¸Šæ¨¡ä¼¸å‡º
-#define Out_Test4FrontBackRetract                         "Out_Test4FrontBackRetract"                         //4æµ‹è¯•å‰åç¼©å›
-#define Out_Test4FrontBackExtend                          "Out_Test4FrontBackExtend"                          //4æµ‹è¯•å‰åä¼¸å‡º
+#define In_Emg                                            "In_Emg"                                            //¼±Í£
+#define In_Start1                                         "In_Start1"                                         //Æô¶¯1
+#define In_Start2                                         "In_Start2"                                         //Æô¶¯2
+#define In_Reset                                          "In_Reset"                                          //¸´Î»
+#define In_Feed                                           "In_Feed"                                           //ÉÏÁÏ
+#define In_AirCheck                                       "In_AirCheck"                                       //ÆøÑ¹±¨¾¯
+#define In_SafeDoor                                       "In_SafeDoor"                                       //°²È«ÃÅ
+#define IN_Pause                                          "IN_Pause"                                          //ÔİÍ£/»Ö¸´
+#define IN_SafeGrate                                      "IN_SafeGrate"                                      //°²È«¹âÕ¤
+#define IN_TyphoonErr                                     "IN_TyphoonErr"                                     //Ì¨·çÏµÍ³Òì³£
+#define IN_Typhoon2                                       "IN_Typhoon2"                                       //Ì¨·çÏµÍ³±¸ÓÃ2
+#define IN_Typhoon4                                       "IN_Typhoon4"                                       //Ì¨·çÏµÍ³±¸ÓÃ4
+#define IN_Typhoon3                                       "IN_Typhoon3"                                       //Ì¨·çÏµÍ³±¸ÓÃ3
+#define IN_Typhoon5                                       "IN_Typhoon5"                                       //Ì¨·çÏµÍ³±¸ÓÃ5
 
 
-#define In_ConveyorPos1                                   "In_ConveyorPos1"                                   //è¾“é€çº¿åˆ°ä½æ£€æµ‹1
-#define In_ConveyorPos2                                   "In_ConveyorPos2"                                   //è¾“é€çº¿åˆ°ä½æ£€æµ‹2
-#define In_Stop1Retract                                   "In_Stop1Retract"                                   //æŒ¡1ç¼©å›æ£€æµ‹
-#define In_Stop1Extend                                    "In_Stop1Extend"                                    //æŒ¡1ä¼¸å‡ºæ£€æµ‹
-#define In_Stop2Retract                                   "In_Stop2Retract"                                   //æŒ¡2ç¼©å›æ£€æµ‹
-#define In_Stop2Extend                                    "In_Stop2Extend"                                    //æŒ¡2ä¼¸å‡ºæ£€æµ‹
-#define In_Lift1Retract                                   "In_Lift1Retract"                                   //é¡¶1ç¼©å›æ£€æµ‹
-#define In_Lift1Extend                                    "In_Lift1Extend"                                    //é¡¶1ä¼¸å‡ºæ£€æµ‹
-#define In_ConveyorPos3                                   "In_ConveyorPos3"                                   //è¾“é€çº¿åˆ°ä½æ£€æµ‹3
-#define In_ConveyorPos4                                   "In_ConveyorPos4"                                   //è¾“é€çº¿åˆ°ä½æ£€æµ‹4
-#define In_Stop3Retract                                   "In_Stop3Retract"                                   //æŒ¡3ç¼©å›æ£€æµ‹
-#define In_Stop3Extend                                    "In_Stop3Extend"                                    //æŒ¡3ä¼¸å‡ºæ£€æµ‹
-#define In_Stop4Retract                                   "In_Stop4Retract"                                   //æŒ¡4ç¼©å›æ£€æµ‹
-#define In_Stop4Extend                                    "In_Stop4Extend"                                    //æŒ¡4ä¼¸å‡ºæ£€æµ‹
-#define In_Lift2Retract                                   "In_Lift2Retract"                                   //é¡¶2ç¼©å›æ£€æµ‹
-#define In_Lift2Extend                                    "In_Lift2Extend"                                    //é¡¶2ä¼¸å‡ºæ£€æµ‹
+#define Out_Start1                                        "Out_Start1"                                        //Æô¶¯µÆ1
+#define Out_Start2                                        "Out_Start2"                                        //Æô¶¯µÆ2
+#define Out_Reset                                         "Out_Reset"                                         //¸´Î»µÆ
+#define Out_RedLight                                      "Out_RedLight"                                      //±¨¾¯ºìµÆ
+#define Out_GreenLight                                    "Out_GreenLight"                                    //±¨¾¯ÂÌµÆ
+#define Out_YellowLight                                   "Out_YellowLight"                                   //±¨¾¯»ÆµÆ
+#define Out_Buzzer                                        "Out_Buzzer"                                        //±¨¾¯·äÃùÆ÷
+#define Out_LightBtn                                      "Out_LightBtn"                                      //ÕÕÃ÷°´Å¥
+#define Out_PipeLineBackFlowMotorPower                    "Out_PipeLineBackFlowMotorPower"                    //»ØÁ÷Ïßµç»úµçÔ´
+#define Out_PipeLineMotorPower                            "Out_PipeLineMotorPower"                            //Êä³öÏßµç»úµçÔ´
+#define Out_TyphoonAir                                    "Out_TyphoonAir"                                    //Ì¨·çÏµÍ³ÆøÔ´
+#define Out_TyphoonStart                                  "Out_TyphoonStart"                                  //Ì¨·çÏµÍ³Æô¶¯
+#define Out_TyphooClearDirty                              "Out_TyphooClearDirty"                              //Ì¨·çÏµÍ³Çå»Ò
+#define Out_Typhoon4                                      "Out_Typhoon4"                                      //Ì¨·çÏµÍ³±¸ÓÃÊä³ö1
+#define Out_Typhoon5                                      "Out_Typhoon5"                                      //Ì¨·çÏµÍ³±¸ÓÃÊä³ö2
 
 
-#define Out_UpperConveyorPower                            "Out_UpperConveyorPower"                            //ä¸Šå±‚è¾“é€çº¿ç”µæº
-#define Out_LowerConveyorPower                            "Out_LowerConveyorPower"                            //ä¸‹å±‚è¾“é€çº¿ç”µæº
-#define Out_UpperConveyorForward                          "Out_UpperConveyorForward"                          //ä¸Šå±‚è¾“é€çº¿æ­£è½¬
-#define Out_UpperConveyorReverse                          "Out_UpperConveyorReverse"                          //ä¸Šå±‚è¾“é€çº¿åè½¬
-#define Out_Stop1                                         "Out_Stop1"                                         //æŒ¡1ç¼¸
-#define Out_Stop2                                         "Out_Stop2"                                         //æŒ¡2ç¼¸
-#define Out_Lift1Retract                                  "Out_Lift1Retract"                                  //é¡¶å‡1ç¼©å›
-#define Out_Lift1Extend                                   "Out_Lift1Extend"                                   //é¡¶å‡1ä¼¸å‡º
-#define Out_Stop3                                         "Out_Stop3"                                         //æŒ¡3ç¼¸
-#define Out_Stop4                                         "Out_Stop4"                                         //æŒ¡4ç¼¸
-#define Out_Lift2Retract                                  "Out_Lift2Retract"                                  //é¡¶å‡2ç¼©å›
-#define Out_Lift2Extend                                   "Out_Lift2Extend"                                   //é¡¶å‡2ä¼¸å‡º
-#define Out_LowerConveyorForward                          "Out_LowerConveyorForward"                          //ä¸‹å±‚è¾“é€çº¿æ­£è½¬
-#define Out_LowerConveyorReverse                          "Out_LowerConveyorReverse"                          //ä¸‹å±‚è¾“é€çº¿åè½¬
+#define MotorPCBBoxY                                      "MotorPCBBoxY"                                      //PCBÈ¡ÁÏÅÌY
+#define MotorPCBBoxZ                                      "MotorPCBBoxZ"                                      //PCBÁÏÏäZ
+#define MotorPCBGantryX                                   "MotorPCBGantryX"                                   //PCBÁúÃÅXÖá
+#define MotorPCBGantryY                                   "MotorPCBGantryY"                                   //PCBÁúÃÅYÖá
+#define MotorPCBGantryZ                                   "MotorPCBGantryZ"                                   //PCBÁúÃÅZÖá
+#define MotorPCBGripR                                     "MotorPCBGripR"                                     //PCB¼Ğ×¦R
+#define MotorPCBGripX                                     "MotorPCBGripX"                                     //PCB¼Ğ×¦X
+#define MotorHolderBoxY                                   "MotorHolderBoxY"                                   //¿ÇÌåÈ¡ÁÏÅÌY
+#define MotorHolderBoxZ                                   "MotorHolderBoxZ"                                   //¿ÇÌåÁÏÏäZ
+#define MotorHolderGantryX                                "MotorHolderGantryX"                                //¿ÇÌåÁúÃÅXÖá
+#define MotorHolderGantryY                                "MotorHolderGantryY"                                //¿ÇÌåÁúÃÅYÖá
+#define MotorHolderGantryZ                                "MotorHolderGantryZ"                                //¿ÇÌåÁúÃÅZÖá
+#define MotorHolderGripR                                  "MotorHolderGripR"                                  //¿ÇÌå¼Ğ×¦R
+#define MotorHolderGripX                                  "MotorHolderGripX"                                  //¿ÇÌå¼Ğ×¦X
+#define MotorTurntableBlankGripR                          "MotorTurntableBlankGripR"                          //×ªÅÌÏÂÁÏ¼Ğ×¦R
+#define MotorTurntableBlankGripX                          "MotorTurntableBlankGripX"                          //×ªÅÌÏÂÁÏ¼Ğ×¦X
+#define MotorTurntableFeedGripR                           "MotorTurntableFeedGripR"                           //×ªÅÌÉÏÁÏ¼Ğ×¦R
+#define MotorTurntableFeedGripX                           "MotorTurntableFeedGripX"                           //×ªÅÌÉÏÁÏ¼Ğ×¦X
+#define MotorTurntableGantryX                             "MotorTurntableGantryX"                             //×ªÅÌÉÏÏÂÁÏX
+#define MotorTurntableGantryY                             "MotorTurntableGantryY"                             //×ªÅÌÉÏÏÂÁÏY
+#define MotorTurntableGantryZ                             "MotorTurntableGantryZ"                             //×ªÅÌÉÏÏÂÁÏZ
+#define MotorTurntableR                                   "MotorTurntableR"                                   //×ªÅÌĞı×ªR
+#define MotorFilmtearGantryY                              "MotorFilmtearGantryY"                              //ËºÄ¤ÁúÃÅY
+#define MotorFilmtearGantryZ                              "MotorFilmtearGantryZ"                              //ËºÄ¤ÁúÃÅZ
+#define MotorFilmtearGripR                                "MotorFilmtearGripR"                                //ËºÄ¤°áÔË¼Ğ×¦R
+#define MotorFilmtearGripX                                "MotorFilmtearGripX"                                //ËºÄ¤°áÔË¼Ğ×¦X
+#define MotorFilmtearR1                                   "MotorFilmtearR1"                                   //ËºÄ¤Ğı×ªR1
+#define MotorFilmtearR2                                   "MotorFilmtearR2"                                   //ËºÄ¤Ğı×ªR2
+#define MotorFilmtearX                                    "MotorFilmtearX"                                    //ËºÄ¤»ú¹¹X
+#define MotorTransferX                                    "MotorTransferX"                                    //½Ó²µÁÏÅÌX
+#define MotorTransferY                                    "MotorTransferY"                                    //½Ó²µÁÏÅÌY
+#define MotorCleanGripR                                   "MotorCleanGripR"                                   //Á÷ÏßÇåÏ´¼Ğ×¦R
+#define MotorCleanGripX                                   "MotorCleanGripX"                                   //Á÷ÏßÇåÏ´¼Ğ×¦X
+#define MotorPCBCleanX                                    "MotorPCBCleanX"                                    //Á÷Ïß·­×ªÇåÏ´X
+#define MotorTurntableCleanGripR                          "MotorTurntableCleanGripR"                          //×ªÅÌÇåÏ´¼Ğ×¦R
+#define MotorTurntableCleanGripX                          "MotorTurntableCleanGripX"                          //×ªÅÌÇåÏ´¼Ğ×¦X
+#define MotorTurntableCleanX                              "MotorTurntableCleanX"                              //×ªÅÌ·­×ªÇåÏ´X
+#define MotorDirtyY                                       "MotorDirtyY"                                       //ÔàÎÛ¼ì²âY
 
 
-#define In_Emg                                            "In_Emg"                                            //æ€¥åœ
-#define In_Start                                          "In_Start"                                          //å¯åŠ¨
-#define In_ManualAuto                                     "In_ManualAuto"                                     //æ‰‹åŠ¨/è‡ªåŠ¨
-#define In_Reset                                          "In_Reset"                                          //å¤ä½
-#define In_Stop                                           "In_Stop"                                           //åœæ­¢
-#define In_BackEmg                                        "In_BackEmg"                                        //èƒŒä¾§æ€¥åœ
-#define In_BackStart                                      "In_BackStart"                                      //èƒŒä¾§å¯åŠ¨
-#define In_BackManualAuto                                 "In_BackManualAuto"                                 //èƒŒä¾§æ‰‹åŠ¨/è‡ªåŠ¨
-#define In_BackReset                                      "In_BackReset"                                      //èƒŒä¾§å¤ä½
-#define In_BackStop                                       "In_BackStop"                                       //èƒŒä¾§åœæ­¢
-#define In_SafeDoor                                       "In_SafeDoor"                                       //å®‰å…¨é—¨
-#define In_AirPressure                                    "In_AirPressure"                                    //æ°”å‹æ£€æµ‹
-
-
-#define Out_StartLight                                    "Out_StartLight"                                    //å¯åŠ¨ç¯
-#define Out_ResetLight                                    "Out_ResetLight"                                    //å¤ä½ç¯
-#define Out_Light                                         "Out_Light"                                         //ç…§æ˜
-#define Out_TowerRed                                      "Out_TowerRed"                                      //ä¸‰è‰²ç¯çº¢ç¯
-#define Out_TowerGreen                                    "Out_TowerGreen"                                    //ä¸‰è‰²ç¯ç»¿ç¯
-#define Out_TowerYellow                                   "Out_TowerYellow"                                   //ä¸‰è‰²ç¯é»„ç¯
-#define Out_TowerBuzzer                                   "Out_TowerBuzzer"                                   //ä¸‰è‰²ç¯èœ‚é¸£
-#define Out_StopLight                                     "Out_StopLight"                                     //åœæ­¢ç¯
-#define Out_BackStartLight                                "Out_BackStartLight"                                //èƒŒé¢å¯åŠ¨ç¯
-#define Out_BackStopLight                                 "Out_BackStopLight"                                 //èƒŒé¢åœæ­¢ç¯
-#define Out_BackResetLight                                "Out_BackResetLight"                                //èƒŒé¢å¤ä½ç¯
-
-
-#define Axis0_TestLeft                                    "Axis0_TestLeft"                                    //å·¦æµ‹è¯•å·¥ç«™0è½´(400W)
-#define Axis1_TestLeft                                    "Axis1_TestLeft"                                    //å·¦æµ‹è¯•å·¥ç«™1è½´(200W)
-#define Axis2_TestLeft                                    "Axis2_TestLeft"                                    //å·¦æµ‹è¯•å·¥ç«™2è½´(100Wå¸¦åˆ¹è½¦)
-#define Axis3_TestRight                                   "Axis3_TestRight"                                   //å³æµ‹è¯•å·¥ç«™3è½´(400W)
-#define Axis4_TestRight                                   "Axis4_TestRight"                                   //å³æµ‹è¯•å·¥ç«™4è½´(200W)
-#define Axis5_TestRight                                   "Axis5_TestRight"                                   //å³æµ‹è¯•å·¥ç«™5è½´(100Wå¸¦åˆ¹è½¦)
-
-
-//ç‚¹ä½æ˜¯ä»¥å‰çš„plcæ°”å¯†è®¾å¤‡ç‚¹ä½
-//#define StandbyPos                                        "StandbyPos"                                        //å¾…æœºä½
-//#define LineFeedPos                                       "LineFeedPos"                                       //çº¿ä½“å–æ–™ä½
-//#define LineBlankPos                                      "LineBlankPos"                                      //çº¿ä½“æ”¾æ–™ä½
-//#define ScanPos                                           "ScanPos"                                            //æ‰«ç ä½
-//#define LeftBlankPos                                      "LeftBlankPos"                                      //å·¦æ²»å…·æ”¾æ–™ä½
-//#define RghitBlankPos                                     "RghitBlankPos"                                     //å³æ²»å…·æ”¾æ–™ä½
-//#define LeftFeedPos                                       "LeftFeedPos"                                       //å·¦æ²»å…·å–æ–™ä½
-//#define RightFeedPos                                      "RightFeedPos"                                      //å³æ²»å…·å–æ–™ä½
-//#define NgBlankPos                                        "NgBlankPos"                                        //NGæ”¾æ–™ä½
-//#define GrabFeedPos                                       "GrabFeedPos"                                       //å¤¹çˆªå¤¹æ–™ä½
-//#define GrabBlankPos                                      "GrabBlankPos"                                      //å¤¹çˆªæ”¾æ–™ä½
-
+#define HolderGripOpen                                    "HolderGripOpen"                                    //¿ÇÌå¼Ğ×¦ÕÅ¿ª
+#define HolderBoxCheckTray                                "HolderBoxCheckTray"                                //¿ÇÌåÁÏ²ÖÊ×²ãÁÏÅÌ¼ì²éÎ»
+#define HolderBoxGrabTray                                 "HolderBoxGrabTray"                                 //È¡ÁÏµç»úµ½ÁÏ²ÖÊ×²ã½øÈëÎ»
+#define HolderTrayTouch                                   "HolderTrayTouch"                                   //Ê×²ãÁÏÅÌ½Ó´¥È¡ÁÏµç»úÎ»
+#define HolderBoxTrayUp                                   "HolderBoxTrayUp"                                   //Ê×²ãÁÏÅÌ±»È¡ÁÏµç»úÍĞÆğÎ»
+#define HolderBoxMotorWait                                "HolderBoxMotorWait"                                //È¡ÁÏµç»úµÈ´ıÈ¡ÁÏÎ»
+#define HolderScanCode                                    "HolderScanCode"                                    //¿ÇÌåÉ¨Âë
+#define HolderPlace                                       "HolderPlace"                                       //¿ÇÌå·ÅÖÃÔØ¾ß
+#define PCBBoxCheckTray                                   "PCBBoxCheckTray"                                   //PCBÁÏ²ÖÊ×²ãÁÏÅÌ¼ì²éÎ»
+#define PCBBoxGrabTray                                    "PCBBoxGrabTray"                                    //È¡ÁÏµç»úµ½ÁÏ²ÖÊ×²ã½øÈëÎ»
+#define PCBTrayTouch                                      "PCBTrayTouch"                                      //Ê×²ãÁÏÅÌ½Ó´¥È¡ÁÏµç»úÎ»
+#define PCBBoxTrayUp                                      "PCBBoxTrayUp"                                      //Ê×²ãÁÏÅÌ±»È¡ÁÏµç»úÍĞÆğÎ»
+#define PCBBoxMotorWait                                   "PCBBoxMotorWait"                                   //È¡ÁÏµç»úµÈ´ıÈ¡ÁÏÎ»
+#define PCBScanCode                                       "PCBScanCode"                                       //PCBÉ¨Âë
+#define PCBPlace                                          "PCBPlace"                                          //PCB·ÅÖÃÔØ¾ß
+#define PipeLineCleanPCB_Grab                             "PipeLineCleanPCB_Grab"                             //Á÷ÏßÇåÏ´PCB¼ĞÈ¡
+#define PipeLineCleanPCB_Clean                            "PipeLineCleanPCB_Clean"                            //Á÷ÏßÇåÏ´PCBÇåÏ´Î»
+#define TurntableCleanPCB_Grab                            "TurntableCleanPCB_Grab"                            //×ªÅÌÇåÏ´PCB¼ĞÈ¡
+#define TurntableCleanPCB_Clean                           "TurntableCleanPCB_Clean"                           //×ªÅÌÇåÏ´PCBÇåÏ´Î»
+#define TurntablePipeLineGrab                             "TurntablePipeLineGrab"                             //×ªÅÌÁ÷ÏßÉÏÁÏ×¥È¡
+#define TurntablePipeLinePlace                            "TurntablePipeLinePlace"                            //×ªÅÌÁ÷ÏßÏÂÁÏ·ÅÖÃ
+#define TurntableInitPos                                  "TurntableInitPos"                                  //×ªÅÌ³õÊ¼Î»
+#define TurntableFeedPlace                                "TurntableFeedPlace"                                //×ªÅÌÉÏÁÏ·ÅÖÃ
+#define TurntableBlankGrab                                "TurntableBlankGrab"                                //×ªÅÌÏÂÁÏ×¥È¡
+#define FileTearFeed                                      "FileTearFeed"                                      //ËºÄ¤ÉÏÁÏÎ»
+#define FileTearWork                                      "FileTearWork"                                      //ËºÄ¤¹¤×÷Î»
+#define FileTearDetect                                    "FileTearDetect"                                    //ËºÄ¤¼ì²âÎ»
+#define FileTearBlank                                     "FileTearBlank"                                     //ËºÄ¤ÏÂÁÏÎ»
+#define HolderGripSafe                                    "HolderGripSafe"                                    //¿ÇÌå¼Ğ×¦°²È«Î»
+#define PCBGripSafe                                       "PCBGripSafe"                                       //PCB¼Ğ×¦°²È«Î»
+#define TurntableFeedGripSafe                             "TurntableFeedGripSafe"                             //×ªÅÌÉÏÁÏÁúÃÅ¼Ğ×¦°²È«Î»
+#define FilmTearGripSafe                                  "FilmTearGripSafe"                                  //ËºÄ¤¼Ğ×¦°²È«Î»
+#define DetectDirty                                       "DetectDirty"                                       //ÔàÎÛ¼ì²âÎ»
+#define HolderGripOpen                                    "HolderGripOpen"                                    //¿ÇÌå¼Ğ×¦ÕÅ¿ª
+#define PCBGripOpen                                       "PCBGripOpen"                                       //PCB¼Ğ×¦ÕÅ¿ª
+#define PipeLinePCBCleanGripOpen                          "PipeLinePCBCleanGripOpen"                          //Á÷ÏßÇåÏ´PCB¼Ğ×¦ÕÅ¿ª
+#define TurntableFeedGripOpen                             "TurntableFeedGripOpen"                             //×ªÅÌÉÏÁÏ¼Ğ×¦ÕÅ¿ª
+#define TurntableBlankGripOpen                            "TurntableBlankGripOpen"                            //×ªÅÌÏÂÁÏ¼Ğ×¦ÕÅ¿ª
+#define FilmtearGripOpen                                  "FilmtearGripOpen"                                  //ËºÄ¤¼Ğ×¦ÕÅ¿ª
+#define TurntableCleanGripOpen                            "TurntableCleanGripOpen"                            //×ªÅÌÇåÏ´PCB¼Ğ×¦ÕÅ¿ª
+#define HolderGripClose                                   "HolderGripClose"                                   //¿ÇÌå¼Ğ×¦±ÕºÏ
+#define PCBGripClose                                      "PCBGripClose"                                      //PCB¼Ğ×¦±ÕºÏ
+#define PipeLinePCBCleanGripClose                         "PipeLinePCBCleanGripClose"                         //Á÷ÏßÇåÏ´PCB¼Ğ×¦±ÕºÏ
+#define TurntableFeedGripClose                            "TurntableFeedGripClose"                            //×ªÅÌÉÏÁÏ¼Ğ×¦±ÕºÏ
+#define TurntableBlankGripClose                           "TurntableBlankGripClose"                           //×ªÅÌÏÂÁÏ¼Ğ×¦±ÕºÏ
+#define FilmtearGripClose                                 "FilmtearGripClose"                                 //ËºÄ¤¼Ğ×¦±ÕºÏ
+#define TurntableCleanGripClose                           "TurntableCleanGripClose"                           //×ªÅÌÇåÏ´PCB¼Ğ×¦±ÕºÏ
+#define BackFlowTransfer                                  "BackFlowTransfer"                                  //»ØÁ÷Ïß½Ó²µÎ»
+#define FeedTransfer                                      "FeedTransfer"                                      //ÉÏÁÏÊäËÍÏß½Ó²µÎ»
 
 #endif // FEILDDEFNE_H
