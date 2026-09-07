@@ -27,11 +27,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 include(../Common/Custom/Custom.pri)
 
+INCLUDEPATH += $$PWD/../Common/Custom
+
 SOURCES += \
     ../Common/WidgetLog.cpp \
     Basic/CameraPreviewForm/CameraPreviewForm.cpp \
-    Basic/PLCWarning/PLCAlarmPopUpForm.cpp \
-    Basic/PLCWarning/PLCWarningForm.cpp \
     Basic/ProcessLogForm/WidgetLogAll.cpp \
     Basic/PlotShowForm/AritightPlotItem.cpp \
     WidgetAritightPlotForm.cpp \
@@ -47,8 +47,6 @@ HEADERS += \
     ../../interface/plugininterface.h \
     ../Common/WidgetLog.h \
     Basic/CameraPreviewForm/CameraPreviewForm.h \
-    Basic/PLCWarning/PLCAlarmPopUpForm.h \
-    Basic/PLCWarning/PLCWarningForm.h \
     Basic/ProcessLogForm/WidgetLogAll.h \
     Basic/PlotShowForm/AritightPlotItem.h \
     WidgetAritightPlotForm.h \
@@ -64,7 +62,6 @@ INCLUDEPATH += \
     Basic/CameraPreviewForm/ \
     Basic/ProcessLogForm/ \
     Basic/PlotShowForm/ \
-    Basic/PLCWarning/ \
 
 # Default rules for deployment.
 unix {
@@ -80,8 +77,6 @@ unix {
 FORMS += \
     ../Common/WidgetLog.ui \
     Basic/CameraPreviewForm/CameraPreviewForm.ui \
-    Basic/PLCWarning/PLCAlarmPopUpForm.ui \
-    Basic/PLCWarning/PLCWarningForm.ui \
     Basic/ProcessLogForm/WidgetLogAll.ui \
     Basic/PlotShowForm/AritightPlotItem.ui \
     WidgetAritightPlotForm.ui \
@@ -97,34 +92,27 @@ RESOURCES += \
 include(Product/Product.pri)
 
 #事件循环库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisAppTool/ -lVisAppTool
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisAppTool/ -lVisAppToold
+win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppTool
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppToold
 
-INCLUDEPATH += $$PWD/../../../3rd/VisAppTool
-DEPENDPATH += $$PWD/../../../3rd/VisAppTool
+INCLUDEPATH += $$(PATH_VIS)/VisAppTool
+DEPENDPATH += $$(PATH_VIS)/VisAppTool
 
 #相机显示界面库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisCommon/ -lVisCommon
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisCommon/ -lVisCommond
+win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/VisCommon/ -lVisCommon
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/VisCommon/ -lVisCommond
 
-INCLUDEPATH += $$PWD/../../../3rd/VisCommon
-DEPENDPATH += $$PWD/../../../3rd/VisCommon
+INCLUDEPATH += $$(PATH_VIS)/VisCommon
+DEPENDPATH += $$(PATH_VIS)/VisCommon
 
-#运动控制卡调机库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisPLCMotorTool/ -lVisPLCMotorTool
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisPLCMotorTool/ -lVisPLCMotorTool
+#运动控制库
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../3rd/VisMotorTool/ -lVisMotorTool
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../3rd/VisMotorTool/ -lVisMotorToold
 
-INCLUDEPATH += $$PWD/../../../3rd/VisPLCMotorTool
-DEPENDPATH += $$PWD/../../../3rd/VisPLCMotorTool
-
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisCustomLib/ -lVisCustomPlugin
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisCustomLib/ -lVisCustomPlugind
-
-INCLUDEPATH += $$PWD/../../../3rd/VisCustomLib
-DEPENDPATH += $$PWD/../../../3rd/VisCustomLib
+INCLUDEPATH += $$PWD/../../3rd/VisMotorTool
+DEPENDPATH += $$PWD/../../3rd/VisMotorTool
 
 INCLUDEPATH += $$PWD/../Common/CurveView
-
 win32: LIBS += -L$$PWD/../../bin/ -lVISFramePluginModel
 INCLUDEPATH += $$PWD/../../VISFramePluginModel
 DEPENDPATH += $$PWD/../../VISFramePluginModel

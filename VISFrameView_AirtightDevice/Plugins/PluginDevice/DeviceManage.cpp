@@ -29,10 +29,14 @@ DeviceManage::DeviceManage(QObject *parent) : QObject(parent)
     VisAppBus::subscibeEvent(this, "ReadAirtightLastResult");
 
     InitDevice();
+
+    //启动气密结果轮询线程(轮询完成状态 → 读最终结果 → 发 "AirtightResultBack")
+    StartAirtightPoll();
 }
 
 DeviceManage::~DeviceManage()
 {
+    StopAirtightPoll();
     InitOtherCam(false);
 }
 
@@ -114,9 +118,10 @@ int DeviceManage::SetOtherCamEx(QString camType, int ex)
 
 bool DeviceManage::InitAritight()
 {
-    for(int i = 0;i<StationCount;++i)
+    //2台双通道气密仪,各连接一次
+    for (int i = 0; i < AirtightDeviceCount; ++i)
     {
-        if(0!=event_ConnectAritight(i))
+        if (0 != event_ConnectAritight(i))
             return false;
     }
     return true;
@@ -152,118 +157,180 @@ int DeviceManage::event_DisScanCodeConnect(QString name)
     return 0;
 }
 
-int DeviceManage::event_ConnectAritight(int station)
+int DeviceManage::event_ConnectAritight(int device)
 {
     CModbusClient::Settings param;
-    param.port = GlobalParam->systemParam.serialComStruct[station].portName;
-    param.parity = GlobalParam->systemParam.serialComStruct[station].serParity;
-    param.baud = GlobalParam->systemParam.serialComStruct[station].serBaudRate;
-    param.dataBits = GlobalParam->systemParam.serialComStruct[station].serDataBit;
-    param.stopBits = GlobalParam->systemParam.serialComStruct[station].serStopBit;
+    param.ip = GlobalParam->systemParam.tcpComStruct[device].ip;
+    param.port = GlobalParam->systemParam.tcpComStruct[device].port;
+    param.serverAddress = GlobalParam->systemParam.tcpComStruct[device].serverAddress;
     param.responseTime = 2000;
     param.numberOfRetries = 3;
 
-    m_cModbusClient[station].SetParams(param);
+    m_cModbusClient[device].SetParams(param);
 
-    if(!m_cModbusClient[station].DeviceConnect())
-    {
+    if (!m_cModbusClient[device].DeviceConnect())
         return -1;
-    }
     return 0;
 }
 
-int DeviceManage::event_DisConnectAritight(int station)
+int DeviceManage::event_DisConnectAritight(int device)
 {
-    m_cModbusClient[station].DeviceDisConnect();
+    m_cModbusClient[device].DeviceDisConnect();
     return 0;
 }
 
 
-// 选择测试程序(1=IP67,2=IP68)
+// 选择测试程序(按通道独立程序号 寄存器26/27)
 int DeviceManage::event_SelectAirtightTestProgram(int station,int programId)
 {
-    return m_cModbusClient[station].SelectTestProgram(programId)?0:-1;
+    int device = StationToDevice(station);
+    int channel = StationToChannel(station);
+    return m_cModbusClient[device].SelectChannelProgram(channel, programId) ? 0 : -1;
 }
 // 启动
 int DeviceManage::event_StartAirtightTest(int station)
 {
-    return m_cModbusClient[station].StartAirtightTest()?0:-1;
+    int device = StationToDevice(station);
+    int channel = StationToChannel(station);
+    return m_cModbusClient[device].StartTest(channel) ? 0 : -1;
 }
-// 复位
+// 停止
 int DeviceManage::event_ResetAirtight(int station)
 {
-    return m_cModbusClient[station].ResetAirtight()?0:-1;
+    int device = StationToDevice(station);
+    int channel = StationToChannel(station);
+    return m_cModbusClient[device].StopTest(channel) ? 0 : -1;
 }
-// 设置参数
+// 选择参数号(四通道协议无独立参数号,参数随程序下发,暂不处理)
 int DeviceManage::event_SelectAirtightParam(int station,int paramId)
 {
-    return m_cModbusClient[station].SelectParam(paramId)?0:-1;
+    Q_UNUSED(station);
+    Q_UNUSED(paramId);
+    return 0;
 }
-// 设置参数
+// 下发参数(选择通道后写参数寄存器)
 int DeviceManage::event_SetAirtightParam(int station)
 {
-    bool res = false;
-    res = m_cModbusClient[station].SetParam(CModbusClient::MODE_CouplADelayTime,GlobalParam->recipeAirtight.airtightParam[station].CouplADelayTime);
-    if(!res)return -1;
-    res = m_cModbusClient[station].SetParam(CModbusClient::MODE_FillTime,GlobalParam->recipeAirtight.airtightParam[station].FillTime);
-    if(!res)return -2;
-    res = m_cModbusClient[station].SetParam(CModbusClient::MODE_StabTime,GlobalParam->recipeAirtight.airtightParam[station].StabTime);
-    if(!res)return -3;
-    res = m_cModbusClient[station].SetParam(CModbusClient::MODE_TestTime,GlobalParam->recipeAirtight.airtightParam[station].TestTime);
-    if(!res)return -4;
-    res = m_cModbusClient[station].SetParam(CModbusClient::MODE_DumpTime,GlobalParam->recipeAirtight.airtightParam[station].DumpTime);
-    if(!res)return -5;
-    res = m_cModbusClient[station].SetParam(CModbusClient::MODE_PressUnit,GlobalParam->recipeAirtight.airtightParam[station].PressUnit);
-    if(!res)return -6;
-    res = m_cModbusClient[station].SetParam(CModbusClient::MODE_MaxFill,GlobalParam->recipeAirtight.airtightParam[station].MaxFill);
-    if(!res)return -7;
-    res = m_cModbusClient[station].SetParam(CModbusClient::MODE_MinFill,GlobalParam->recipeAirtight.airtightParam[station].MinFill);
-    if(!res)return -8;
-    res = m_cModbusClient[station].SetParam(CModbusClient::MODE_SetFill,GlobalParam->recipeAirtight.airtightParam[station].SetFill);
-    if(!res)return -9;
-    res = m_cModbusClient[station].SetParam(CModbusClient::MODE_LeakUnit,GlobalParam->recipeAirtight.airtightParam[station].LeakUnit);
-    if(!res)return -10;
-    res = m_cModbusClient[station].SetParam(CModbusClient::MODE_VolumeUnit,GlobalParam->recipeAirtight.airtightParam[station].VolumeUnit);
-    if(!res)return -11;
-    res = m_cModbusClient[station].SetParam(CModbusClient::MODE_Volume,GlobalParam->recipeAirtight.airtightParam[station].Volume);
-    if(!res)return -12;
-    res = m_cModbusClient[station].SetParam(CModbusClient::MODE_TestFail,GlobalParam->recipeAirtight.airtightParam[station].TestFail);
-    if(!res)return -13;
-    res = m_cModbusClient[station].SetParam(CModbusClient::MODE_RefFail,GlobalParam->recipeAirtight.airtightParam[station].RefFail);
-    if(!res)return -14;
+    int device = StationToDevice(station);
+    int channel = StationToChannel(station);
+    CModbusClient &client = m_cModbusClient[device];
+    AirtightParam &p = GlobalParam->recipeAirtight.airtightParam[station];
+
+    //选择指定通道(寄存器51: 1-4有效,选择后读写参数针对该通道)
+    if (!client.WriteRegister(51, channel)) return -1;
+
+    //时间参数(寄存器值=实际值×10)
+    if (!client.WriteRegister(5, p.FillTime * 10)) return -2;   //充气时间
+    if (!client.WriteRegister(6, p.StabTime * 10)) return -3;   //保压时间
+    if (!client.WriteRegister(7, p.TestTime * 10)) return -4;   //检测时间
+    if (!client.WriteRegister(9, p.DumpTime * 10)) return -5;   //排气时间
+
+    //单位
+    if (!client.WriteRegister(40, p.PressUnit)) return -6;      //压力单位
+    if (!client.WriteRegister(41, p.LeakUnit)) return -7;       //泄漏单位
+
+    //浮点参数(32位浮点)
+    if (!client.WriteFloatRegisters(10, p.SetFill)) return -8;   //设定压力
+    if (!client.WriteFloatRegisters(16, p.TestFail)) return -9;  //泄漏上限
+    if (!client.WriteFloatRegisters(18, p.RefFail)) return -10;  //泄漏下限
+    if (!client.WriteFloatRegisters(22, p.Volume)) return -11;   //产品容积
+
     return 0;
 }
-// 读取仪器实时测试状态，判断仪器是否测试结束
+// 读取仪器测试状态(完成状态寄存器165/166: 0等待/1测试中/2完成/-1失败)
 int  DeviceManage::event_ReadAirtightRealStatus(int station)
 {
-    return m_cModbusClient[station].ReadRealStatus()?0:-1;
+    int device = StationToDevice(station);
+    int channel = StationToChannel(station);
+    return m_cModbusClient[device].ReadFinishState(channel);
 }
-// 读取实时测试结果
+// 读取实时测试结果(返回值映射到流程期望: 0结束/1测试中/2终止/-1失败)
 int  DeviceManage::event_ReadAirtightRealResult(int station,AritightTask &data)
 {
-    CModbusClient::AritghtResult result;
-    int res = m_cModbusClient[station].ReadRealResult(result);
-    if(res == -1) return res;
-    if(res == 2 ) return res;
-    data.result = result.res==0?true:false;
+    int device = StationToDevice(station);
+    int channel = StationToChannel(station);
+    CModbusClient::AirtightResult result;
+    int res = m_cModbusClient[device].ReadResult(channel, result);
+    if (res == -1) return -1;
+
+    data.TestStage = result.stage;
     data.pressValue = result.pressValue;
     data.leakageValue = result.leakageValue;
-    data.TestStage = result.TestStage;
-    data.errorMsg = result.errorMsg;
-    data.errorCode = result.alarmCode;
-    return 0;
+
+    //完成状态映射: 2完成->0结束, 1测试中->1继续, 0等待/异常->2终止
+    if (result.state == 2) return 0;
+    if (result.state == 1) return 1;
+    return 2;
 }
-// Last results最终的测试结果
+// 读取最终测试结果
 int  DeviceManage::event_ReadAirtightLastResult(int station,AritightTask &data)
 {
-    CModbusClient::AritghtResult result;
-    int res = m_cModbusClient[station].ReadLastResult(result);
-    if(res!=0) return res;
-    data.result = result.res==0?true:false;
+    int device = StationToDevice(station);
+    int channel = StationToChannel(station);
+    CModbusClient::AirtightResult result;
+    int res = m_cModbusClient[device].ReadResult(channel, result);
+    if (res != 0) return -1;
+
+    data.result = (result.res == 1);   //1=Pass, 2=Fail, 0=未出
     data.pressValue = result.pressValue;
     data.leakageValue = result.leakageValue;
-    data.TestStage = result.TestStage;
-    data.errorMsg = result.errorMsg;
-    data.errorCode = result.alarmCode;
+    data.TestStage = result.stage;
+    data.errorMsg = (result.res == 1) ? QString() : QStringLiteral("气密测试NG");
+    data.errorCode = result.res;
     return 0;
+}
+
+
+// ============================================================
+//  气密结果轮询(独立线程)
+//  轮询每个工位的"完成状态"寄存器,检测到 测试中→完成 的跳变后,
+//  读最终结果(Pass/Fail),再回调 "AirtightResultBack" 给流程层
+//  (PluginMeasureProcess 主类/抓取龙门/测试工位 各自订阅)。
+//  说明:这是"主动推结果"的骨架,后续可扩展——
+//    * 结果合并扫码条码 / MES 编号
+//    * NG 原因按泄漏值细分
+//    * 与 MES 编号校验联动
+// ============================================================
+void DeviceManage::StartAirtightPoll()
+{
+    if (m_pollRun.load()) return;
+    m_pollRun = true;
+    m_pollThread = std::thread([this] { AirtightPollLoop(); });
+}
+
+void DeviceManage::StopAirtightPoll()
+{
+    m_pollRun = false;
+    if (m_pollThread.joinable())
+        m_pollThread.join();
+}
+
+void DeviceManage::AirtightPollLoop()
+{
+    //记录每个工位上一轮的完成状态,用于检测"测试中→完成"跳变
+    int lastState[AirtightStationCount];
+    for (int i = 0; i < AirtightStationCount; ++i) lastState[i] = -1;
+
+    while (m_pollRun.load()) {
+        for (int station = 0; station < AirtightStationCount; ++station) {
+            int device = StationToDevice(station);
+            if (!m_cModbusClient[device].GetConnectState())
+                continue;   //设备未连接,本轮跳过
+
+            int channel = StationToChannel(station);
+            int state = m_cModbusClient[device].ReadFinishState(channel);   //0等待/1测试中/2完成/-1失败
+
+            //刚完成(上一轮不是完成态,这一轮是完成态)才读结果并回调,避免重复发
+            if (state == 2 && lastState[station] != 2) {
+                CModbusClient::AirtightResult result;
+                if (m_cModbusClient[device].ReadResult(channel, result) == 0) {
+                    bool ok = (result.res == 1);   //1=Pass, 2=Fail
+                    QString ngReason = ok ? QString() : QStringLiteral("气密测试NG");
+                    VisAppBus::sendEvent("AirtightResultBack", station, ok, ngReason);
+                }
+            }
+            lastState[station] = state;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
 }

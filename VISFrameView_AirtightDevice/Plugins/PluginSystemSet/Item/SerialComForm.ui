@@ -52,6 +52,68 @@ QGroupBox::!enabled{
          </size>
         </property>
         <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="0">
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_ip">
+             <property name="styleSheet">
+              <string notr="true">font: 12pt;
+color: rgb(0, 0, 0);</string>
+             </property>
+             <property name="text">
+              <string>IP地址：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="lineEdit_ip">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>14</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>192.168.88.88</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_port">
+             <property name="styleSheet">
+              <string notr="true">font: 12pt;
+color: rgb(0, 0, 0);</string>
+             </property>
+             <property name="text">
+              <string>端口：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="lineEdit_port">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>14</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>9998</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
          <item row="1" column="0">
           <layout class="QHBoxLayout" name="horizontalLayout_6">
            <item>
@@ -88,7 +150,7 @@ QGroupBox::!enabled{
               </size>
              </property>
              <property name="text">
-              <string>串口打开</string>
+              <string>连接</string>
              </property>
             </widget>
            </item>
@@ -113,7 +175,7 @@ QGroupBox::!enabled{
               </size>
              </property>
              <property name="text">
-              <string>串口关闭</string>
+              <string>断开</string>
              </property>
             </widget>
            </item>
@@ -129,284 +191,6 @@ QGroupBox::!enabled{
               </size>
              </property>
             </spacer>
-           </item>
-          </layout>
-         </item>
-         <item row="0" column="0">
-          <layout class="QGridLayout" name="gridLayout_3">
-           <item row="0" column="2">
-            <widget class="QLabel" name="label_37">
-             <property name="styleSheet">
-              <string notr="true">font: 12pt;
-color: rgb(0, 0, 0);</string>
-             </property>
-             <property name="text">
-              <string>校验位：</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QLabel" name="label_38">
-             <property name="styleSheet">
-              <string notr="true">font: 12pt;
-color: rgb(0, 0, 0);</string>
-             </property>
-             <property name="text">
-              <string>数据位：</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_39">
-             <property name="styleSheet">
-              <string notr="true">font: 12pt;
-color: rgb(0, 0, 0);</string>
-             </property>
-             <property name="text">
-              <string>停止位：</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QComboBox" name="comboBox_stop">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <item>
-              <property name="text">
-               <string>1</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>2</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>3</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_19">
-             <property name="styleSheet">
-              <string notr="true">font: 12pt;
-color: rgb(0, 0, 0);</string>
-             </property>
-             <property name="text">
-              <string>通讯串口：</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QComboBox" name="comboBox_com">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="3">
-            <widget class="QComboBox" name="comboBox_parity">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <item>
-              <property name="text">
-               <string>0</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>2</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>3</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>4</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>5</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item row="1" column="3">
-            <widget class="QComboBox" name="comboBox_data">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <item>
-              <property name="text">
-               <string>5</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>6</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>7</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>8</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_40">
-             <property name="styleSheet">
-              <string notr="true">font: 12pt;
-color: rgb(0, 0, 0);</string>
-             </property>
-             <property name="text">
-              <string>控制流：</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QComboBox" name="comboBox_ctrl">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <item>
-              <property name="text">
-               <string>无</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>硬控</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>软控</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item row="2" column="2">
-            <widget class="QLabel" name="label_41">
-             <property name="styleSheet">
-              <string notr="true">font: 12pt;
-color: rgb(0, 0, 0);</string>
-             </property>
-             <property name="text">
-              <string>波特率：</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="3">
-            <widget class="QComboBox" name="comboBox_baudrate">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <item>
-              <property name="text">
-               <string>1200</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>2400</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>4800</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>9600</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>19200</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>38400</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>57600</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>115200</string>
-              </property>
-             </item>
-            </widget>
            </item>
           </layout>
          </item>

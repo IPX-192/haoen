@@ -240,6 +240,7 @@ Makefile: PluginManualDebug.pro D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\toolchain.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\default_pre.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\win32\default_pre.prf \
+		..\Common\Custom\Custom.pri \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\resolve_config.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exclusive_builds_post.prf \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\default_post.prf \
@@ -429,6 +430,7 @@ D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\common\msvc-version.conf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\toolchain.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\default_pre.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\win32\default_pre.prf:
+..\Common\Custom\Custom.pri:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\resolve_config.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\exclusive_builds_post.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\default_post.prf:

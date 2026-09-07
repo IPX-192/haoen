@@ -11,7 +11,7 @@
 
 struct CylinderData {
     QString name;
-    QString addr;   //PLC M寄存器
+    QString addr;   //地址(IO序号/寄存器)
     QString s0_text; QString s0_out; QString s0_in;
     QString s1_text; QString s1_out; QString s1_in;
 	QMap<QString, QString> io_name; // 控制卡专用，IO序号实际对应的IO英文名

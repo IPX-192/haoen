@@ -25,6 +25,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+include(../Common/Custom/Custom.pri)
+
+INCLUDEPATH += $$PWD/../Common/Custom
+
 SOURCES += \
     ../Common/WidgetLog.cpp \
     Basic/AdjustableSpeedMotorForm/ConveyorRow.cpp \
@@ -75,47 +79,32 @@ FORMS += \
     WidgetScanCodeDebug.ui
 
 #事件循环库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisAppTool/ -lVisAppTool
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisAppTool/ -lVisAppToold
+win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppTool
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppToold
 
-INCLUDEPATH += $$PWD/../../../3rd/VisAppTool
-DEPENDPATH += $$PWD/../../../3rd/VisAppTool
+INCLUDEPATH += $$(PATH_VIS)/VisAppTool
+DEPENDPATH += $$(PATH_VIS)/VisAppTool
 
-#运动控制卡调机库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisPLCMotorTool/ -lVisPLCMotorTool
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisPLCMotorTool/ -lVisPLCMotorTool
+#运动控制库
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../3rd/VisMotorTool/ -lVisMotorTool
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../3rd/VisMotorTool/ -lVisMotorToold
 
-INCLUDEPATH += $$PWD/../../../3rd/VisPLCMotorTool
-DEPENDPATH += $$PWD/../../../3rd/VisPLCMotorTool
-
-#Opencv动态库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/opencv/lib/ -lopencv_world411
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/opencv/lib/ -lopencv_world411d
-
-INCLUDEPATH += $$PWD/../../../3rd/opencv/include
-DEPENDPATH += $$PWD/../../../3rd/opencv/lib
+INCLUDEPATH += $$PWD/../../3rd/VisMotorTool
+DEPENDPATH += $$PWD/../../3rd/VisMotorTool
 
 #相机库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisCameraTool/ -lVisCameraTool
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisCameraTool/ -lVisCameraToold
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../3rd/VisCameraTool/ -lVisCameraTool
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../3rd/VisCameraTool/ -lVisCameraToold
 
-INCLUDEPATH += $$PWD/../../../3rd/VisCameraTool
-DEPENDPATH += $$PWD/../../../3rd/VisCameraTool
+INCLUDEPATH += $$PWD/../../3rd/VisCameraTool
+DEPENDPATH += $$PWD/../../3rd/VisCameraTool
 
-#相机显示界面库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisCommon/ -lVisCommon
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisCommon/ -lVisCommond
+#Opencv动态库
+win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411d
 
-INCLUDEPATH += $$PWD/../../../3rd/VisCommon
-DEPENDPATH += $$PWD/../../../3rd/VisCommon
-
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisCustomLib/ -lVisCustomPlugin
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisCustomLib/ -lVisCustomPlugind
-
-INCLUDEPATH += $$PWD/../../../3rd/VisCustomLib
-DEPENDPATH += $$PWD/../../../3rd/VisCustomLib
-
-
+INCLUDEPATH += $$(PATH_VIS)/opencv/include
+DEPENDPATH += $$(PATH_VIS)/opencv/
 RESOURCES += \
     Basic/AdjustableSpeedMotorForm/icons.qrc
 

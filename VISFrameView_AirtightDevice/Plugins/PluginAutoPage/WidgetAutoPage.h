@@ -14,8 +14,6 @@ class WidgetAutoPage;
 class QAbstractButton;
 class ProcessLogForm;
 class SwitchButton;
-class PLCWarningForm;
-class PLCAlarmPopUpForm;
 class WidgetAutoPage :public QWidget
 {
     Q_OBJECT
@@ -29,8 +27,6 @@ public:
     void  InitLog();
 
 public slots:
-    void PlcWarninfInfoSlot(QString strInfo);
-    void TimerPLCWarningScanTimeOutSlot();
     int  event_ProductTotal(AritightTask item);
 protected:
     virtual void showEvent(QShowEvent* event);
@@ -40,10 +36,6 @@ private:
     Ui::WidgetAutoPage *ui;
     ProcessLogForm *pProcessLogForm = nullptr;
     SwitchButton *mpSwitchButtonAutoModel = nullptr;
-    PLCWarningForm* mpPLCWarningForm = nullptr;
-    qint64 mnLastPLCWarningTime = 0;
-    QTimer mTimerPLCWarningScan;
-    QSharedPointer<PLCAlarmPopUpForm> mpPLCAlarmPopUpForm = nullptr;
 
 };
 

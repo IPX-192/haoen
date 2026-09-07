@@ -1,13 +1,13 @@
-QT += widgets  network
+QT += widgets opengl
 
 TEMPLATE = lib
-DEFINES += PLUGINMEASUREPROCESS_LIBRARY
+DEFINES += PLUGINAUTOPAGE_LIBRARY
 
 DESTDIR = $$PWD/../../bin/Plugin
-MOC_DIR     = $$PWD/../../temp/PluginMeasureProcess/moc
-RCC_DIR     = $$PWD/../../temp/PluginMeasureProcess/rcc
-UI_DIR      = $$PWD/../../temp/PluginMeasureProcess/ui
-OBJECTS_DIR = $$PWD/../../temp/PluginMeasureProcess/obj
+MOC_DIR     = $$PWD/../../temp/PluginAutoPage/moc
+RCC_DIR     = $$PWD/../../temp/PluginAutoPage/rcc
+UI_DIR      = $$PWD/../../temp/PluginAutoPage/ui
+OBJECTS_DIR = $$PWD/../../temp/PluginAutoPage/obj
 
 CONFIG += c++11
 
@@ -25,50 +25,83 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+include(../Common/Custom/Custom.pri)
+
 SOURCES += \
-    EquipmentRelated/AutoMeasureProcess.cpp \
-    EquipmentRelated/PlcControl.cpp \
-    EquipmentRelated/ThreadMonitor.cpp \
-    EquipmentRelated/ThreadWorkOrder.cpp \
-    PipeLine/UdpServer.cpp \
-    PluginMeasureProcess.cpp \
-    VisonDetect.cpp
+    ../Common/WidgetLog.cpp \
+    Basic/CameraPreviewForm/CameraPreviewForm.cpp \
+    Basic/PLCWarning/PLCAlarmPopUpForm.cpp \
+    Basic/PLCWarning/PLCWarningForm.cpp \
+    Basic/ProcessLogForm/WidgetLogAll.cpp \
+    Basic/PlotShowForm/AritightPlotItem.cpp \
+    WidgetAritightPlotForm.cpp \
+    WidgetBtnPanel.cpp \
+    WidgetProductChange.cpp \
+    PluginAutoPage.cpp \
+    WidgetAutoPage.cpp \
+    WidgetStatusBar.cpp \
+    WidgetTray.cpp
 
 HEADERS += \
     ../../interface/coreinterface.h \
     ../../interface/plugininterface.h \
-    ../../interface/singleton.h \
-    EquipmentRelated/AutoMeasureProcess.h \
-    EquipmentRelated/PlcControl.h \
-    EquipmentRelated/ThreadMonitor.h \
-    EquipmentRelated/ThreadWorkOrder.h \
-    EquipmentRelated/hthread.h \
-    PipeLine/PipeLineDef.h \
-    PipeLine/UdpServer.h \
-    PluginMeasureProcess.h \
-    VisonDetect.h
+    ../Common/WidgetLog.h \
+    Basic/CameraPreviewForm/CameraPreviewForm.h \
+    Basic/PLCWarning/PLCAlarmPopUpForm.h \
+    Basic/PLCWarning/PLCWarningForm.h \
+    Basic/ProcessLogForm/WidgetLogAll.h \
+    Basic/PlotShowForm/AritightPlotItem.h \
+    WidgetAritightPlotForm.h \
+    WidgetBtnPanel.h \
+    WidgetProductChange.h \
+    PluginAutoPage.h \
+    WidgetAutoPage.h \
+    WidgetStatusBar.h \
+    WidgetTray.h
 
 INCLUDEPATH += \
-    ../../interface/ \
+    Basic/DataTabelForm/ \
+    Basic/CameraPreviewForm/ \
+    Basic/ProcessLogForm/ \
+    Basic/PlotShowForm/ \
+    Basic/PLCWarning/ \
 
+# Default rules for deployment.
+unix {
+    target.path = /usr/lib
+}
+!isEmpty(target.path): INSTALLS += target
+
+#unix {
+#    target.path = /usr/lib
+#}
+#!isEmpty(target.path): INSTALLS += target
+
+FORMS += \
+    ../Common/WidgetLog.ui \
+    Basic/CameraPreviewForm/CameraPreviewForm.ui \
+    Basic/PLCWarning/PLCAlarmPopUpForm.ui \
+    Basic/PLCWarning/PLCWarningForm.ui \
+    Basic/ProcessLogForm/WidgetLogAll.ui \
+    Basic/PlotShowForm/AritightPlotItem.ui \
+    WidgetAritightPlotForm.ui \
+    WidgetBtnPanel.ui \
+    WidgetProductChange.ui \
+    WidgetAutoPage.ui \
+    WidgetStatusBar.ui \
+    WidgetTray.ui
+
+RESOURCES += \
+    resource/qss.qrc
+
+include(Product/Product.pri)
+
+#事件循环库
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisAppTool/ -lVisAppTool
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisAppTool/ -lVisAppToold
+
 INCLUDEPATH += $$PWD/../../../3rd/VisAppTool
 DEPENDPATH += $$PWD/../../../3rd/VisAppTool
-
-#Opencv动态库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/opencv/lib/ -lopencv_world411
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/opencv/lib/ -lopencv_world411d
-
-INCLUDEPATH += $$PWD/../../../3rd/opencv/include
-DEPENDPATH += $$PWD/../../../3rd/opencv/
-
-#相机库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisCameraTool/ -lVisCameraTool
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisCameraTool/ -lVisCameraToold
-
-INCLUDEPATH += $$PWD/../../../3rd/VisCameraTool
-DEPENDPATH += $$PWD/../../../3rd/VisCameraTool
 
 #相机显示界面库
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisCommon/ -lVisCommon
@@ -77,8 +110,9 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisCommon/
 INCLUDEPATH += $$PWD/../../../3rd/VisCommon
 DEPENDPATH += $$PWD/../../../3rd/VisCommon
 
+#运动控制卡调机库
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisPLCMotorTool/ -lVisPLCMotorTool
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisPLCMotorTool/ -lVisPLCMotorToold
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisPLCMotorTool/ -lVisPLCMotorTool
 
 INCLUDEPATH += $$PWD/../../../3rd/VisPLCMotorTool
 DEPENDPATH += $$PWD/../../../3rd/VisPLCMotorTool
@@ -89,17 +123,12 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisCustomL
 INCLUDEPATH += $$PWD/../../../3rd/VisCustomLib
 DEPENDPATH += $$PWD/../../../3rd/VisCustomLib
 
+INCLUDEPATH += $$PWD/../Common/CurveView
 
 win32: LIBS += -L$$PWD/../../bin/ -lVISFramePluginModel
 INCLUDEPATH += $$PWD/../../VISFramePluginModel
 DEPENDPATH += $$PWD/../../VISFramePluginModel
-
 win32: LIBS += -L$$PWD/../../bin/Plugin -lPluginParam
 INCLUDEPATH += $$PWD/../PluginParam
 DEPENDPATH += $$PWD/../PluginParam
 
-# Default rules for deployment.
-unix {
-    target.path = /usr/lib
-}
-!isEmpty(target.path): INSTALLS += target

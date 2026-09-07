@@ -16,6 +16,8 @@ QMAKE_CXXFLAGS_RELEASE_WITH_DEBUGINFO += -Od   #禁用优化
 
 include(../Common/Custom/Custom.pri)
 
+INCLUDEPATH += $$PWD/../Common/Custom
+
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -78,47 +80,40 @@ FORMS += \
     WidgetRecipePlatform.ui \
     WidgetRecipeTray.ui
 
-#运动控制卡调机库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisPLCMotorTool/ -lVisPLCMotorTool
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisPLCMotorTool/ -lVisPLCMotorToold
+#运动控制库
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../3rd/VisMotorTool/ -lVisMotorTool
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../3rd/VisMotorTool/ -lVisMotorToold
 
-INCLUDEPATH += $$PWD/../../../3rd/VisPLCMotorTool
-DEPENDPATH += $$PWD/../../../3rd/VisPLCMotorTool
+INCLUDEPATH += $$PWD/../../3rd/VisMotorTool
+DEPENDPATH += $$PWD/../../3rd/VisMotorTool
 
 #事件循环库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisAppTool/ -lVisAppTool
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisAppTool/ -lVisAppToold
+win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppTool
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppToold
 
-INCLUDEPATH += $$PWD/../../../3rd/VisAppTool
-DEPENDPATH += $$PWD/../../../3rd/VisAppTool
+INCLUDEPATH += $$(PATH_VIS)/VisAppTool
+DEPENDPATH += $$(PATH_VIS)/VisAppTool
 
 #Opencv动态库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/opencv/lib/ -lopencv_world411
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/opencv/lib/ -lopencv_world411d
+win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411d
 
-INCLUDEPATH += $$PWD/../../../3rd/opencv/include
-DEPENDPATH += $$PWD/../../../3rd/opencv/lib
+INCLUDEPATH += $$(PATH_VIS)/opencv/include
+DEPENDPATH += $$(PATH_VIS)/opencv/
 
 #相机库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisCameraTool/ -lVisCameraTool
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisCameraTool/ -lVisCameraToold
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../3rd/VisCameraTool/ -lVisCameraTool
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../3rd/VisCameraTool/ -lVisCameraToold
 
-INCLUDEPATH += $$PWD/../../../3rd/VisCameraTool
-DEPENDPATH += $$PWD/../../../3rd/VisCameraTool
+INCLUDEPATH += $$PWD/../../3rd/VisCameraTool
+DEPENDPATH += $$PWD/../../3rd/VisCameraTool
 
 #相机显示界面库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisCommon/ -lVisCommon
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisCommon/ -lVisCommond
+win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/VisCommon/ -lVisCommon
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/VisCommon/ -lVisCommond
 
-INCLUDEPATH += $$PWD/../../../3rd/VisCommon
-DEPENDPATH += $$PWD/../../../3rd/VisCommon
-
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisCustomLib/ -lVisCustomPlugin
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisCustomLib/ -lVisCustomPlugind
-
-INCLUDEPATH += $$PWD/../../../3rd/VisCustomLib
-DEPENDPATH += $$PWD/../../../3rd/VisCustomLib
-
+INCLUDEPATH += $$(PATH_VIS)/VisCommon
+DEPENDPATH += $$(PATH_VIS)/VisCommon
 win32: LIBS += -L$$PWD/../../bin/ -lVISFramePluginModel
 INCLUDEPATH += $$PWD/../../VISFramePluginModel
 DEPENDPATH += $$PWD/../../VISFramePluginModel

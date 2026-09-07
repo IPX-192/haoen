@@ -25,6 +25,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+include(../Common/Custom/Custom.pri)
+
+INCLUDEPATH += $$PWD/../Common/Custom
+
 SOURCES += \
     ../Common/WidgetLog.cpp \
     DataSaveForm.cpp \
@@ -39,7 +43,6 @@ SOURCES += \
     WidgetAritightForm.cpp \
     WidgetAritightForm.cpp \
     WidgetGripper.cpp \
-    WidgetHardWareDelay.cpp \
     WidgetShield.cpp \
     WidgetSystemSet.cpp
 
@@ -60,7 +63,6 @@ HEADERS += \
     WidgetAritightForm.h \
     WidgetAritightForm.h \
     WidgetGripper.h \
-    WidgetHardWareDelay.h \
     WidgetShield.h \
     WidgetSystemSet.h
 
@@ -79,22 +81,13 @@ FORMS += \
     WidgetAritightForm.ui \
     WidgetAritightForm.ui \
     WidgetGripper.ui \
-    WidgetHardWareDelay.ui \
     WidgetSystemSet.ui
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisAppTool/ -lVisAppTool
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisAppTool/ -lVisAppToold
+win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppTool
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppToold
 
-INCLUDEPATH += $$PWD/../../../3rd/VisAppTool
-DEPENDPATH += $$PWD/../../../3rd/VisAppTool
-
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisCustomLib/ -lVisCustomPlugin
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisCustomLib/ -lVisCustomPlugind
-
-INCLUDEPATH += $$PWD/../../../3rd/VisCustomLib
-DEPENDPATH += $$PWD/../../../3rd/VisCustomLib
-
-
+INCLUDEPATH += $$(PATH_VIS)/VisAppTool
+DEPENDPATH += $$(PATH_VIS)/VisAppTool
 win32: LIBS += -L$$PWD/../../bin/ -lVISFramePluginModel
 INCLUDEPATH += $$PWD/../../VISFramePluginModel
 DEPENDPATH += $$PWD/../../VISFramePluginModel

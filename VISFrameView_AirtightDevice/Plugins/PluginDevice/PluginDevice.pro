@@ -53,25 +53,24 @@ unix {
 !isEmpty(target.path): INSTALLS += target
 
 #事件循环库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisAppTool/ -lVisAppTool
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisAppTool/ -lVisAppToold
+win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppTool
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/VisAppTool/ -lVisAppToold
 
-INCLUDEPATH += $$PWD/../../../3rd/VisAppTool
-DEPENDPATH += $$PWD/../../../3rd/VisAppTool
+INCLUDEPATH += $$(PATH_VIS)/VisAppTool
+DEPENDPATH += $$(PATH_VIS)/VisAppTool
 
 #Opencv动态库
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/opencv/lib/ -lopencv_world411
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/opencv/lib/ -lopencv_world411d
+win32:CONFIG(release, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$(PATH_VIS)/opencv/lib/ -lopencv_world411d
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../3rd/VisCameraTool/ -lVisCameraTool
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../3rd/VisCameraTool/ -lVisCameraToold
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../3rd/VisCameraTool/ -lVisCameraTool
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../3rd/VisCameraTool/ -lVisCameraToold
 
-INCLUDEPATH += $$PWD/../../../3rd/VisCameraTool
-DEPENDPATH += $$PWD/../../../3rd/VisCameraTool
+INCLUDEPATH += $$PWD/../../3rd/VisCameraTool
+DEPENDPATH += $$PWD/../../3rd/VisCameraTool
 
-INCLUDEPATH += $$PWD/../../../3rd/opencv/include
-DEPENDPATH += $$PWD/../../../3rd/opencv/lib
-
+INCLUDEPATH += $$(PATH_VIS)/opencv/include
+DEPENDPATH += $$(PATH_VIS)/opencv/
 win32: LIBS += -L$$PWD/../../bin/ -lVISFramePluginModel
 INCLUDEPATH += $$PWD/../../VISFramePluginModel
 DEPENDPATH += $$PWD/../../VISFramePluginModel

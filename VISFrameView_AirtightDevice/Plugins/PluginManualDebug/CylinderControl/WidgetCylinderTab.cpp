@@ -9,8 +9,6 @@
 #include "VisMotorToolData.h"
 #include "ParamManager.h"
 
-#define  PLCCylinder 1
-
 WidgetCylinderTab::WidgetCylinderTab(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::WidgetCylinderTab)
@@ -76,12 +74,10 @@ void WidgetCylinderTab::LoadUIParam()
             data.s1_out = s1.attribute("out");
             data.s1_in = s1.attribute("in");
             data.addr = cylElem.attribute("addr");
-#if !PLCCylinder
             GetCardIoName(data.io_name, data.s0_out,false);
             GetCardIoName(data.io_name, data.s1_out,false);
 			GetCardIoName(data.io_name, data.s0_in, true);
 			GetCardIoName(data.io_name, data.s1_in, true);
-#endif
 
             CylinderWidget *cylWidget = new CylinderWidget(data);
 
@@ -108,11 +104,7 @@ void WidgetCylinderTab::LoadUIParam()
 
 void WidgetCylinderTab::SetIoState(QString name, bool state)
 {
-#if PLCCylinder
-    VisMotorToolSpace::VisMotorInstance->WriteML(name,state);
-#else
     VisMotorToolSpace::VisMotorInstance->SetIoOutput(name, state ? VisMotorToolSpace::IO_ON : VisMotorToolSpace::IO_OFF);
-#endif
 }
 
 void WidgetCylinderTab::GetIoState(QString name, bool*state)
@@ -121,13 +113,7 @@ void WidgetCylinderTab::GetIoState(QString name, bool*state)
         * state = false;
         return;
     }
-#if PLCCylinder
-	QVector<bool> result;
-    if (VisMotorToolSpace::VisMotorInstance->ReadRangeML(name, 1, result))
-		*state = result.at(0);
-#else
     * state = (VisMotorToolSpace::VisMotorInstance->GetIoInput(name) == VisMotorToolSpace::IO_ON) ? true : false;
-#endif
 }
 
 void WidgetCylinderTab::GetCardIoName(QMap<QString, QString>& io_name, QString ioIndex,bool inIO)
@@ -150,11 +136,9 @@ void WidgetCylinderTab::slotCylinderCommand(CylinderWidget* sender, int cmd)
     // 获取相关的 IO 名称
     QString out0 = sender->GetOut0Name(); // 左侧输出 (如 Y213)
     QString out1 = sender->GetOut1Name(); // 右侧输出 (如 Y214)
-    QString addr = sender->GetData().addr; // M寄存器 
-#if !PLCCylinder
+    QString addr = sender->GetData().addr; // 地址(IO序号) 
 	out0 = sender->GetData().io_name[out0];
 	out1 = sender->GetData().io_name[out1];
-#endif
     SetIoState(addr, cmd == 0 ? false : true);
 	////双控气缸才有互锁逻辑
  //   if (out0 != out1) {
@@ -176,13 +160,9 @@ void WidgetCylinderTab::slotRefreshTimer()
             // 从数据源获取当前状态
             bool s0_out = false,s0_in = false,s1_out=false,s1_in=false;
             QStringList listIoName;
-#if !PLCCylinder
             QMap<QString, QString> io_name= cyl->GetData().io_name;
             listIoName << io_name[cyl->GetOut0Name()] << io_name[cyl->GetOut1Name()]
                       << io_name[cyl->GetIn0Name()] << io_name[cyl->GetIn1Name()];
-#else
-            listIoName << cyl->GetOut0Name() << cyl->GetOut1Name() << cyl->GetIn0Name() << cyl->GetIn1Name();
-#endif
             
             QVector<bool*> result;
             result<<&s0_out<<&s1_out<<&s0_in<<&s1_in;

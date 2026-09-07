@@ -132,7 +132,6 @@ void WidgetShield::LoadUIParam()
 		model->setData(modelIndex, true, Qt::EditRole);
     }
     settings.endArray();
-    VisAppBus::sendEvent("WriteShieldToPlC", m_shieldDataMap);
 }
 
 void WidgetShield::SaveUIParam()
@@ -154,7 +153,6 @@ void WidgetShield::SaveUIParam()
 		*m_shieldDataMap[name].first = checked;
     }
     settings.endArray();
-    VisAppBus::sendEvent("WriteShieldToPlC", m_shieldDataMap);
 }
 
 void  WidgetShield::UpdateParamToUI()

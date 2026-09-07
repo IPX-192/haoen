@@ -261,7 +261,6 @@ Makefile: PluginProductSet.pro D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\win32-m
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\lex.prf \
 		PluginProductSet.pro \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5PrintSupport.prl \
-		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Charts.prl \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Widgets.prl \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Gui.prl \
 		D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Network.prl \
@@ -453,7 +452,6 @@ D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\yacc.prf:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\mkspecs\features\lex.prf:
 PluginProductSet.pro:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5PrintSupport.prl:
-D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Charts.prl:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Widgets.prl:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Gui.prl:
 D:\Qt\Qt5.13.2\5.13.2\msvc2015_64\lib\Qt5Network.prl:

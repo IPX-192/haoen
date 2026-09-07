@@ -27,7 +27,8 @@
 #define DateTimeStr     QStringLiteral("yyyy-MM-dd HH:mm:ss")
 
 #define  VisonCam "视觉检测相机"
-#define  StationCount 2
+#define  StationCount 4
+#define  AirtightDeviceCount 2   //双通道气密仪台数(左右测试工站各一台)
 #define  GripperCount 1
 
 #define Property_Var(type, name, value) Q_PROPERTY(type name MEMBER name) type name=value;
@@ -192,7 +193,7 @@ public:
     Property_Var(QStringList , listRecipe , QStringList())  //配方列表
     Property_Var(QString , curRecipe , "") //当前配方
 
-    AirtightParam airtightParam[2];  //气密参数
+    AirtightParam airtightParam[StationCount];  //气密参数(每工位一套)
 };
 
 //数据存储
@@ -204,15 +205,12 @@ public:
     Property_Var(int , decimals , 4)//小数点位数
 };
 
-struct SerialComStruct
+struct TcpComStruct
 {
 public:
-    QString portName = "";       // 用于存储串口的名称，例如 "COM1"
-    int serFlowCtrl = 0;    // 用于设置串口的流控制模式，默认值为 0
-    int serParity = 0;       // 用于设置串口的校验模式，默认值为 0
-    int serStopBit = 1;      // 用于设置串口的停止位数量，默认值为 1
-    int serDataBit = 8;      // 用于设置串口的数据位数量，默认值为 8
-    int serBaudRate = 9600;  // 用于设置串口的波特率，默认值为 9600
+    QString ip = "192.168.88.88";   // 气密仪 TCP IP
+    int port = 9998;                // TCP 端口
+    int serverAddress = 1;          // Modbus 从站地址(Unit ID)
 };
 
 class PARAMMANAGER_EXPORT ScanCodeParam : public QObject{
@@ -230,7 +228,6 @@ struct ShieldParam
     bool  station3=false;  //站3
     bool  station4=false;  //站4
     bool  lightAlwaysOpen = false; //光源长亮
-    bool  plcWarnTop = false;    //报警弹窗
 
     bool  angleDetect = false;  //角度检测
     bool  materialDetect = false;   //物料检测
@@ -273,7 +270,7 @@ public:
     Property_Var(QString , filepath , "")//配方路径
     QString      nextDeviceIp = "10.255.10.99";
 
-    SerialComStruct serialComStruct[2];// 气密设备参数
+    TcpComStruct tcpComStruct[AirtightDeviceCount];// 气密设备 TCP 参数(2台双通道仪)
     ScanCodeParam   produceCodeParam;  // 产品参数
     ScanCodeParam   trayCodeParam;     // 料盘参数
     DataStorage     dataStorage;       // 数据存储
@@ -299,8 +296,8 @@ struct AritightTask
     QString workPwoNo = "";              //工单号
 
     int TestStage = 0;                   //阶段
-    int pressValue = 0;                  //压力
-    int leakageValue = 0;                //泄漏
+    double pressValue = 0.0;             //稳压压力(kPa)
+    double leakageValue = 0.0;           //泄漏值
 };
 Q_DECLARE_METATYPE(AritightTask)
 

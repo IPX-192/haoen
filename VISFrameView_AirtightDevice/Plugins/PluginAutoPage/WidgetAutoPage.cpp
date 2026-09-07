@@ -6,7 +6,6 @@
 #include "VisAppBus.h"
 #include "CMsgBox.h"
 #include "SwitchButton.h"
-#include "PLCWarningForm.h"
 #include "VisMotorManager.h"
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -16,7 +15,6 @@
 #include <QDebug>
 #include <QDateTime>
 #include <QDir>
-#include "PLCAlarmPopUpForm.h"
 #include "WidgetProductChange.h"
 #include "NonBlockingMsgBox.h"
 #include "Product/WidgetProductTotal.h"
@@ -43,12 +41,10 @@ WidgetAutoPage::~WidgetAutoPage()
 
 void WidgetAutoPage::InitWidget()
 {
-    mpPLCAlarmPopUpForm = QSharedPointer<PLCAlarmPopUpForm>(new PLCAlarmPopUpForm);
     QString Configpath = GlobalParam->recipeProduct.productPath;
     WidgetProductTotal * pProductTotalForm = new WidgetProductTotal(2,Configpath, ui->stackedWidget);
     WidgetTray* pTrayShowForm = new WidgetTray(this);
     WidgetLogAll*widgetLog = new WidgetLogAll(this);
-    mpPLCWarningForm = new PLCWarningForm(this);
     WidgetProductChange *pWidgetProductChange = new WidgetProductChange(this);
 
     WidgetAritightPlotForm *pAritightPlot = new WidgetAritightPlotForm(ui->stackedWidget);
@@ -57,12 +53,9 @@ void WidgetAutoPage::InitWidget()
     ui->stackedWidget->addWidget(pAritightPlot);
     ui->stackedWidget->addWidget(pTrayShowForm);
     ui->stackedWidget->addWidget(widgetLog);
-    ui->stackedWidget->addWidget(mpPLCWarningForm);
     ui->stackedWidget->addWidget(pWidgetProductChange);
 
     //UpdateButtonStatus(MachineStatusIns.GetMahineRunStatus());
-    connect(VisMotorToolSpace::VisMotorInstance, SIGNAL(ErrorMessageSignal(QString)),this, SLOT(PlcWarninfInfoSlot(QString)));
-    connect(&mTimerPLCWarningScan, &QTimer::timeout, this, &WidgetAutoPage::TimerPLCWarningScanTimeOutSlot);
 
     return;
 }
@@ -74,51 +67,6 @@ void WidgetAutoPage::InitLog()
     pluginLog.index = 0;
     pluginLog._pLog = std::bind(&WidgetLog::addLog, ui->widget, std::placeholders::_1, std::placeholders::_2);
     GlobalParam->frameCore->listPluginLog.append(pluginLog);
-}
-
-void WidgetAutoPage::PlcWarninfInfoSlot(QString strInfo)
-{
-    if (nullptr == mpPLCWarningForm)
-    {
-        return;
-    }
-    QStringList strList = strInfo.split('\n');
-    if (strList.size() != mpPLCWarningForm->GetWarningCount())
-    {
-        mpPLCWarningForm->ClearWarningInfo();
-        mpPLCAlarmPopUpForm->ClearWarningInfo();
-    }
-
-    for (int i = 0; i < strList.size(); i++)
-    {
-        mpPLCWarningForm->AddWarningInfo(strList.at(i));
-        mpPLCAlarmPopUpForm->AddWarningInfo(strList.at(i));
-    }
-    mnLastPLCWarningTime = QDateTime::currentDateTime().toSecsSinceEpoch();
-    if (GlobalParam->systemParam.paramShield.plcWarnTop)
-    {
-        mpPLCAlarmPopUpForm->ShowPlcWarningForm();
-    }
-    return;
-}
-
-void WidgetAutoPage::TimerPLCWarningScanTimeOutSlot()
-{
-    if (0 == mpPLCWarningForm->GetWarningCount())
-    {
-        return;
-    }
-
-    int nCurrentTime = QDateTime::currentDateTime().toSecsSinceEpoch();
-    int nDiffTime = nCurrentTime - mnLastPLCWarningTime;
-    if (nDiffTime > 4)
-    {
-        mpPLCWarningForm->ClearWarningInfo();
-        mpPLCAlarmPopUpForm->ClearWarningInfo();
-        mpPLCAlarmPopUpForm->close();
-    }
-
-    return;
 }
 
 int WidgetAutoPage::event_ProductTotal(AritightTask item)
@@ -137,13 +85,11 @@ int WidgetAutoPage::event_ProductTotal(AritightTask item)
 void WidgetAutoPage::showEvent(QShowEvent* event)
 {
     qDebug() << __FUNCTION__;
-    mTimerPLCWarningScan.start(1000);
     QWidget::showEvent(event);
 }
 void WidgetAutoPage::hideEvent(QHideEvent* event)
 {
     qDebug() << __FUNCTION__;
-    mTimerPLCWarningScan.stop();
     QWidget::hideEvent(event);
 }
 

@@ -2,135 +2,99 @@
 #define CMODBUSCLIENT_H
 
 #include <QObject>
-#include <QModbusDataUnit>
-#include <QSerialPort>
+#include <QVector>
 
 class QModbusClient;
 class QModbusReply;
 
-//测试灯控制类
+//双通道气密仪 Modbus TCP 客户端
+//希立仪器 SEQSRS-M105002R-2FD,基于四通道标准协议(只用通道1/2)
+//线圈: 1统一启动 2统一停止 3/4通道1启停 5/6通道2启停 11心跳
+//寄存器(通道1/通道2): 完成状态165/166 结果105/106 阶段101/102
+//                     稳压压力109/111 泄漏值117/119(均为32位浮点占2寄存器)
 class CModbusClient : public QObject
 {
     Q_OBJECT
 public:
     struct Settings
     {
-        QString port = "";
-        int parity = QSerialPort::NoParity;
-        int baud = QSerialPort::Baud115200;
-        int dataBits = QSerialPort::Data8;
-        int stopBits = QSerialPort::OneStop;
-        int responseTime = 10000;
-        int numberOfRetries = 3;
+        QString ip = "192.168.88.88";   //TCP IP
+        int port = 9998;                //TCP 端口
+        int serverAddress = 1;          //Modbus 从站地址(Unit ID)
+        int responseTime = 2000;        //响应超时 ms
+        int numberOfRetries = 3;        //重试次数
     };
 
-    enum ParamMode {
-        MODE_CouplADelayTime = 0,    // 0-650
-        MODE_FillTime ,       // 充气时间 0~650s
-        MODE_StabTime ,       // 稳定时间 0~650s
-        MODE_TestTime ,       // 测试时间 0~650s
-        MODE_DumpTime ,       // 排气时间 0~650s
-        MODE_PressUnit,       // 压力单位 见“单位列表”
-        MODE_MaxFill  ,       // 最大充气压力 -9999~9999
-        MODE_MinFill  ,       // 最小充气压力 -9999~9999
-        MODE_SetFill  ,       // 设定的充气压力 -9999~9999
-        MODE_LeakUnit ,       // 泄漏单位 见“单位列表”
-        MODE_VolumeUnit ,     // 容积单位 见“单位列表”
-        MODE_Volume ,         // 容积大小 0~9999
-        MODE_TestFail ,       // 泄漏上限 0~9999
-        MODE_RefFail ,        // 泄漏下限 0~9999
-        MODE_UNKOWN
-     };
-
-    struct AritghtResult{
-        int res = 0;//0:OK 1:NG 2:AL
-        QString errorMsg = "";
-        int alarmCode = 0;
-        int TestStage = 0;
-        int pressValue = 0;
-        int leakageValue = 0;
+    //通道编号(仪器侧)
+    enum Channel
+    {
+        Ch1 = 1,
+        Ch2 = 2
     };
+
+    //测试结果
+    struct AirtightResult
+    {
+        int res = 0;              //测试结果: 0未出 1Pass 2Fail
+        int state = 0;            //完成状态: 0等待 1测试中 2完成
+        int stage = 0;            //进度条阶段: 0未测 1检验 2充气 3保压 4检测 5排气 6完成
+        double pressValue = 0.0;  //稳压压力(kPa)
+        double leakageValue = 0.0;//泄漏值
+    };
+
 public:
     explicit CModbusClient(QObject *parent = nullptr);
     ~CModbusClient();
-public:
+
     bool GetConnectState();
-    /**
-      *@brief 连接
-      *@return false 连接失败
-      */
-    bool DeviceConnect();
+    bool DeviceConnect();          //建立 TCP 连接
+    bool DeviceDisConnect();       //断开连接
+    void SetParams(Settings cfg);
+    Settings GetParams() { return m_modBusParams; }
 
-    /**
-      *@brief 断开
-      *@return false 断开连接失败
-      */
-    bool DeviceDisConnect();
+    //心跳(TCP 连接校验,线圈11)
+    bool Heartbeat();
 
-    /**
-      *@brief 发送数据
-      *@param sendData 发送的16进制PDU（功能码加数据域）
-      */
-    void SendData(QByteArray sendData);
+    //启动/停止(通道独立)
+    bool StartTest(int channel);   //写线圈3/5
+    bool StopTest(int channel);    //写线圈4/6
+    bool StartAll();               //写线圈1
+    bool StopAll();                //写线圈2
 
-    /**
-      *@brief 设置设备串口参数
-      *@param serial 参数结构体
-      */
-    void SetParams(Settings serial);            //设置modbus参数
+    //读状态
+    int  ReadFinishState(int channel);   //完成状态: 0等待/1测试中/2完成,-1通信失败
+    int  ReadStage(int channel);         //进度条阶段,-1通信失败
 
-    /**
-      *@brief 返回设备串口参数
-      *@return 参数结构体
-      */
-    Settings GetPatams()                        //返回串口参数
-    {
-        return m_modBusParams;
-    }
-    /**
-       *@brief 睡眠执行其它响应
-       *@param msec 毫秒
-       */
-    void SleepEvents(int msec);
+    //读结果(结果+完成状态+阶段+稳压压力+泄漏值)
+    int  ReadResult(int channel, AirtightResult &result);
 
-    // 选择测试程序（1=IP67，2=IP68）
-    bool SelectTestProgram(int programId);
-    // 启动
-    bool StartAirtightTest();
-    // 复位
-    bool ResetAirtight();
-    // 设置参数
-    bool SelectParam(int paramId);
-    // 设置参数
-    bool SetParam(ParamMode mode,int param);
-    // 读取仪器实时测试状态，判断仪器是否测试结束
-    int  ReadRealStatus();
-    // 读取实时测试结果
-    int  ReadRealResult(AritghtResult &result);
-    // Last results最终的测试结果
-    int  ReadLastResult(AritghtResult &result);
+    //切换程序
+    bool SelectProgram(int programId);                     //寄存器52
+    bool SelectChannelProgram(int channel, int programId); //寄存器26/27
+
+    //基础读写原语(供参数下发等扩展使用)
+    bool ReadRegisters(quint16 addr, quint16 count, QVector<quint16> &values);
+    bool WriteRegister(quint16 addr, quint16 value);        //功能码0x06
+    bool WriteFloatRegisters(quint16 addr, double value);   //写32位浮点到2个连续寄存器(功能码0x10)
+    bool WriteCoil(quint16 addr, bool on);                  //功能码0x05
+
 private:
-    //内部辅助函数
-    void ResetReplyCache();                  // 重置响应缓存
-    void  GetPressUnit(int param,uint8_t &byte1,uint8_t &byte2,uint8_t &byte3,uint8_t &byte4);
-    void  GetLeakUnit(int param,uint8_t &byte1,uint8_t &byte2,uint8_t &byte3,uint8_t &byte4);
-    void  GetVolumeUnit(int param,uint8_t &byte1,uint8_t &byte2,uint8_t &byte3,uint8_t &byte4);
-    bool  WaitResult(QByteArray sendData);
-    QByteArray SwapOrder(QByteArray in);
-    QString GetResultMsg(QByteArray in);
-    quint16 ByteArrayToUInt16(const QByteArray &ba, bool littleEndian = false);
+    bool WaitReply(QModbusReply *reply);                    //同步等待回复
+    double TwoRegToFloat(quint16 hi, quint16 lo);           //两个16位寄存器按Float ABCD转32位浮点
+
+    //双通道协议地址映射
+    quint16 regFinishState(int channel) const { return channel == 1 ? 165 : 166; }
+    quint16 regResult(int channel) const { return channel == 1 ? 105 : 106; }
+    quint16 regStage(int channel) const { return channel == 1 ? 101 : 102; }
+    quint16 regPress(int channel) const { return channel == 1 ? 109 : 111; }
+    quint16 regLeak(int channel) const { return channel == 1 ? 117 : 119; }
+    quint16 coilStart(int channel) const { return channel == 1 ? 3 : 5; }
+    quint16 coilStop(int channel) const { return channel == 1 ? 4 : 6; }
+
 private:
     QModbusClient *m_device = nullptr;
-    quint8 m_serverAddress = 0x01;                 //从机的地址
-    Settings m_modBusParams;                    //modbus参数
+    Settings m_modBusParams;
     bool m_connectFlag = false;
-    bool m_replyFlag = false;                   //是否接收到回复信息
-    bool m_sendFlag = false;
-    QString m_localAddress;
-    QString m_functionCode;
-    QString m_replyData;
-signals:
-    void ReplyMessage(bool sendFlag, QString localAddress, QString functionCode, QString data);
 };
 
 #endif

@@ -4,7 +4,6 @@
 #include "MesParamForm.h"
 #include "VisAppBus.h"
 #include "WidgetGripper.h"
-#include "WidgetHardWareDelay.h"
 #include "WidgetShield.h"
 #include "WidgetAritightForm.h"
 
@@ -34,14 +33,12 @@ void WidgetSystemSet::InitWidget()
     DataSaveForm* pDataSaveForm = new DataSaveForm(ui->stackedWidget);
     MesParamForm* pMesParamForm = new MesParamForm(ui->stackedWidget);
     WidgetGripper* pElectricGripperParamForm = new WidgetGripper(ui->stackedWidget);
-    WidgetHardWareDelay*widgetHardWareDelay=new WidgetHardWareDelay(ui->stackedWidget);
     WidgetShield*widgetShield=new WidgetShield(ui->stackedWidget);
     WidgetAritightForm *widgetAritight = new WidgetAritightForm(ui->stackedWidget);
     
     ui->stackedWidget->addWidget(pDataSaveForm);
     ui->stackedWidget->addWidget(pMesParamForm);
     ui->stackedWidget->addWidget(pElectricGripperParamForm);
-    ui->stackedWidget->addWidget(widgetHardWareDelay);
     ui->stackedWidget->addWidget(widgetShield);
     ui->stackedWidget->addWidget(widgetAritight);
 }
