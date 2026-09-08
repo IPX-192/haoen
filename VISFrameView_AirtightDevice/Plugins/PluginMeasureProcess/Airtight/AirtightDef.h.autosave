@@ -1,0 +1,76 @@
+#ifndef AIRTIGHTDEF_H
+#define AIRTIGHTDEF_H
+
+#include <QObject>
+#include "ParamDef.h"
+
+// ============================================================
+//  气密流程公共定义
+// ============================================================
+
+
+//左右工站枚举(用于数组索引/映射)
+enum AirStationSide
+{
+    AirSideLeft   = 0,    //左测试工站
+    AirSideRight  = 1,    //右测试工站
+    AirSideCount  = 2,
+};
+
+//4 个测试工位(独立线程)
+enum AirTestStation
+{
+    AirTest1_Left  = 0,    //左工站测试工位1
+    AirTest2_Left  = 1,    //左工站测试工位2
+    AirTest3_Right = 2,    //右工站测试工位1
+    AirTest4_Right = 3,    //右工站测试工位2
+    AirStationCount = 4,
+};
+
+//工站侧 ↔ 测试工位映射(0/2=Test1/3 即各工站的1号位,1/3=Test2/4)
+inline int AirSideOfStation(int station) { return station / 2; }              //0/1=左/右
+inline int AirSubOfStation(int station)  { return station % 2; }              //0/1=该工站1号/2号位
+inline int AirStationMake(int side, int sub) { return side * 2 + sub; }        //side*2+sub
+
+//抓取龙门枚举(左右各1)
+enum AirGrabIndex
+{
+    AirGrabLeft  = 0,
+    AirGrabRight = 1,
+    AirGrabCount = 2,
+};
+
+//抓取龙门轴映射(由 FeildDefine.h 提供)
+//左工站:Axis0(X横移400W)/Axis1(Y前后200W)/Axis2(Z上下100W带刹车);右工站:Axis3/4/5 镜像
+inline QString AirGrabAxisX(int grab)  { return (grab == AirGrabLeft)  ? Axis0_TestLeft  : Axis3_TestRight; }   //横梁横移 400W
+inline QString AirGrabAxisY(int grab)  { return (grab == AirGrabLeft)  ? Axis1_TestLeft  : Axis4_TestRight; }   //梁上滑块前后 200W
+inline QString AirGrabAxisZ(int grab)  { return (grab == AirGrabLeft)  ? Axis2_TestLeft  : Axis5_TestRight; }   //垂直升降 100W带刹车
+
+//抓取龙门 IO 映射(由 FeildDefine.h 提供,左右对称)
+inline QString AirGrabGripOpen(int grab) {
+    //夹爪张开位:复用 GripOpen(由 FeildDefine.h 提供) —— 此处先留接口,实际接线后填宏
+    return QString("Out_AirGrabGripOpen_%1").arg(grab);
+}
+inline QString AirGrabGripClose(int grab) {
+    return QString("Out_AirGrabGripClose_%1").arg(grab);
+}
+
+inline QString AirTestInMaterial(int station)   { return QString("In_Test%1Material").arg(station + 1); }
+inline QString AirTestInFront(int station)      { return QString("In_Test%1Front").arg(station + 1); }
+inline QString AirTestInBack(int station)       { return QString("In_Test%1Back").arg(station + 1); }
+inline QString AirTestOutUpperMoldRet(int s)    { return QString("Out_Test%1UpperMoldRetract").arg(s + 1); }
+inline QString AirTestOutUpperMoldExt(int s)    { return QString("Out_Test%1UpperMoldExtend").arg(s + 1); }
+inline QString AirTestOutFrontBackRet(int s)    { return QString("Out_Test%1FrontBackRetract").arg(s + 1); }
+inline QString AirTestOutFrontBackExt(int s)    { return QString("Out_Test%1FrontBackExtend").arg(s + 1); }
+
+
+//物料状态(用于抓取龙门/TestStation 之间传递)
+struct AirModuleInfo
+{
+    int  station = -1;        //所属测试工位 0-3
+    bool result  = true;      //OK/NG
+    QString ngReason;         //NG 原因
+};
+
+
+#endif // AIRTIGHTDEF_H

@@ -34,6 +34,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     ../Common/NonBlockingMsgBox.cpp \
+    Airtight/AirtightGrab.cpp \
+    Airtight/AirtightTestStation.cpp \
+    Airtight/CylinderCtrl.cpp \
     CylinderCtrl.cpp \
     Grab/ThreadBox.cpp \
     Grab/ThreadClean.cpp \
@@ -53,6 +56,10 @@ HEADERS += \
     ../../interface/coreinterface.h \
     ../../interface/plugininterface.h \
     ../Common/NonBlockingMsgBox.h \
+    Airtight/AirtightDef.h \
+    Airtight/AirtightGrab.h \
+    Airtight/AirtightTestStation.h \
+    Airtight/CylinderCtrl.h \
     CylinderCtrl.h \
     Grab/ThreadBox.h \
     Grab/ThreadClean.h \
